@@ -1,0 +1,692 @@
+[
+  {
+    "id": "ww-001",
+    "name": "Áo khoác gió Ultraboost Layer",
+    "category": "Áo khoác & Áo choàng",
+    "gender": "Nữ",
+    "sport": "Chạy bộ",
+    "basePrice": 849000,
+    "price": 849000,
+    "onSale": false,
+    "discountPercent": 0,
+    "tag": "Mới",
+    "colors": [
+      {
+        "name": "Đen",
+        "hex": "#111111"
+      },
+      {
+        "name": "Xanh rêu",
+        "hex": "#2e5339"
+      }
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Áo khoác gió chống nước nhẹ, thoáng khí tối đa cho chạy bộ",
+    "hue": 28,
+    "rating": 4.9,
+    "reviewsCount": 48,
+    "inStock": true,
+    "image": "assets/sanpham_test/co_tau.jpg",
+    "hoverImage": "assets/sanpham_test/co_tau2.jpg"
+  },
+  {
+    "id": "ww-002",
+    "name": "Áo thun tập luyện AeroReady",
+    "category": "Áo thun & Áo ba lỗ",
+    "gender": "Nữ",
+    "sport": "Yoga & Tập luyện",
+    "basePrice": 549000,
+    "price": 384000,
+    "onSale": true,
+    "discountPercent": 30,
+    "tag": "-30%",
+    "colors": [
+      {
+        "name": "Xanh dương",
+        "hex": "#0057ff"
+      },
+      {
+        "name": "Đen",
+        "hex": "#111111"
+      }
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "description": "Chất liệu thấm hút mồ hôi nhanh, co giãn 4 chiều linh hoạt",
+    "hue": 280,
+    "rating": 4.8,
+    "reviewsCount": 35,
+    "inStock": true,
+    "image": "assets/sanpham_test/phong1.jpg",
+    "hoverImage": "assets/sanpham_test/phong2.jpg"
+  },
+  {
+    "id": "ww-003",
+    "name": "Quần legging Essentials 7/8",
+    "category": "Quần legging",
+    "gender": "Nữ",
+    "sport": "Yoga & Tập luyện",
+    "basePrice": 699000,
+    "price": 489000,
+    "onSale": true,
+    "discountPercent": 30,
+    "tag": "-30%",
+    "colors": [
+      {
+        "name": "Đen",
+        "hex": "#111111"
+      },
+      {
+        "name": "Trắng",
+        "hex": "#ffffff"
+      }
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "description": "Quần legging cạp cao ôm sát tôn dáng, hỗ trợ vận động",
+    "hue": 95,
+    "rating": 4.7,
+    "reviewsCount": 89,
+    "inStock": true,
+    "image": "assets/sanpham_test/co_tau.jpg",
+    "hoverImage": "assets/sanpham_test/co_tau2.jpg"
+  },
+  {
+    "id": "ww-004",
+    "name": "Giày chạy bộ Pulse Runner",
+    "category": "Giày chạy bộ",
+    "gender": "Nữ",
+    "sport": "Chạy bộ",
+    "basePrice": 1250000,
+    "price": 1250000,
+    "onSale": false,
+    "discountPercent": 0,
+    "tag": "Mới",
+    "colors": [
+      {
+        "name": "Xanh rêu",
+        "hex": "#2e5339"
+      },
+      {
+        "name": "Hồng pastel",
+        "hex": "#e8b4c8"
+      }
+    ],
+    "sizes": [
+      "36",
+      "37",
+      "38",
+      "39"
+    ],
+    "description": "Đệm khí trợ lực êm ái, bám đường vượt trội trên mọi địa hình",
+    "hue": 330,
+    "rating": 5,
+    "reviewsCount": 112,
+    "inStock": true,
+    "image": "assets/sanpham_test/co_tau.jpg",
+    "hoverImage": "assets/sanpham_test/co_tau2.jpg"
+  },
+  {
+    "id": "ww-005",
+    "name": "Áo khoác bomber nữ thời trang",
+    "category": "Áo khoác & Áo choàng",
+    "gender": "Nữ",
+    "sport": "Đời thường",
+    "basePrice": 999000,
+    "price": 999000,
+    "onSale": false,
+    "discountPercent": 0,
+    "tag": "Bán chạy",
+    "colors": [
+      {
+        "name": "Nâu camel",
+        "hex": "#8a6d3b"
+      },
+      {
+        "name": "Đen",
+        "hex": "#111111"
+      }
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "description": "Thiết kế thể thao phong cách đường phố năng động",
+    "hue": 65,
+    "rating": 4.8,
+    "reviewsCount": 64,
+    "inStock": true,
+    "image": "assets/sanpham_test/co_tau.jpg",
+    "hoverImage": "assets/sanpham_test/co_tau2.jpg"
+  },
+  {
+    "id": "ww-006",
+    "name": "Quần short thể thao 3-Stripes Style",
+    "category": "Quần short",
+    "gender": "Nữ",
+    "sport": "Chạy bộ",
+    "basePrice": 450000,
+    "price": 315000,
+    "onSale": true,
+    "discountPercent": 30,
+    "tag": "-30%",
+    "colors": [
+      {
+        "name": "Đỏ",
+        "hex": "#e2231a"
+      },
+      {
+        "name": "Xám",
+        "hex": "#7d7d7d"
+      }
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "description": "Thiết kế 2 lớp thoáng mát, túi khóa tiện lợi khi chạy",
+    "hue": 10,
+    "rating": 4.6,
+    "reviewsCount": 42,
+    "inStock": true,
+    "image": "assets/sanpham_test/co_tau.jpg",
+    "hoverImage": "assets/sanpham_test/co_tau2.jpg"
+  },
+  {
+    "id": "ww-007",
+    "name": "Áo bra tập gym FlexFit",
+    "category": "Áo thun & Áo ba lỗ",
+    "gender": "Nữ",
+    "sport": "Yoga & Tập luyện",
+    "basePrice": 420000,
+    "price": 420000,
+    "onSale": false,
+    "discountPercent": 0,
+    "tag": "Mới",
+    "colors": [
+      {
+        "name": "Hồng pastel",
+        "hex": "#e8b4c8"
+      },
+      {
+        "name": "Trắng",
+        "hex": "#ffffff"
+      }
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "description": "Nâng đỡ vừa vặn, mút đệm tháo rời, lưng chữ Y thoáng khí",
+    "hue": 345,
+    "rating": 4.9,
+    "reviewsCount": 57,
+    "inStock": true,
+    "image": "assets/sanpham_test/co_tau.jpg",
+    "hoverImage": "assets/sanpham_test/co_tau2.jpg"
+  },
+  {
+    "id": "ww-008",
+    "name": "Giày sneaker đường phố Retro Court",
+    "category": "Giày chạy bộ",
+    "gender": "Nữ",
+    "sport": "Đời thường",
+    "basePrice": 1100000,
+    "price": 770000,
+    "onSale": true,
+    "discountPercent": 30,
+    "tag": "-30%",
+    "colors": [
+      {
+        "name": "Trắng",
+        "hex": "#ffffff"
+      },
+      {
+        "name": "Xanh dương",
+        "hex": "#0057ff"
+      }
+    ],
+    "sizes": [
+      "36",
+      "37",
+      "38"
+    ],
+    "description": "Kiểu dáng retro cổ điển dễ phối đồ hàng ngày",
+    "hue": 190,
+    "rating": 4.7,
+    "reviewsCount": 73,
+    "inStock": true,
+    "image": "assets/sanpham_test/co_tau.jpg",
+    "hoverImage": "assets/sanpham_test/co_tau2.jpg"
+  },
+  {
+    "id": "ww-009",
+    "name": "Đầm thể thao năng động Court Dress",
+    "category": "Áo thun & Áo ba lỗ",
+    "gender": "Nữ",
+    "sport": "Đời thường",
+    "basePrice": 790000,
+    "price": 790000,
+    "onSale": false,
+    "discountPercent": 0,
+    "tag": "Mới",
+    "colors": [
+      {
+        "name": "Đen",
+        "hex": "#111111"
+      },
+      {
+        "name": "Trắng",
+        "hex": "#ffffff"
+      }
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "description": "Đầm liền thể thao kèm quần bảo hộ bên trong tiện dụng",
+    "hue": 40,
+    "rating": 4.8,
+    "reviewsCount": 29,
+    "inStock": true,
+    "image": "assets/sanpham_test/co_tau.jpg",
+    "hoverImage": "assets/sanpham_test/co_tau2.jpg"
+  },
+  {
+    "id": "ww-010",
+    "name": "Áo hoodie nỉ Sportswear",
+    "category": "Áo khoác & Áo choàng",
+    "gender": "Nữ",
+    "sport": "Đời thường",
+    "basePrice": 750000,
+    "price": 525000,
+    "onSale": true,
+    "discountPercent": 30,
+    "tag": "-30%",
+    "colors": [
+      {
+        "name": "Xám",
+        "hex": "#7d7d7d"
+      },
+      {
+        "name": "Đen",
+        "hex": "#111111"
+      }
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Chất nỉ chân cua mềm mịn, giữ ấm tốt cho mùa thu đông",
+    "hue": 210,
+    "rating": 4.9,
+    "reviewsCount": 84,
+    "inStock": true,
+    "image": "assets/sanpham_test/co_tau.jpg",
+    "hoverImage": "assets/sanpham_test/co_tau2.jpg"
+  },
+  {
+    "id": "ww-011",
+    "name": "Quần jogger thời trang Active",
+    "category": "Quần legging",
+    "gender": "Nữ",
+    "sport": "Đời thường",
+    "basePrice": 580000,
+    "price": 580000,
+    "onSale": false,
+    "discountPercent": 0,
+    "tag": "Bán chạy",
+    "colors": [
+      {
+        "name": "Đen",
+        "hex": "#111111"
+      },
+      {
+        "name": "Xanh rêu",
+        "hex": "#2e5339"
+      }
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "description": "Ống bo chun hiện đại, chất thun co giãn thoải mái cả ngày",
+    "hue": 140,
+    "rating": 4.7,
+    "reviewsCount": 61,
+    "inStock": true,
+    "image": "assets/sanpham_test/co_tau.jpg",
+    "hoverImage": "assets/sanpham_test/co_tau2.jpg"
+  },
+  {
+    "id": "ww-012",
+    "name": "Đồ bơi một mảnh Wave One-Piece",
+    "category": "Đồ bơi",
+    "gender": "Nữ",
+    "sport": "Đời thường",
+    "basePrice": 650000,
+    "price": 455000,
+    "onSale": true,
+    "discountPercent": 30,
+    "tag": "-30%",
+    "colors": [
+      {
+        "name": "Xanh dương",
+        "hex": "#0057ff"
+      },
+      {
+        "name": "Đen",
+        "hex": "#111111"
+      }
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "description": "Chống tia UV UPF 50+, chất vải kháng clo bền màu",
+    "hue": 175,
+    "rating": 4.8,
+    "reviewsCount": 38,
+    "inStock": true,
+    "image": "assets/sanpham_test/co_tau.jpg",
+    "hoverImage": "assets/sanpham_test/co_tau2.jpg"
+  },
+  {
+    "id": "ww-013",
+    "name": "Áo tank top yoga Zen Flow",
+    "category": "Áo thun & Áo ba lỗ",
+    "gender": "Nữ",
+    "sport": "Yoga & Tập luyện",
+    "basePrice": 380000,
+    "price": 380000,
+    "onSale": false,
+    "discountPercent": 0,
+    "tag": "Mới",
+    "colors": [
+      {
+        "name": "Trắng",
+        "hex": "#ffffff"
+      },
+      {
+        "name": "Hồng pastel",
+        "hex": "#e8b4c8"
+      }
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M"
+    ],
+    "description": "Áo sát nách dáng rộng thoáng mát, vạt bo cong mềm mại",
+    "hue": 315,
+    "rating": 4.9,
+    "reviewsCount": 24,
+    "inStock": true,
+    "image": "assets/sanpham_test/co_tau.jpg",
+    "hoverImage": "assets/sanpham_test/co_tau2.jpg"
+  },
+  {
+    "id": "ww-014",
+    "name": "Legging cạp cao Motion Sculp",
+    "category": "Quần legging",
+    "gender": "Nữ",
+    "sport": "Yoga & Tập luyện",
+    "basePrice": 720000,
+    "price": 504000,
+    "onSale": true,
+    "discountPercent": 30,
+    "tag": "-30%",
+    "colors": [
+      {
+        "name": "Đen",
+        "hex": "#111111"
+      },
+      {
+        "name": "Nâu camel",
+        "hex": "#8a6d3b"
+      }
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "description": "Công nghệ dệt liền mạch không đường may cọ xát",
+    "hue": 50,
+    "rating": 5,
+    "reviewsCount": 96,
+    "inStock": true,
+    "image": "assets/sanpham_test/co_tau.jpg",
+    "hoverImage": "assets/sanpham_test/co_tau2.jpg"
+  },
+  {
+    "id": "ww-015",
+    "name": "Giày trekking City Trail",
+    "category": "Giày chạy bộ",
+    "gender": "Nữ",
+    "sport": "Chạy bộ",
+    "basePrice": 1490000,
+    "price": 1490000,
+    "onSale": false,
+    "discountPercent": 0,
+    "tag": "Bán chạy",
+    "colors": [
+      {
+        "name": "Xám",
+        "hex": "#7d7d7d"
+      },
+      {
+        "name": "Xanh rêu",
+        "hex": "#2e5339"
+      }
+    ],
+    "sizes": [
+      "36",
+      "37",
+      "38",
+      "39"
+    ],
+    "description": "Đế gai chống trượt, mũi giày gia cố bảo vệ ngón chân",
+    "hue": 120,
+    "rating": 4.8,
+    "reviewsCount": 53,
+    "inStock": true,
+    "image": "assets/sanpham_test/co_tau.jpg",
+    "hoverImage": "assets/sanpham_test/co_tau2.jpg"
+  },
+  {
+    "id": "ww-016",
+    "name": "Áo croptop tập luyện Power Fit",
+    "category": "Áo thun & Áo ba lỗ",
+    "gender": "Nữ",
+    "sport": "Yoga & Tập luyện",
+    "basePrice": 390000,
+    "price": 390000,
+    "onSale": false,
+    "discountPercent": 0,
+    "tag": null,
+    "colors": [
+      {
+        "name": "Đỏ",
+        "hex": "#e2231a"
+      },
+      {
+        "name": "Đen",
+        "hex": "#111111"
+      }
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M"
+    ],
+    "description": "Thiết kế ôm cơ thể, co giãn cực tốt khi thực hiện động tác khó",
+    "hue": 5,
+    "rating": 4.7,
+    "reviewsCount": 44,
+    "inStock": true,
+    "image": "assets/sanpham_test/co_tau.jpg",
+    "hoverImage": "assets/sanpham_test/co_tau2.jpg"
+  },
+  {
+    "id": "ww-017",
+    "name": "Quần culottes năng động",
+    "category": "Quần short",
+    "gender": "Nữ",
+    "sport": "Đời thường",
+    "basePrice": 490000,
+    "price": 343000,
+    "onSale": true,
+    "discountPercent": 30,
+    "tag": "-30%",
+    "colors": [
+      {
+        "name": "Nâu camel",
+        "hex": "#8a6d3b"
+      },
+      {
+        "name": "Trắng",
+        "hex": "#ffffff"
+      }
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "description": "Dáng lửng ống rộng thời trang, chất vải rũ nhẹ mát",
+    "hue": 75,
+    "rating": 4.6,
+    "reviewsCount": 31,
+    "inStock": true,
+    "image": "assets/sanpham_test/co_tau.jpg",
+    "hoverImage": "assets/sanpham_test/co_tau2.jpg"
+  },
+  {
+    "id": "ww-018",
+    "name": "Áo khoác dù chống nước StormShield",
+    "category": "Áo khoác & Áo choàng",
+    "gender": "Nữ",
+    "sport": "Chạy bộ",
+    "basePrice": 1150000,
+    "price": 1150000,
+    "onSale": false,
+    "discountPercent": 0,
+    "tag": "Mới",
+    "colors": [
+      {
+        "name": "Xanh dương",
+        "hex": "#0057ff"
+      },
+      {
+        "name": "Đen",
+        "hex": "#111111"
+      }
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Vải trượt nước chống gió, có thể gấp gọn vào túi nhỏ",
+    "hue": 225,
+    "rating": 4.9,
+    "reviewsCount": 77,
+    "inStock": true,
+    "image": "assets/sanpham_test/co_tau.jpg",
+    "hoverImage": "assets/sanpham_test/co_tau2.jpg"
+  },
+  {
+    "id": "ww-019",
+    "name": "Giày chạy bộ đường dài Marathon+",
+    "category": "Giày chạy bộ",
+    "gender": "Nữ",
+    "sport": "Chạy bộ",
+    "basePrice": 1850000,
+    "price": 1295000,
+    "onSale": true,
+    "discountPercent": 30,
+    "tag": "-30%",
+    "colors": [
+      {
+        "name": "Trắng",
+        "hex": "#ffffff"
+      },
+      {
+        "name": "Đỏ",
+        "hex": "#e2231a"
+      }
+    ],
+    "sizes": [
+      "36",
+      "37",
+      "38",
+      "39"
+    ],
+    "description": "Tấm đĩa carbon trợ lực đẩy, siêu nhẹ cho cự ly 21km - 42km",
+    "hue": 355,
+    "rating": 5,
+    "reviewsCount": 140,
+    "inStock": true,
+    "image": "assets/sanpham_test/co_tau.jpg",
+    "hoverImage": "assets/sanpham_test/co_tau2.jpg"
+  },
+  {
+    "id": "ww-020",
+    "name": "Áo len thể thao mỏng Light Knit",
+    "category": "Áo khoác & Áo choàng",
+    "gender": "Nữ",
+    "sport": "Đời thường",
+    "basePrice": 620000,
+    "price": 620000,
+    "onSale": false,
+    "discountPercent": 0,
+    "tag": null,
+    "colors": [
+      {
+        "name": "Hồng pastel",
+        "hex": "#e8b4c8"
+      },
+      {
+        "name": "Xám",
+        "hex": "#7d7d7d"
+      }
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "description": "Dệt kim mỏng nhẹ giữ ấm dịu nhẹ, phong cách thanh lịch",
+    "hue": 320,
+    "rating": 4.7,
+    "reviewsCount": 26,
+    "inStock": true,
+    "image": "assets/sanpham_test/co_tau.jpg",
+    "hoverImage": "assets/sanpham_test/co_tau2.jpg"
+  }
+]

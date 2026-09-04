@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nữ | WOMAN WAN</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="util-bar">Miễn phí đổi trả trong 30 ngày cho thành viên Woman Wan</div>
+
+  <header class="main">
+    <a href="#" class="logo">
+      <img src="assets/logos/1212.png" alt="Woman Wan">
+    </a>
+    <nav class="primary">
+      <ul style="display:flex;gap:26px;">
+        <li><a href="#" id="navMen" onclick="handleNavClick('men', event)">Nam</a></li>
+        <li class="active"><a href="#" id="navWomen" onclick="handleNavClick('women', event)">Nữ</a></li>
+        <li><a href="#" id="navSale" onclick="handleNavClick('sale', event)">Khuyến mãi</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <div class="search-box">
+        <img src="assets/icons/search.svg" alt="" class="action-icon search-icon">
+        <input type="text" class="search-input" id="searchInput" placeholder="Tìm kiếm sản phẩm..."
+          aria-label="Tìm kiếm sản phẩm">
+      </div>
+      <a href="#" class="icon-btn" aria-label="Tài khoản">
+        <img src="assets/icons/user-profile.svg" alt="Tài khoản" class="action-icon">
+      </a>
+      <a href="#" class="icon-btn" id="wishlistBtn" aria-label="Yêu thích">
+        <img src="assets/icons/heart.svg" alt="Yêu thích" class="action-icon">
+        <span class="badge-count" id="wishlistBadge" style="display:none;">0</span>
+      </a>
+      <a href="#" class="icon-btn" id="cartBtn" aria-label="Giỏ hàng">
+        <img src="assets/icons/bag.svg" alt="Giỏ hàng" class="action-icon">
+        <span class="badge-count" id="cartBadge">0</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="subnav">
+    <a href="#" class="active">Tất cả sản phẩm Nữ</a>
+    <a href="#">Áo khoác</a>
+    <a href="#">Áo thun</a>
+    <a href="#">Quần legging</a>
+    <a href="#">Quần short</a>
+    <a href="#">Giày thể thao</a>
+    <a href="#">Đồ bơi</a>
+    <a href="#">Túi & Phụ kiện</a>
+    <a href="#">Bộ sưu tập mới</a>
+  </div>
+
+  <div class="page-head">
+    <div class="breadcrumb">Trang chủ <span>›</span> Nữ</div>
+    <h1 class="page-title">Sản phẩm Nữ</h1>
+  </div>
+
+  <div class="layout">
+    <!-- FILTER SIDEBAR -->
+    <aside class="filters">
+      <h3>Bộ lọc</h3>
+
+      <details class="filter-group" open>
+        <summary>Danh mục</summary>
+        <div class="filter-options">
+          <label><input type="checkbox"> Áo khoác & Áo choàng (48)</label>
+          <label><input type="checkbox"> Áo thun & Áo ba lỗ (76)</label>
+          <label><input type="checkbox"> Quần legging (34)</label>
+          <label><input type="checkbox"> Quần short (22)</label>
+          <label><input type="checkbox"> Giày chạy bộ (41)</label>
+          <label><input type="checkbox"> Đồ bơi (12)</label>
+        </div>
+      </details>
+
+      <details class="filter-group">
+        <summary>Kích cỡ</summary>
+        <div class="size-grid">
+          <button>XS</button><button>S</button><button>M</button><button>L</button>
+          <button>XL</button><button>36</button><button>37</button><button>38</button>
+        </div>
+      </details>
+
+      <details class="filter-group" open>
+        <summary>Màu sắc</summary>
+        <div class="swatches">
+          <div class="swatch" style="background:#111"></div>
+          <div class="swatch" style="background:#fff"></div>
+          <div class="swatch" style="background:#e2231a"></div>
+          <div class="swatch" style="background:#0057ff"></div>
+          <div class="swatch" style="background:#8a6d3b"></div>
+          <div class="swatch" style="background:#7d7d7d"></div>
+          <div class="swatch" style="background:#e8b4c8"></div>
+          <div class="swatch" style="background:#2e5339"></div>
+        </div>
+      </details>
+
+      <details class="filter-group">
+        <summary>Khoảng giá</summary>
+        <div class="filter-options">
+          <label><input type="checkbox"> Dưới 500.000₫</label>
+          <label><input type="checkbox"> 500.000₫ – 1.000.000₫</label>
+          <label><input type="checkbox"> 1.000.000₫ – 2.000.000₫</label>
+          <label><input type="checkbox"> Trên 2.000.000₫</label>
+        </div>
+      </details>
+
+      <details class="filter-group">
+        <summary>Bộ môn</summary>
+        <div class="filter-options">
+          <label><input type="checkbox"> Chạy bộ</label>
+          <label><input type="checkbox"> Yoga & Tập luyện</label>
+          <label><input type="checkbox"> Bóng đá</label>
+          <label><input type="checkbox"> Đời thường</label>
+        </div>
+      </details>
+
+      <a href="#" class="clear-filters">Xóa tất cả bộ lọc</a>
+    </aside>
+
+    <!-- PRODUCTS -->
+    <section class="products-col">
+      <div class="results-bar">
+        <span id="resultCount">124 sản phẩm</span>
+        <select class="sort-select" id="sortSelect">
+          <option>Nổi bật</option>
+          <option>Mới nhất</option>
+          <option>Giá: Thấp đến cao</option>
+          <option>Giá: Cao đến thấp</option>
+        </select>
+      </div>
+
+      <div class="grid" id="productGrid"></div>
+
+      <div class="load-more">
+        <button id="loadMoreBtn">Xem thêm sản phẩm</button>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h4>Sản phẩm</h4>
+        <ul>
+          <li><a href="#">Giày mới</a></li>
+          <li><a href="#">Quần áo Nữ</a></li>
+          <li><a href="#">Bộ sưu tập chạy bộ</a></li>
+          <li><a href="#">Ưu đãi thành viên</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Hỗ trợ</h4>
+        <ul>
+          <li><a href="#">Tra cứu đơn hàng</a></li>
+          <li><a href="#">Chính sách đổi trả</a></li>
+          <li><a href="#">Hướng dẫn chọn size</a></li>
+          <li><a href="#">Liên hệ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Về WOMAN WAN</h4>
+        <ul>
+          <li><a href="#">Câu chuyện thương hiệu</a></li>
+          <li><a href="#">Tuyển dụng</a></li>
+          <li><a href="#">Cửa hàng</a></li>
+          <li><a href="#">Bền vững</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kết nối</h4>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">TikTok</a></li>
+          <li><a href="#">Đăng ký nhận tin</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 WOMAN WAN. Đây là trang demo minh họa, không liên kết với bất kỳ thương hiệu nào.</span>
+      <span>Điều khoản · Bảo mật</span>
+    </div>
+  </footer>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="wan-toast" id="wanToast" role="alert" aria-live="polite"></div>
+
+  <!-- LEFT MEGA NAV OVERLAY -->
+  <div class="mega-nav-overlay" id="megaNavOverlay"></div>
+
+  <!-- LEFT MEGA NAV DRAWER (GYMSHARK STYLE) -->
+  <aside class="mega-nav-drawer" id="megaNavDrawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menu điều hướng">
+    <!-- Header with Tabs & Close -->
+    <div class="mega-nav-header">
+      <div class="mega-nav-tabs">
+        <button class="mega-tab" id="megaTabMen" onclick="switchMegaTab('men')">Nam</button>
+        <button class="mega-tab active" id="megaTabWomen" onclick="switchMegaTab('women')">Nữ</button>
+        <button class="mega-tab" id="megaTabSale" onclick="switchMegaTab('sale')">Khuyến mãi</button>
+      </div>
+      <button class="mega-close-btn" id="megaCloseBtn" aria-label="Đóng menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Scrollable Drawer Body -->
+    <div class="mega-nav-body">
+      <!-- Category Links List -->
+      <ul class="mega-nav-list" id="megaNavList">
+        <!-- Rendered via JavaScript -->
+      </ul>
+    </div>
+
+    <!-- Mega Drawer Footer Logo -->
+    <div class="mega-nav-footer">
+      <img src="assets/logos/LOGO-WOMANWAN.png" alt="WOMANWAN" class="mega-footer-logo">
+    </div>
+  </aside>
+
+  <!-- CART OVERLAY -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+
+  <!-- CART DRAWER -->
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Giỏ hàng">
+    <!-- Header -->
+    <div class="cart-header">
+      <h2 class="cart-title" id="cartTitle">GIỎ HÀNG CỦA BẠN</h2>
+      <div class="cart-header-actions">
+        <button class="cart-header-tab" id="tabWishlist" onclick="switchDrawerTab('wishlist')"
+          title="Sản phẩm yêu thích" aria-label="Sản phẩm yêu thích">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M12.62 20.81C12.28 20.93 11.72 20.93 11.38 20.81C8.48 19.82 2 15.69 2 8.69C2 5.6 4.49 3.1 7.56 3.1C9.38 3.1 10.99 3.98 12 5.34C13.01 3.98 14.63 3.1 16.44 3.1C19.51 3.1 22 5.6 22 8.69C22 15.69 15.52 19.82 12.62 20.81Z" />
+          </svg>
+        </button>
+        <button class="cart-header-tab active" id="tabCart" onclick="switchDrawerTab('cart')" title="Giỏ hàng"
+          aria-label="Giỏ hàng">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M15.6 8.4V5.4C15.6 3.4 14 1.8 12 1.8C10 1.8 8.4 3.4 8.4 5.4V8.4M4.7 22.2H19.3C20.6 22.2 21.6 21.2 21.6 19.9L20.1 7.8C20.1 6.5 19.1 5.5 17.8 5.5H5.9C4.6 5.5 3.6 6.5 3.6 7.8L2.4 19.9C2.4 21.2 3.4 22.2 4.7 22.2Z" />
+          </svg>
+        </button>
+        <button class="cart-close-btn" id="cartCloseBtn" aria-label="Đóng">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Scrollable Body -->
+    <div class="cart-body">
+      <!-- CART ITEMS VIEW -->
+      <div class="cart-items-view" id="cartItemsView">
+        <!-- Free Shipping Progress -->
+        <div class="shipping-progress-box">
+          <div class="shipping-progress-text">
+            <span id="shippingProgressText">Bạn chỉ còn thiếu <strong>151.000₫</strong> để được Miễn phí giao
+              hàng</span>
+            <span class="info-icon" title="Miễn phí vận chuyển cho đơn từ 1.000.000₫">ⓘ</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-bar" id="shippingProgressBar" style="width: 85%;"></div>
+          </div>
+          <div class="progress-labels">
+            <span>0₫</span>
+            <span>1.000.000₫</span>
+          </div>
+        </div>
+
+        <!-- Warning Notice -->
+        <div class="cart-alert">
+          <span class="alert-icon">ⓘ</span>
+          <p><strong>Sản phẩm chưa được giữ trước</strong>, hãy thanh toán nhanh để không bỏ lỡ.</p>
+        </div>
+
+        <!-- Cart Items Container -->
+        <div class="cart-items-list" id="cartItemsList">
+          <!-- Rendered via JavaScript -->
+        </div>
+
+        <!-- Cross-sell Section -->
+        <div class="cross-sell-section">
+          <div class="cross-sell-header">
+            <h3>GỢI Ý THÊM CHO BẠN</h3>
+            <p>Thêm các sản phẩm dưới đây để nhận ưu đãi miễn phí giao hàng</p>
+          </div>
+          <div class="cross-sell-grid">
+            <div class="cross-sell-card">
+              <div class="cross-sell-thumb">
+                <img src="assets/sanpham_test/co_tau2.jpg" alt="Conditioning Club Cap">
+              </div>
+              <div class="cross-sell-info">
+                <span class="cross-tag">Mới</span>
+                <div class="cross-name">Conditioning Club Cap</div>
+                <div class="cross-price">250.000₫</div>
+              </div>
+              <button class="cross-add-btn"
+                onclick="addCrossItem('Conditioning Club Cap', 250000, 'assets/sanpham_test/co_tau2.jpg', 'Mũ thể thao · Free size')">+
+                Thêm</button>
+            </div>
+            <div class="cross-sell-card">
+              <div class="cross-sell-thumb">
+                <img src="assets/sanpham_test/co_tau.jpg" alt="Sport Tote Bag Mini">
+              </div>
+              <div class="cross-sell-info">
+                <span class="cross-tag">Mới</span>
+                <div class="cross-name">Sport Tote Bag Mini</div>
+                <div class="cross-price">320.000₫</div>
+              </div>
+              <button class="cross-add-btn"
+                onclick="addCrossItem('Sport Tote Bag Mini', 320000, 'assets/sanpham_test/co_tau.jpg', 'Túi tote thể thao · Đen')">+
+                Thêm</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Discount Code -->
+        <div class="discount-section">
+          <h3 class="section-heading">MÃ GIẢM GIÁ</h3>
+          <form class="discount-form" id="discountForm" onsubmit="event.preventDefault(); applyDiscount();">
+            <input type="text" class="discount-input" id="discountCodeInput" placeholder="Nhập mã giảm giá...">
+            <button type="submit" class="discount-btn">Áp dụng</button>
+          </form>
+          <div class="discount-hint">ⓘ Mã phiếu quà tặng có thể áp dụng tại bước thanh toán.</div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="summary-section">
+          <h3 class="section-heading">TỔNG KẾT ĐƠN HÀNG</h3>
+          <div class="summary-row">
+            <span>Tạm tính</span>
+            <span id="cartSubTotal">849.000₫</span>
+          </div>
+          <div class="summary-row" id="discountRow" style="display:none;color:#e2231a;">
+            <span>Giảm giá</span>
+            <span id="cartDiscount">-0₫</span>
+          </div>
+          <div class="summary-row">
+            <span>Phí vận chuyển dự tính</span>
+            <span id="cartShipping">30.000₫</span>
+          </div>
+          <div class="summary-row total-row">
+            <span>Tổng cộng</span>
+            <span id="cartTotal">879.000₫</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SAVED / WISHLIST ITEMS VIEW -->
+      <div class="saved-items-view" id="savedItemsView">
+        <div class="cart-items-list" id="savedItemsList">
+          <!-- Rendered via JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Sticky Footer Checkout -->
+    <div class="cart-footer" id="cartFooter">
+      <button class="checkout-btn" onclick="handleCheckout()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" />
+        </svg>
+        Thanh toán an toàn
+      </button>
+      <!-- <div class="payment-badges">
+        <span class="pay-badge visa">VISA</span>
+        <span class="pay-badge mc">MC</span>
+        <span class="pay-badge paypal">PayPal</span>
+        <span class="pay-badge apple">Pay</span>
+        <span class="pay-badge klarna">Klarna</span>
+        <span class="pay-badge amex">AMEX</span>
+        <span class="pay-badge sezzle">sezzle</span>
+      </div>
+    </div> -->
+  </aside>
+
+  <!-- JAVASCRIPT: WAN API & CART CONTROLLER -->
+  <script>
+    // =========================================================================
+    // 1. WAN API & DATA SERVICE (Sẵn sàng mở rộng thành REST API / Backend)
+    // =========================================================================
+    const WanAPI = {
+      // --- Quản lý Sản phẩm ---
+      products: {
+        list: [],
+        async fetchAll() {
+          try {
+            const res = await fetch("products.json");
+            if (res.ok) {
+              this.list = await res.json();
+              return this.list;
+            }
+          } catch (e) {
+            console.warn("fetch products.json fallback", e);
+          }
+          if (!this.list || this.list.length === 0) {
+            this.list = Array.from({ length: 124 }, (_, i) => randomProduct(i));
+          }
+          return this.list;
+        },
+        getById(id) {
+          if (!this.list || this.list.length === 0) return null;
+          return this.list.find(p => String(p.id) === String(id)) || null;
+        }
+      },
+
+      // --- Quản lý Giỏ hàng (Cart API & Persistence) ---
+      cart: {
+        STORAGE_KEY: "wan_cart_v1",
+        get() {
+          try {
+            const data = localStorage.getItem(this.STORAGE_KEY);
+            if (data) return JSON.parse(data);
+          } catch (e) {
+            console.error("Lỗi đọc giỏ hàng từ localStorage", e);
+          }
+          // Mẫu mặc định ban đầu nếu chưa có
+          return [
+            {
+              id: "ww-001",
+              name: "Áo khoác gió Ultraboost Layer",
+              variant: "Trắng ngà · Size M",
+              price: 849000,
+              basePrice: 849000,
+              qty: 1,
+              image: "assets/sanpham_test/co_tau.jpg",
+              isNew: true
+            }
+          ];
+        },
+        save(items) {
+          try {
+            localStorage.setItem(this.STORAGE_KEY, JSON.stringify(items));
+          } catch (e) {
+            console.error("Lỗi lưu giỏ hàng", e);
+          }
+          // TODO Backend API:
+          // return fetch('/api/cart', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(items) });
+        },
+        addItem(productId, qty = 1, customVariant = null) {
+          const product = WanAPI.products.getById(productId);
+          if (!product) {
+            console.error("Không tìm thấy sản phẩm với id:", productId);
+            return null;
+          }
+
+          const cart = this.get();
+          const variantName = customVariant || (
+            (product.colors && product.colors[0] ? (product.colors[0].name || product.colors[0]) : "Tiêu chuẩn") +
+            " · Size " +
+            (product.sizes && product.sizes[0] ? product.sizes[0] : "M")
+          );
+
+          const existingIndex = cart.findIndex(item => item.id === product.id && item.variant === variantName);
+
+          if (existingIndex > -1) {
+            cart[existingIndex].qty += qty;
+          } else {
+            cart.push({
+              id: product.id,
+              name: product.name,
+              variant: variantName,
+              price: product.price || product.now || 0,
+              basePrice: product.basePrice || product.base || product.price || 0,
+              qty: qty,
+              image: product.image || "assets/sanpham_test/co_tau.jpg",
+              isNew: Boolean(product.tag === "Mới" || product.tag === "NEW" || product.onSale)
+            });
+          }
+
+          this.save(cart);
+          return { product, cart };
+        },
+        updateQty(index, delta) {
+          const cart = this.get();
+          if (!cart[index]) return cart;
+          cart[index].qty += delta;
+          if (cart[index].qty <= 0) {
+            cart.splice(index, 1);
+          }
+          this.save(cart);
+          return cart;
+        },
+        removeItem(index) {
+          const cart = this.get();
+          cart.splice(index, 1);
+          this.save(cart);
+          return cart;
+        }
+      },
+
+      // --- Quản lý Danh sách Yêu thích / Lưu sản phẩm (Wishlist API & Persistence) ---
+      wishlist: {
+        STORAGE_KEY: "wan_wishlist_v1",
+        get() {
+          try {
+            const data = localStorage.getItem(this.STORAGE_KEY);
+            if (data) return JSON.parse(data);
+          } catch (e) {
+            console.error("Lỗi đọc danh sách yêu thích", e);
+          }
+          return [];
+        },
+        save(ids) {
+          try {
+            localStorage.setItem(this.STORAGE_KEY, JSON.stringify(ids));
+          } catch (e) {
+            console.error("Lỗi lưu danh sách yêu thích", e);
+          }
+          // TODO Backend API:
+          // return fetch('/api/wishlist', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(ids) });
+        },
+        has(productId) {
+          const list = this.get();
+          return list.includes(String(productId));
+        },
+        toggle(productId) {
+          const list = this.get();
+          const idStr = String(productId);
+          const idx = list.indexOf(idStr);
+          let isSaved = false;
+
+          if (idx > -1) {
+            list.splice(idx, 1);
+            isSaved = false;
+          } else {
+            list.push(idStr);
+            isSaved = true;
+          }
+
+          this.save(list);
+          return { isSaved, total: list.length, list };
+        }
+      }
+    };
+
+    // =========================================================================
+    // 2. HELPER FUNCTIONS & UI FORMATTING
+    // =========================================================================
+    const colors = ["#111111", "#e2231a", "#0057ff", "#8a6d3b", "#e8b4c8", "#2e5339", "#7d7d7d", "#ffffff"];
+    const tags = [null, "Mới", "-30%", "Bán chạy", null, null, "Mới", null];
+    const names = [
+      "Áo khoác gió Ultraboost Layer", "Áo thun tập luyện AeroReady", "Quần legging Essentials 7/8",
+      "Giày chạy bộ Pulse Runner", "Áo hoodie nỉ Sportswear", "Quần short thể thao 3-Stripes Style",
+      "Đầm thể thao năng động", "Áo bra tập gym FlexFit", "Giày sneaker đường phố Retro Court",
+      "Áo khoác bomber nữ", "Quần jogger thời trang", "Túi tote thể thao mini",
+      "Áo tank top yoga", "Legging cạp cao Motion", "Giày trekking City Trail",
+      "Áo croptop tập luyện", "Quần culottes năng động", "Áo khoác dù chống nước",
+      "Giày chạy bộ đường dài Marathon+", "Áo len thể thao mỏng"
+    ];
+
+    function formatVND(n) {
+      if (typeof n !== 'number') return "0₫";
+      return n.toLocaleString("vi-VN") + "₫";
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById("wanToast");
+      if (!toast) return;
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(toast._timer);
+      toast._timer = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2500);
+    }
+
+    function randomProduct(i) {
+      const id = `ww-${String(i + 1).padStart(3, '0')}`;
+      const name = names[i % names.length];
+      const base = 399000 + Math.floor(Math.random() * 8) * 150000;
+      const onSale = Math.random() < 0.3;
+      const now = onSale ? Math.round(base * 0.7 / 1000) * 1000 : base;
+      const c1 = colors[Math.floor(Math.random() * colors.length)];
+      const c2 = colors[Math.floor(Math.random() * colors.length)];
+      const tag = onSale ? "-30%" : tags[Math.floor(Math.random() * tags.length)];
+      const hue = Math.floor(Math.random() * 360);
+      const image = "assets/sanpham_test/co_tau.jpg";
+      const hoverImage = "assets/sanpham_test/co_tau2.jpg";
+      return { id, name, basePrice: base, price: now, onSale, c1, c2, tag, hue, image, hoverImage };
+    }
+
+    function cardHTML(p) {
+      const c1 = p.colors ? (p.colors[0]?.hex || p.colors[0] || "#111") : (p.c1 || "#111");
+      const c2 = p.colors ? (p.colors[1]?.hex || p.colors[1] || "#fff") : (p.c2 || "#fff");
+      const base = p.basePrice || p.base || p.price;
+      const now = p.price || p.now;
+      const onSale = p.onSale;
+      const tag = p.tag;
+      const desc = p.description || "Giày & Trang phục thể thao Nữ";
+      const image = p.image || "assets/sanpham_test/co_tau.jpg";
+      const hoverImage = p.hoverImage || "assets/sanpham_test/co_tau2.jpg";
+      const isSaved = WanAPI.wishlist.has(p.id);
+
+      return `
+      <div class="card" data-id="${p.id}" onclick="handleProductCardClick('${p.id}', event)">
+        <div class="card-media">
+          <div class="product-img-wrap">
+            <img src="${image}" alt="${p.name}" class="product-img primary-img" loading="lazy">
+            <img src="${hoverImage}" alt="${p.name}" class="product-img hover-img" loading="lazy">
+          </div>
+          ${tag ? `<div class="tag ${onSale ? 'sale' : ''}">${tag}</div>` : ""}
+          <button class="wishlist ${isSaved ? 'active' : ''}" data-id="${p.id}" onclick="handleToggleWishlist('${p.id}', event)" title="Lưu sản phẩm" aria-label="Lưu sản phẩm">
+            <img src="assets/icons/heart.svg" alt="Yêu thích" class="card-icon heart-icon-outline">
+            <img src="assets/icons/heart_click.svg" alt="Yêu thích" class="card-icon heart-icon-filled">
+          </button>
+          <button class="quick-add-btn" onclick="handleQuickAdd('${p.id}', event)" aria-label="Thêm vào giỏ">
+            <span>+ Thêm vào giỏ</span>
+          </button>
+          <div class="swatch-row">
+            <div class="dot" style="background:${c1}"></div>
+            <div class="dot" style="background:${c2}"></div>
+          </div>
+        </div>
+        <div class="card-info">
+          <div class="name">${p.name}</div>
+          <div class="desc">${desc}</div>
+          <div class="price-row">
+            ${onSale ? `<span class="old">${formatVND(base)}</span>` : ""}
+            <span class="now ${onSale ? 'sale' : ''}">${formatVND(now)}</span>
+          </div>
+        </div>
+      </div>`;
+    }
+
+    // =========================================================================
+    // 3. PRODUCT GRID & INTERACTION HANDLERS
+    // =========================================================================
+    const grid = document.getElementById("productGrid");
+    let loaded = 0;
+    const PAGE_SIZE = 12;
+
+    async function initProducts() {
+      await WanAPI.products.fetchAll();
+      loadMore();
+      updateWishlistBadges();
+      renderCart();
+    }
+
+    function loadMore() {
+      const frag = document.createDocumentFragment();
+      const wrapper = document.createElement("div");
+      let html = "";
+      const end = Math.min(loaded + PAGE_SIZE, WanAPI.products.list.length);
+      for (let i = loaded; i < end; i++) {
+        html += cardHTML(WanAPI.products.list[i]);
+      }
+      loaded = end;
+      wrapper.innerHTML = html;
+      while (wrapper.firstChild) frag.appendChild(wrapper.firstChild);
+      grid.appendChild(frag);
+      if (loaded >= WanAPI.products.list.length) {
+        const btn = document.getElementById("loadMoreBtn");
+        if (btn) btn.style.display = "none";
+      }
+    }
+
+    // Nhấn vào card sản phẩm -> nhận ID từ JSON, thêm vào giỏ và mở drawer
+    function handleProductCardClick(productId, e) {
+      // Nếu click vào nút tim hoặc nút thêm nhanh thì đã xử lý riêng
+      if (e.target.closest(".wishlist") || e.target.closest(".quick-add-btn")) return;
+      handleAddToCart(productId);
+    }
+
+    // Nhấn nút + Thêm vào giỏ trên card
+    function handleQuickAdd(productId, e) {
+      if (e) e.stopPropagation();
+      handleAddToCart(productId);
+    }
+
+    // Logic cốt lõi Thêm vào giỏ theo ID
+    function handleAddToCart(productId) {
+      const result = WanAPI.cart.addItem(productId, 1);
+      if (result && result.product) {
+        renderCart();
+        showToast(`✓ Đã thêm "${result.product.name}" vào giỏ hàng`);
+        openCart();
+        switchDrawerTab('cart');
+      }
+    }
+
+    // Nhấn nút Trái tim -> Lưu / Bỏ lưu sản phẩm vào Wishlist (Storage/API)
+    function handleToggleWishlist(productId, e) {
+      if (e) e.stopPropagation();
+      const { isSaved, total } = WanAPI.wishlist.toggle(productId);
+      const product = WanAPI.products.getById(productId);
+
+      // Cập nhật trạng thái icon trên tất cả card ngoài trang chủ
+      document.querySelectorAll(`.wishlist[data-id="${productId}"]`).forEach(btn => {
+        if (isSaved) {
+          btn.classList.add("active");
+        } else {
+          btn.classList.remove("active");
+        }
+      });
+
+      // Cập nhật trạng thái icon trên tất cả nút tim trong giỏ hàng
+      document.querySelectorAll(`.item-fav-btn[data-id="${productId}"]`).forEach(btn => {
+        if (isSaved) {
+          btn.classList.add("active");
+          btn.title = "Bỏ lưu";
+        } else {
+          btn.classList.remove("active");
+          btn.title = "Lưu sản phẩm";
+        }
+      });
+
+      updateWishlistBadges();
+      const prodName = product ? product.name : "Sản phẩm";
+      showToast(isSaved ? `♥ Đã lưu "${prodName}" vào danh sách yêu thích` : `Đã bỏ lưu "${prodName}"`);
+
+      // Khi nhấn lưu sản phẩm, mở khung bên phải và chuyển sang tab Yêu thích
+      if (isSaved) {
+        switchDrawerTab("wishlist");
+        openCart();
+      }
+    }
+
+    function updateWishlistBadges() {
+      const saved = WanAPI.wishlist.get();
+      const count = saved.length;
+      const badge = document.getElementById("wishlistBadge");
+      if (badge) {
+        badge.textContent = count;
+        badge.style.display = count > 0 ? "flex" : "none";
+      }
+    }
+
+    // =========================================================================
+    // 3.5. MEGA NAVIGATION DRAWER CONTROLLER (GYMSHARK STYLE)
+    // =========================================================================
+    const megaMenuData = {
+      men: {
+        title: "Nam",
+        categories: [
+          { name: "Thịnh hành", tag: "trending" },
+          { name: "Áo thun & Tank", tag: "tshirt" },
+          { name: "Quần short & Dài", tag: "shorts" },
+          { name: "Áo khoác thể thao", tag: "jacket" },
+          { name: "Bộ sưu tập Nam", tag: "collection" },
+          { name: "Phụ kiện", tag: "accessories" },
+          { name: "Khuyến mãi Nam", tag: "sale" },
+          { name: "Khám phá", tag: "explore" }
+        ]
+      },
+      women: {
+        title: "Nữ",
+        categories: [
+          { name: "Thịnh hành", tag: "trending" },
+          { name: "Quần legging", tag: "legging" },
+          { name: "Tất cả sản phẩm", tag: "all" },
+          { name: "Bộ sưu tập", tag: "collection" },
+          { name: "Hoạt động thể thao", tag: "activity" },
+          { name: "Phụ kiện", tag: "accessories" },
+          { name: "Cơ hội cuối", tag: "sale" },
+          { name: "Khám phá", tag: "explore" }
+        ]
+      },
+      sale: {
+        title: "Khuyến mãi",
+        categories: [
+          { name: "Giảm giá đến 50%", tag: "sale-50" },
+          { name: "Sản phẩm mới giảm giá", tag: "new-sale" },
+          { name: "Đồ tập Nữ giảm giá", tag: "women-sale" },
+          { name: "Đồ tập Nam giảm giá", tag: "men-sale" },
+          { name: "Phụ kiện giảm giá", tag: "acc-sale" },
+          { name: "Cơ hội cuối cùng", tag: "last-chance" }
+        ]
+      }
+    };
+
+    let currentMegaTab = "women";
+    const megaNavDrawer = document.getElementById("megaNavDrawer");
+    const megaNavOverlay = document.getElementById("megaNavOverlay");
+    const megaCloseBtn = document.getElementById("megaCloseBtn");
+    const megaNavList = document.getElementById("megaNavList");
+
+    function renderMegaMenu(tabKey) {
+      currentMegaTab = tabKey;
+      const data = megaMenuData[tabKey] || megaMenuData.women;
+
+      // Cập nhật tab active (Nam, Nữ, Khuyến mãi)
+      const tabs = {
+        men: document.getElementById("megaTabMen"),
+        women: document.getElementById("megaTabWomen"),
+        sale: document.getElementById("megaTabSale")
+      };
+      Object.keys(tabs).forEach(k => {
+        if (tabs[k]) {
+          if (k === tabKey) tabs[k].classList.add("active");
+          else tabs[k].classList.remove("active");
+        }
+      });
+
+      // Render danh mục với mũi tên >
+      if (megaNavList) {
+        megaNavList.innerHTML = data.categories.map(cat => `
+          <li class="mega-nav-item">
+            <a class="mega-nav-link" href="#" onclick="handleMegaCategoryClick('${cat.tag}', '${cat.name}', event)">
+              <span>${cat.name}</span>
+              <svg class="mega-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+          </li>
+        `).join("");
+      }
+    }
+
+    function openMegaMenu(tabKey = "women") {
+      renderMegaMenu(tabKey);
+      if (cartDrawer && cartDrawer.classList.contains("open")) closeCart();
+      megaNavDrawer.classList.add("open");
+      megaNavOverlay.classList.add("open");
+      megaNavDrawer.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeMegaMenu() {
+      megaNavDrawer.classList.remove("open");
+      megaNavOverlay.classList.remove("open");
+      megaNavDrawer.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    function switchMegaTab(tabKey) {
+      renderMegaMenu(tabKey);
+    }
+
+    function handleNavClick(tabKey, e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      if (megaNavDrawer && megaNavDrawer.classList.contains("open") && currentMegaTab === tabKey) {
+        closeMegaMenu();
+        return;
+      }
+      document.querySelectorAll("nav.primary li").forEach(li => li.classList.remove("active"));
+      const activeId = tabKey === 'women' ? 'navWomen' : (tabKey === 'men' ? 'navMen' : 'navSale');
+      const activeEl = document.getElementById(activeId);
+      if (activeEl && activeEl.parentElement) activeEl.parentElement.classList.add("active");
+      
+      openMegaMenu(tabKey);
+    }
+
+    function handleMegaCategoryClick(tag, name, e) {
+      if (e) e.preventDefault();
+      closeMegaMenu();
+      showToast(`Đang xem danh mục: ${name}`);
+      document.querySelectorAll(".subnav a").forEach(a => {
+        if (a.textContent.trim().toLowerCase().includes(name.toLowerCase())) {
+          a.classList.add("active");
+        } else {
+          a.classList.remove("active");
+        }
+      });
+    }
+
+    if (megaCloseBtn) megaCloseBtn.addEventListener("click", closeMegaMenu);
+    if (megaNavOverlay) {
+      megaNavOverlay.addEventListener("click", closeMegaMenu);
+      megaNavOverlay.addEventListener("mousedown", closeMegaMenu);
+    }
+
+    // Đóng khi click bất cứ đâu bên ngoài menu
+    document.addEventListener("click", (e) => {
+      if (megaNavDrawer && megaNavDrawer.classList.contains("open")) {
+        const isClickInside = megaNavDrawer.contains(e.target);
+        const isClickOnNav = e.target.closest("nav.primary");
+        if (!isClickInside && !isClickOnNav) {
+          closeMegaMenu();
+        }
+      }
+    });
+
+    if (megaNavDrawer) {
+      megaNavDrawer.addEventListener("click", (e) => {
+        e.stopPropagation();
+      });
+    }
+
+    // =========================================================================
+    // 4. CART DRAWER CONTROLLER
+    // =========================================================================
+    let discountPercent = 0;
+    const FREE_SHIPPING_THRESHOLD = 1000000;
+    const DEFAULT_SHIPPING_FEE = 30000;
+    let currentDrawerTab = "cart";
+
+    const cartDrawer = document.getElementById("cartDrawer");
+    const cartOverlay = document.getElementById("cartOverlay");
+    const cartBtn = document.getElementById("cartBtn");
+    const wishlistBtn = document.getElementById("wishlistBtn");
+    const cartCloseBtn = document.getElementById("cartCloseBtn");
+    const cartBadge = document.getElementById("cartBadge");
+
+    function openCart() {
+      if (megaNavDrawer && megaNavDrawer.classList.contains("open")) closeMegaMenu();
+      if (currentDrawerTab === "wishlist") {
+        renderSavedItems();
+      } else {
+        renderCart();
+      }
+      cartDrawer.classList.add("open");
+      cartOverlay.classList.add("open");
+      cartDrawer.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeCart() {
+      cartDrawer.classList.remove("open");
+      cartOverlay.classList.remove("open");
+      cartDrawer.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    if (cartBtn) {
+      cartBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        switchDrawerTab("cart");
+        openCart();
+      });
+    }
+
+    if (wishlistBtn) {
+      wishlistBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        switchDrawerTab("wishlist");
+        openCart();
+      });
+    }
+
+    if (cartCloseBtn) cartCloseBtn.addEventListener("click", closeCart);
+    if (cartOverlay) cartOverlay.addEventListener("click", closeCart);
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        if (megaNavDrawer && megaNavDrawer.classList.contains("open")) closeMegaMenu();
+        if (cartDrawer && cartDrawer.classList.contains("open")) closeCart();
+      }
+    });
+
+    // Chuyển tab giữa Giỏ hàng và Mục đã lưu
+    function switchDrawerTab(tab) {
+      currentDrawerTab = tab;
+      const tabCart = document.getElementById("tabCart");
+      const tabWishlist = document.getElementById("tabWishlist");
+      const cartTitle = document.getElementById("cartTitle");
+      const cartItemsView = document.getElementById("cartItemsView");
+      const savedItemsView = document.getElementById("savedItemsView");
+      const cartFooter = document.getElementById("cartFooter");
+
+      if (tab === "cart") {
+        tabCart.classList.add("active");
+        tabWishlist.classList.remove("active");
+        cartTitle.textContent = "GIỎ HÀNG CỦA BẠN";
+        cartItemsView.classList.remove("hidden");
+        savedItemsView.classList.remove("active");
+        cartFooter.style.display = "flex";
+        renderCart();
+      } else {
+        tabWishlist.classList.add("active");
+        tabCart.classList.remove("active");
+        cartTitle.textContent = "SẢN PHẨM YÊU THÍCH";
+        cartItemsView.classList.add("hidden");
+        savedItemsView.classList.add("active");
+        cartFooter.style.display = "none";
+        renderSavedItems();
+      }
+    }
+
+    function changeQty(index, delta) {
+      WanAPI.cart.updateQty(index, delta);
+      renderCart();
+    }
+
+    function addCrossItem(name, price, image, variant) {
+      const cart = WanAPI.cart.get();
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({
+          id: "cross-" + Date.now(),
+          name: name,
+          variant: variant || "Mặc định",
+          price: price,
+          qty: 1,
+          image: image,
+          isNew: true
+        });
+      }
+      WanAPI.cart.save(cart);
+      renderCart();
+      showToast(`✓ Đã thêm "${name}" vào giỏ hàng`);
+    }
+
+    function applyDiscount() {
+      const code = document.getElementById("discountCodeInput").value.trim().toUpperCase();
+      if (!code) return;
+      if (code === "WOMANWAN" || code === "SALE10" || code === "WAN10") {
+        discountPercent = 0.1;
+        showToast("Áp dụng mã giảm giá 10% thành công!");
+      } else {
+        showToast("Mã giảm giá không hợp lệ hoặc đã hết hạn!");
+      }
+      renderCart();
+    }
+
+    function handleCheckout() {
+      const cart = WanAPI.cart.get();
+      if (cart.length === 0) {
+        showToast("Giỏ hàng của bạn đang trống!");
+        return;
+      }
+      alert(`Chuyển hướng đến trang thanh toán cho ${cart.length} sản phẩm!`);
+    }
+
+    // Render danh sách trong giỏ
+    function renderCart() {
+      const cart = WanAPI.cart.get();
+      const cartItemsList = document.getElementById("cartItemsList");
+      if (!cartItemsList) return;
+
+      const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+      if (cartBadge) {
+        cartBadge.textContent = totalQty;
+        cartBadge.style.display = totalQty > 0 ? "flex" : "none";
+      }
+
+      if (cart.length === 0) {
+        cartItemsList.innerHTML = `
+          <div class="empty-cart-state">
+            <p>Giỏ hàng của bạn đang trống</p>
+            <button class="load-more-btn" onclick="closeCart()" style="margin-top:12px;padding:10px 24px;border:1px solid #111;font-weight:700;border-radius:30px;">Khám phá ngay</button>
+          </div>
+        `;
+      } else {
+        cartItemsList.innerHTML = cart.map((item, index) => {
+          const isSaved = WanAPI.wishlist.has(item.id);
+          return `
+          <div class="cart-item">
+            <div class="cart-item-img">
+              <img src="${item.image}" alt="${item.name}">
+            </div>
+            <div class="cart-item-details">
+              <div class="cart-item-top">
+                ${item.isNew ? `<span class="item-tag">MỚI</span>` : `<span></span>`}
+                <button class="item-fav-btn ${isSaved ? 'active' : ''}" data-id="${item.id}" onclick="handleToggleWishlist('${item.id}', event)" title="${isSaved ? 'Bỏ lưu' : 'Lưu sản phẩm'}" aria-label="Yêu thích">
+                  <img src="assets/icons/heart.svg" alt="Yêu thích" class="cart-fav-icon heart-icon-outline">
+                  <img src="assets/icons/heart_click.svg" alt="Yêu thích" class="cart-fav-icon heart-icon-filled">
+                </button>
+              </div>
+              <h4 class="cart-item-name">${item.name}</h4>
+              <div class="cart-item-variant">${item.variant}</div>
+              <div class="cart-item-bottom">
+                <div class="cart-item-price">${formatVND(item.price * item.qty)}</div>
+                <div class="qty-stepper">
+                  <button class="qty-btn minus-btn" onclick="changeQty(${index}, -1)" aria-label="Giảm">−</button>
+                  <span class="qty-val">${item.qty}</span>
+                  <button class="qty-btn plus-btn" onclick="changeQty(${index}, 1)" aria-label="Tăng">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        }).join("");
+      }
+
+      // Calculations
+      const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+      const discount = Math.round(subtotal * discountPercent);
+      const isFreeShipping = subtotal >= FREE_SHIPPING_THRESHOLD || subtotal === 0;
+      const shipping = isFreeShipping ? 0 : DEFAULT_SHIPPING_FEE;
+      const total = Math.max(0, subtotal - discount + shipping);
+
+      document.getElementById("cartSubTotal").textContent = formatVND(subtotal);
+
+      const discountRow = document.getElementById("discountRow");
+      if (discountRow) {
+        if (discount > 0) {
+          discountRow.style.display = "flex";
+          document.getElementById("cartDiscount").textContent = "-" + formatVND(discount);
+        } else {
+          discountRow.style.display = "none";
+        }
+      }
+
+      document.getElementById("cartShipping").textContent = isFreeShipping ? (subtotal > 0 ? "Miễn phí" : "0₫") : formatVND(shipping);
+      document.getElementById("cartTotal").textContent = formatVND(total);
+
+      // Shipping progress
+      const progressPercent = Math.min(100, Math.round((subtotal / FREE_SHIPPING_THRESHOLD) * 100));
+      const progressBar = document.getElementById("shippingProgressBar");
+      const progressText = document.getElementById("shippingProgressText");
+
+      if (progressBar) progressBar.style.width = progressPercent + "%";
+      if (progressText) {
+        if (subtotal >= FREE_SHIPPING_THRESHOLD && subtotal > 0) {
+          progressText.innerHTML = `<strong>Chúc mừng!</strong> Bạn đã được <strong>Miễn phí vận chuyển</strong>`;
+        } else {
+          const remaining = FREE_SHIPPING_THRESHOLD - subtotal;
+          progressText.innerHTML = `Bạn chỉ còn thiếu <strong>${formatVND(remaining)}</strong> để được Miễn phí giao hàng`;
+        }
+      }
+    }
+
+    // Render danh sách sản phẩm đã lưu (Wishlist View)
+    function renderSavedItems() {
+      const savedIds = WanAPI.wishlist.get();
+      const savedItemsList = document.getElementById("savedItemsList");
+      if (!savedItemsList) return;
+
+      if (savedIds.length === 0) {
+        savedItemsList.innerHTML = `
+          <div class="empty-cart-state">
+            <p>Bạn chưa lưu sản phẩm nào</p>
+            <p style="font-size:12px;color:#999;margin-top:4px;">Nhấn vào biểu tượng trái tim trên sản phẩm để lưu lại</p>
+          </div>
+        `;
+        return;
+      }
+
+      const savedProducts = savedIds.map(id => WanAPI.products.getById(id)).filter(Boolean);
+
+      savedItemsList.innerHTML = savedProducts.map(p => {
+        const isSaved = WanAPI.wishlist.has(p.id);
+        return `
+        <div class="cart-item" data-saved-item="${p.id}">
+          <div class="cart-item-img">
+            <img src="${p.image || 'assets/sanpham_test/co_tau.jpg'}" alt="${p.name}">
+          </div>
+          <div class="cart-item-details">
+            <div class="cart-item-top">
+              <span class="item-tag">${p.tag || 'YÊU THÍCH'}</span>
+              <button class="item-fav-btn ${isSaved ? 'active' : ''}" data-id="${p.id}" onclick="handleToggleWishlist('${p.id}', event)" title="${isSaved ? 'Bỏ lưu' : 'Lưu sản phẩm'}" aria-label="Lưu sản phẩm">
+                <img src="assets/icons/heart.svg" alt="Lưu sản phẩm" class="cart-fav-icon heart-icon-outline">
+                <img src="assets/icons/heart_click.svg" alt="Lưu sản phẩm" class="cart-fav-icon heart-icon-filled">
+              </button>
+            </div>
+            <h4 class="cart-item-name">${p.name}</h4>
+            <div class="cart-item-variant">${p.category || 'Thời trang thể thao'}</div>
+            <div class="cart-item-bottom">
+              <div class="cart-item-price">${formatVND(p.price || p.now || 0)}</div>
+              <button class="cross-add-btn" style="position:static;font-size:12px;font-weight:700;border:1px solid #111;padding:4px 12px;border-radius:4px;" onclick="handleAddToCart('${p.id}')">
+                + Thêm vào giỏ
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      }).join("");
+    }
+
+    // =========================================================================
+    // 5. INITIALIZATION & SEARCH / SORT LISTENERS
+    // =========================================================================
+    document.getElementById("loadMoreBtn").addEventListener("click", loadMore);
+
+    document.getElementById("sortSelect").addEventListener("change", () => {
+      grid.innerHTML = "";
+      loaded = 0;
+      document.getElementById("loadMoreBtn").style.display = "inline-block";
+      loadMore();
+    });
+
+    const searchInput = document.getElementById("searchInput");
+    if (searchInput) {
+      searchInput.addEventListener("input", (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        const cards = grid.querySelectorAll(".card");
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+          const title = card.querySelector(".name")?.textContent.toLowerCase() || "";
+          if (title.includes(query)) {
+            card.style.display = "";
+            visibleCount++;
+          } else {
+            card.style.display = "none";
+          }
+        });
+
+        const resultCountEl = document.getElementById("resultCount");
+        if (resultCountEl) {
+          resultCountEl.textContent = query ? `${visibleCount} sản phẩm phù hợp` : `${WanAPI.products.list.length} sản phẩm`;
+        }
+      });
+    }
+
+    // Khởi động dữ liệu
+    initProducts();
+  </script>
+</body>
+
+</html>
