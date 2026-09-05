@@ -38,7 +38,7 @@
       </a>
       <a href="#" class="icon-btn" id="cartBtn" aria-label="Giỏ hàng">
         <img src="assets/icons/bag.svg" alt="Giỏ hàng" class="action-icon">
-        <span class="badge-count" id="cartBadge">0</span>
+        <span class="badge-count" id="cartBadge" style="display:none;">0</span>
       </a>
     </div>
   </header>
@@ -194,8 +194,9 @@
   <div class="mega-nav-overlay" id="megaNavOverlay"></div>
 
   <!-- LEFT MEGA NAV DRAWER (GYMSHARK STYLE) -->
-  <aside class="mega-nav-drawer" id="megaNavDrawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menu điều hướng">
-    <!-- Header with Tabs & Close -->
+  <aside class="mega-nav-drawer" id="megaNavDrawer" aria-hidden="true" role="dialog" aria-modal="true"
+    aria-label="Menu điều hướng">
+    <!-- Header with Tabs & Close (Positioned below main header) -->
     <div class="mega-nav-header">
       <div class="mega-nav-tabs">
         <button class="mega-tab" id="megaTabMen" onclick="switchMegaTab('men')">Nam</button>
@@ -203,7 +204,8 @@
         <button class="mega-tab" id="megaTabSale" onclick="switchMegaTab('sale')">Khuyến mãi</button>
       </div>
       <button class="mega-close-btn" id="megaCloseBtn" aria-label="Đóng menu">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
@@ -668,31 +670,33 @@
       }
     }
 
-    // Nhấn vào card sản phẩm -> nhận ID từ JSON, thêm vào giỏ và mở drawer
+    // Nhấn vào card sản phẩm -> nhận ID từ JSON, thêm vào giỏ nhưng không mở drawer
     function handleProductCardClick(productId, e) {
       // Nếu click vào nút tim hoặc nút thêm nhanh thì đã xử lý riêng
       if (e.target.closest(".wishlist") || e.target.closest(".quick-add-btn")) return;
-      handleAddToCart(productId);
+      handleAddToCart(productId, false);
     }
 
-    // Nhấn nút + Thêm vào giỏ trên card
+    // Nhấn nút + Thêm vào giỏ trên card (chỉ tăng số ở badge giỏ hàng, không mở bảng bên phải)
     function handleQuickAdd(productId, e) {
       if (e) e.stopPropagation();
-      handleAddToCart(productId);
+      handleAddToCart(productId, false);
     }
 
-    // Logic cốt lõi Thêm vào giỏ theo ID
-    function handleAddToCart(productId) {
+    // Logic cốt lõi Thêm vào giỏ theo ID (mặc định không mở bảng bên phải)
+    function handleAddToCart(productId, openDrawer = false) {
       const result = WanAPI.cart.addItem(productId, 1);
       if (result && result.product) {
         renderCart();
         showToast(`✓ Đã thêm "${result.product.name}" vào giỏ hàng`);
-        openCart();
-        switchDrawerTab('cart');
+        if (openDrawer) {
+          openCart();
+          switchDrawerTab('cart');
+        }
       }
     }
 
-    // Nhấn nút Trái tim -> Lưu / Bỏ lưu sản phẩm vào Wishlist (Storage/API)
+    // Nhấn nút Trái tim -> Lưu / Bỏ lưu sản phẩm vào Wishlist (chỉ tăng số ở badge yêu thích, không mở bảng bên phải)
     function handleToggleWishlist(productId, e) {
       if (e) e.stopPropagation();
       const { isSaved, total } = WanAPI.wishlist.toggle(productId);
@@ -722,10 +726,9 @@
       const prodName = product ? product.name : "Sản phẩm";
       showToast(isSaved ? `♥ Đã lưu "${prodName}" vào danh sách yêu thích` : `Đã bỏ lưu "${prodName}"`);
 
-      // Khi nhấn lưu sản phẩm, mở khung bên phải và chuyển sang tab Yêu thích
-      if (isSaved) {
-        switchDrawerTab("wishlist");
-        openCart();
+      // Nếu drawer đang mở sẵn thì cập nhật lại danh sách hiển thị
+      if (cartDrawer && cartDrawer.classList.contains("open")) {
+        renderSavedItems();
       }
     }
 
@@ -736,6 +739,11 @@
       if (badge) {
         badge.textContent = count;
         badge.style.display = count > 0 ? "flex" : "none";
+        if (count > 0) {
+          badge.classList.remove("badge-pop");
+          void badge.offsetWidth;
+          badge.classList.add("badge-pop");
+        }
       }
     }
 
@@ -820,16 +828,54 @@
       }
     }
 
+    function updateHeaderOffset() {
+      const header = document.querySelector("header.main");
+      if (header) {
+        const bottom = header.getBoundingClientRect().bottom;
+        document.documentElement.style.setProperty("--header-bottom", Math.max(0, Math.round(bottom)) + "px");
+      }
+    }
+
+    window.addEventListener("scroll", updateHeaderOffset, { passive: true });
+    window.addEventListener("resize", updateHeaderOffset, { passive: true });
+    updateHeaderOffset();
+
+    let megaNavHoverTimer = null;
+
+    function scheduleCloseMegaNav() {
+      clearTimeout(megaNavHoverTimer);
+      megaNavHoverTimer = setTimeout(() => {
+        closeMegaMenu();
+      }, 260);
+    }
+
+    function cancelCloseMegaNav() {
+      clearTimeout(megaNavHoverTimer);
+    }
+
+    function activateHeaderTab(tabKey) {
+      document.querySelectorAll("nav.primary li").forEach(li => li.classList.remove("active"));
+      const activeId = tabKey === 'women' ? 'navWomen' : (tabKey === 'men' ? 'navMen' : 'navSale');
+      const activeEl = document.getElementById(activeId);
+      if (activeEl && activeEl.parentElement) activeEl.parentElement.classList.add("active");
+    }
+
     function openMegaMenu(tabKey = "women") {
+      updateHeaderOffset();
+      cancelCloseMegaNav();
+      activateHeaderTab(tabKey);
       renderMegaMenu(tabKey);
       if (cartDrawer && cartDrawer.classList.contains("open")) closeCart();
       megaNavDrawer.classList.add("open");
       megaNavOverlay.classList.add("open");
       megaNavDrawer.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
+      if (window.innerWidth < 768) {
+        document.body.style.overflow = "hidden";
+      }
     }
 
     function closeMegaMenu() {
+      cancelCloseMegaNav();
       megaNavDrawer.classList.remove("open");
       megaNavOverlay.classList.remove("open");
       megaNavDrawer.setAttribute("aria-hidden", "true");
@@ -837,6 +883,7 @@
     }
 
     function switchMegaTab(tabKey) {
+      activateHeaderTab(tabKey);
       renderMegaMenu(tabKey);
     }
 
@@ -845,20 +892,17 @@
         e.preventDefault();
         e.stopPropagation();
       }
+      cancelCloseMegaNav();
       if (megaNavDrawer && megaNavDrawer.classList.contains("open") && currentMegaTab === tabKey) {
         closeMegaMenu();
         return;
       }
-      document.querySelectorAll("nav.primary li").forEach(li => li.classList.remove("active"));
-      const activeId = tabKey === 'women' ? 'navWomen' : (tabKey === 'men' ? 'navMen' : 'navSale');
-      const activeEl = document.getElementById(activeId);
-      if (activeEl && activeEl.parentElement) activeEl.parentElement.classList.add("active");
-      
       openMegaMenu(tabKey);
     }
 
     function handleMegaCategoryClick(tag, name, e) {
       if (e) e.preventDefault();
+      cancelCloseMegaNav();
       closeMegaMenu();
       showToast(`Đang xem danh mục: ${name}`);
       document.querySelectorAll(".subnav a").forEach(a => {
@@ -870,10 +914,68 @@
       });
     }
 
-    if (megaCloseBtn) megaCloseBtn.addEventListener("click", closeMegaMenu);
+    // Hover interactions for top navigation (Nam, Nữ, Khuyến mãi)
+    const navHoverTabs = [
+      { id: "navMen", key: "men" },
+      { id: "navWomen", key: "women" },
+      { id: "navSale", key: "sale" }
+    ];
+
+    navHoverTabs.forEach(({ id, key }) => {
+      const el = document.getElementById(id);
+      if (el) {
+        const parentLi = el.parentElement || el;
+        parentLi.addEventListener("mouseenter", () => {
+          cancelCloseMegaNav();
+          openMegaMenu(key);
+        });
+      }
+    });
+
+    const primaryNav = document.querySelector("nav.primary");
+    if (primaryNav) {
+      primaryNav.addEventListener("mouseenter", cancelCloseMegaNav);
+      primaryNav.addEventListener("mouseleave", scheduleCloseMegaNav);
+    }
+
+    if (megaNavDrawer) {
+      megaNavDrawer.addEventListener("mouseenter", cancelCloseMegaNav);
+      megaNavDrawer.addEventListener("mouseleave", scheduleCloseMegaNav);
+    }
+
+    // Hover tab switching inside mega nav drawer
+    const drawerHoverTabs = [
+      { id: "megaTabMen", key: "men" },
+      { id: "megaTabWomen", key: "women" },
+      { id: "megaTabSale", key: "sale" }
+    ];
+
+    drawerHoverTabs.forEach(({ id, key }) => {
+      const tabBtn = document.getElementById(id);
+      if (tabBtn) {
+        tabBtn.addEventListener("mouseenter", () => {
+          cancelCloseMegaNav();
+          switchMegaTab(key);
+        });
+      }
+    });
+
+    if (megaCloseBtn) {
+      megaCloseBtn.addEventListener("click", () => {
+        cancelCloseMegaNav();
+        closeMegaMenu();
+      });
+    }
+
     if (megaNavOverlay) {
-      megaNavOverlay.addEventListener("click", closeMegaMenu);
-      megaNavOverlay.addEventListener("mousedown", closeMegaMenu);
+      megaNavOverlay.addEventListener("click", () => {
+        cancelCloseMegaNav();
+        closeMegaMenu();
+      });
+      megaNavOverlay.addEventListener("mousedown", () => {
+        cancelCloseMegaNav();
+        closeMegaMenu();
+      });
     }
 
     // Đóng khi click bất cứ đâu bên ngoài menu
@@ -1039,6 +1141,11 @@
       if (cartBadge) {
         cartBadge.textContent = totalQty;
         cartBadge.style.display = totalQty > 0 ? "flex" : "none";
+        if (totalQty > 0) {
+          cartBadge.classList.remove("badge-pop");
+          void cartBadge.offsetWidth;
+          cartBadge.classList.add("badge-pop");
+        }
       }
 
       if (cart.length === 0) {
@@ -1155,7 +1262,7 @@
             <div class="cart-item-variant">${p.category || 'Thời trang thể thao'}</div>
             <div class="cart-item-bottom">
               <div class="cart-item-price">${formatVND(p.price || p.now || 0)}</div>
-              <button class="cross-add-btn" style="position:static;font-size:12px;font-weight:700;border:1px solid #111;padding:4px 12px;border-radius:4px;" onclick="handleAddToCart('${p.id}')">
+              <button class="cross-add-btn" style="position:static;font-size:12px;font-weight:700;border:1px solid #111;padding:4px 12px;border-radius:4px;" onclick="handleAddToCart('${p.id}', false); switchDrawerTab('cart');">
                 + Thêm vào giỏ
               </button>
             </div>
