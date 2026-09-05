@@ -1719,3 +1719,786 @@ footer {
 .card {
   cursor: pointer;
 }
+
+/* ==========================================================================
+   GYMSHARK-INSPIRED HOMEPAGE STYLES (WOMAN WAN)
+   ========================================================================== */
+
+/* --- 1. Hero Showcase Banner --- */
+.gs-hero {
+  position: relative;
+  width: 100%;
+  min-height: 560px;
+  height: 76vh;
+  max-height: 820px;
+  background-color: #111;
+  background-image: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%), url('assets/banners/relay.jpg');
+  background-size: cover;
+  background-position: center 25%;
+  display: flex;
+  align-items: flex-end;
+  color: #fff;
+  overflow: hidden;
+}
+
+.gs-hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.gs-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.05) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.gs-hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px 60px;
+}
+
+.gs-hero-controls {
+  position: absolute;
+  bottom: 24px;
+  right: 32px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gs-hero-ctrl-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.gs-hero-ctrl-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.08);
+}
+
+.gs-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.gs-hero-title {
+  font-size: clamp(34px, 5.5vw, 64px);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+  margin-bottom: 14px;
+  max-width: 800px;
+  text-shadow: 0 2px 14px rgba(0,0,0,0.4);
+}
+
+.gs-hero-sub {
+  font-size: clamp(15px, 1.8vw, 18px);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 600px;
+  line-height: 1.5;
+  margin-bottom: 28px;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.3);
+}
+
+.gs-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.gs-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 14px 34px;
+  border-radius: 40px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.gs-btn-white {
+  background: #ffffff;
+  color: #111111;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+.gs-btn-white:hover {
+  background: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.gs-btn-outline {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #ffffff;
+  border: 1.8px solid #ffffff;
+}
+
+.gs-btn-outline:hover {
+  background: #ffffff;
+  color: #111111;
+  transform: translateY(-2px);
+}
+
+.gs-btn-black {
+  background: #111111;
+  color: #ffffff;
+}
+
+.gs-btn-black:hover {
+  background: #333333;
+  transform: translateY(-2px);
+}
+
+/* --- 2. Shop by Category (Quick Navigation Strip) --- */
+.gs-category-section {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 36px 32px 20px;
+}
+
+.gs-section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.gs-section-title {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.3px;
+  color: #111;
+}
+
+.gs-section-subtitle {
+  font-size: 14.5px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.gs-category-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: #ddd transparent;
+}
+
+.gs-category-grid::-webkit-scrollbar {
+  height: 4px;
+}
+
+.gs-category-grid::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.gs-cat-card {
+  flex: 0 0 calc((100% - 100px) / 6);
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease;
+}
+
+.gs-cat-card:hover {
+  transform: translateY(-4px);
+}
+
+.gs-cat-circle {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #f3f3f3;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gs-cat-card:hover .gs-cat-circle {
+  border-color: #111;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.gs-cat-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.gs-cat-card:hover .gs-cat-img {
+  transform: scale(1.08);
+}
+
+.gs-cat-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.3;
+}
+
+/* --- 3. Dual Campaign Split Banners --- */
+.gs-split-section {
+  max-width: 1440px;
+  margin: 30px auto;
+  padding: 0 32px;
+}
+
+.gs-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.gs-split-card {
+  position: relative;
+  height: 580px;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  cursor: pointer;
+}
+
+.gs-split-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gs-split-card:hover .gs-split-bg {
+  transform: scale(1.04);
+}
+
+.gs-split-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.05) 100%);
+  transition: opacity 0.3s ease;
+}
+
+.gs-split-content {
+  position: relative;
+  z-index: 2;
+  padding: 36px;
+  width: 100%;
+}
+
+.gs-split-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 5px 12px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.gs-split-title {
+  font-size: clamp(26px, 3.2vw, 36px);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.gs-split-desc {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.4;
+  margin-bottom: 20px;
+  max-width: 440px;
+}
+
+.gs-split-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  background: #fff;
+  color: #111;
+  font-size: 13.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 30px;
+  transition: all 0.25s ease;
+}
+
+.gs-split-card:hover .gs-split-btn {
+  background: #111;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+}
+
+/* --- 4. Trending / Bestsellers Section --- */
+.gs-trending-section {
+  max-width: 1440px;
+  margin: 50px auto 40px;
+  padding: 0 32px;
+}
+
+.gs-trending-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.gs-tab-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.gs-tab-btn {
+  padding: 9px 20px;
+  background: #f5f5f5;
+  color: #333;
+  border: 1.5px solid transparent;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.gs-tab-btn:hover {
+  background: #ececec;
+  color: #111;
+}
+
+.gs-tab-btn.active {
+  background: #111111;
+  color: #ffffff;
+  border-color: #111111;
+}
+
+.gs-view-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #111;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.gs-view-all-link:hover {
+  color: var(--accent);
+}
+
+/* --- 5. Brand Inspiration Statement --- */
+.gs-statement-section {
+  background: #111111;
+  color: #ffffff;
+  padding: 70px 32px;
+  margin: 60px 0;
+  text-align: center;
+}
+
+.gs-statement-inner {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.gs-statement-eyebrow {
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #999999;
+  margin-bottom: 14px;
+}
+
+.gs-statement-heading {
+  font-size: clamp(28px, 4.2vw, 44px);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+
+.gs-statement-text {
+  font-size: 16.5px;
+  color: #cccccc;
+  line-height: 1.6;
+  margin-bottom: 34px;
+}
+
+.gs-statement-stats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 48px;
+  padding-top: 24px;
+  border-top: 1px solid #282828;
+}
+
+.gs-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gs-stat-num {
+  font-size: 32px;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.gs-stat-label {
+  font-size: 13px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+/* --- 6. Editorial & Workout Guides --- */
+.gs-guides-section {
+  max-width: 1440px;
+  margin: 50px auto;
+  padding: 0 32px;
+}
+
+.gs-guides-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.gs-guide-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.gs-guide-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+}
+
+.gs-guide-media {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.gs-guide-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gs-guide-card:hover .gs-guide-img {
+  transform: scale(1.05);
+}
+
+.gs-guide-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.gs-guide-tag {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.gs-guide-title {
+  font-size: 17.5px;
+  font-weight: 800;
+  color: #111;
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+
+.gs-guide-excerpt {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 18px;
+  flex: 1;
+}
+
+.gs-guide-link {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #111;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.gs-guide-card:hover .gs-guide-link {
+  color: var(--accent);
+}
+
+/* --- 7. Features & Value Propositions Bar --- */
+.gs-features-bar {
+  background: #fafafa;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 36px 32px;
+}
+
+.gs-features-grid {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.gs-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.gs-feature-icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  color: #111;
+}
+
+.gs-feature-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.gs-feature-desc {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* --- 8. Newsletter Signup --- */
+.gs-newsletter-section {
+  max-width: 900px;
+  margin: 50px auto 70px;
+  padding: 0 32px;
+  text-align: center;
+}
+
+.gs-newsletter-box {
+  background: #ffffff;
+  border: 1.5px solid var(--line);
+  border-radius: 16px;
+  padding: 44px 36px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
+
+.gs-newsletter-title {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.3px;
+  margin-bottom: 10px;
+}
+
+.gs-newsletter-sub {
+  font-size: 15px;
+  color: #666;
+  max-width: 540px;
+  margin: 0 auto 24px;
+  line-height: 1.5;
+}
+
+.gs-newsletter-form {
+  display: flex;
+  max-width: 520px;
+  margin: 0 auto;
+  gap: 10px;
+}
+
+.gs-newsletter-input {
+  flex: 1;
+  padding: 14px 20px;
+  border: 1.5px solid #ccc;
+  border-radius: 30px;
+  font-size: 14.5px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.gs-newsletter-input:focus {
+  border-color: #111;
+}
+
+.gs-newsletter-btn {
+  padding: 14px 30px;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.gs-newsletter-btn:hover {
+  background: #333;
+  transform: translateY(-1px);
+}
+
+/* --- Responsive Breakpoints for Gymshark Homepage --- */
+@media (max-width: 1024px) {
+  .gs-split-grid {
+    gap: 16px;
+  }
+  .gs-split-card {
+    height: 480px;
+  }
+  .gs-guides-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gs-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gs-hero {
+    min-height: 480px;
+    height: 65vh;
+  }
+  .gs-hero-inner {
+    padding: 0 20px 40px;
+  }
+  .gs-hero-actions {
+    width: 100%;
+  }
+  .gs-btn {
+    width: 100%;
+  }
+  .gs-split-grid {
+    grid-template-columns: 1fr;
+  }
+  .gs-split-card {
+    height: 420px;
+  }
+  .gs-guides-grid {
+    grid-template-columns: 1fr;
+  }
+  .gs-features-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .gs-newsletter-form {
+    flex-direction: column;
+  }
+  .gs-newsletter-btn {
+    width: 100%;
+  }
+  .gs-category-section,
+  .gs-split-section,
+  .gs-trending-section,
+  .gs-guides-section,
+  .gs-features-bar,
+  .gs-newsletter-section {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}

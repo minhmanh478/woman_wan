@@ -1,0 +1,69 @@
+[
+  {
+    "id": "ww-test-01",
+    "name": "Everyday Seamless Set Nữ",
+    "category": "Bộ đồ tập & Quần Legging",
+    "gender": "Nữ",
+    "sport": "Yoga & Gym",
+    "basePrice": 990000,
+    "price": 699000,
+    "onSale": true,
+    "discountPercent": 30,
+    "tag": "-30%",
+    "colors": [
+      {
+        "name": "Hồng pastel",
+        "hex": "#e8b4c8"
+      },
+      {
+        "name": "Vàng bơ",
+        "hex": "#efe8af"
+      }
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "description": "Sự kết hợp hoàn hảo giữa độ ôm nâng đỡ mềm mại và cảm giác nhẹ tựa làn da thứ hai cho mọi chuyển động.",
+    "rating": 5.0,
+    "reviewsCount": 86,
+    "inStock": true,
+    "image": "assets/sanpham_test/co_tau.jpg",
+    "hoverImage": "assets/sanpham_test/co_tau2.jpg"
+  },
+  {
+    "id": "ww-test-02",
+    "name": "Relay Performance Seamless Đồ Tập",
+    "category": "Hiệu suất cao & Tập luyện",
+    "gender": "Nữ",
+    "sport": "Gym & Chạy bộ",
+    "basePrice": 1150000,
+    "price": 899000,
+    "onSale": true,
+    "discountPercent": 22,
+    "tag": "Mới",
+    "colors": [
+      {
+        "name": "Hồng magenta",
+        "hex": "#c42468"
+      },
+      {
+        "name": "Đen than",
+        "hex": "#111111"
+      }
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "description": "Vật liệu kháng khuẩn, công nghệ thoát ẩm siêu tốc cho những hiệp tập tạ nặng và cardio cường độ cao.",
+    "rating": 4.9,
+    "reviewsCount": 64,
+    "inStock": true,
+    "image": "assets/sanpham_test/phong1.jpg",
+    "hoverImage": "assets/sanpham_test/phong2.jpg"
+  }
+]

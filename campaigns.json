@@ -1,0 +1,30 @@
+[
+  {
+    "id": "cp-001",
+    "key": "everyday_seamless",
+    "badge": "BỘ SƯU TẬP NAM",
+    "title": "WOMAN WAN",
+    "subtitle": "Chất dệt kim mềm mịn, không đường may tôn dáng",
+    "description": "Sự kết hợp hoàn hảo giữa độ ôm nâng đỡ mềm mại và cảm giác.",
+    "ctaText": "MUA NGAY BỘ SƯU TẬP",
+    "ctaLink": "#trending",
+    "filterTab": "women",
+    "image": "assets/sanpham_test/co_tau.jpg",
+    "price": 699000,
+    "onSale": false
+  },
+  {
+    "id": "cp-002",
+    "key": "relay_performance",
+    "badge": "HIỆU SUẤT ĐỈNH CAO",
+    "title": "RELAY PERFORMANCE",
+    "subtitle": "Vải thể thao kháng khuẩn, thoát ẩm siêu tốc",
+    "description": "Vật liệu kháng khuẩn, công nghệ thoát ẩm siêu tốc cho những hiệp tập tạ nặng và cardio cường độ cao.",
+    "ctaText": "KHÁM PHÁ RELAY",
+    "ctaLink": "#trending",
+    "filterTab": "new",
+    "image": "assets/sanpham_test/ao_phong.jpg",
+    "price": 899000,
+    "onSale": true
+  }
+]

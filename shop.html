@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WOMAN WAN | Cửa Hàng Thể Thao Chính Hãng · Be A Visionary</title>
+  <title>Nữ | WOMAN WAN</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -18,9 +18,9 @@
     </a>
     <nav class="primary">
       <ul style="display:flex;gap:26px;">
-        <li><a href="shop.html?gender=men" id="navMen" onclick="handleNavClick('men', event)">Nam</a></li>
-        <li class="active"><a href="shop.html?gender=women" id="navWomen" onclick="handleNavClick('women', event)">Nữ</a></li>
-        <li><a href="shop.html?filter=sale" id="navSale" onclick="handleNavClick('sale', event)">Khuyến mãi</a></li>
+        <li id="navLiMen"><a href="shop.html?gender=men" id="navMen" onclick="handleNavClick('men', event)">Nam</a></li>
+        <li id="navLiWomen" class="active"><a href="shop.html?gender=women" id="navWomen" onclick="handleNavClick('women', event)">Nữ</a></li>
+        <li id="navLiSale"><a href="shop.html?filter=sale" id="navSale" onclick="handleNavClick('sale', event)">Khuyến mãi</a></li>
       </ul>
     </nav>
     <div class="header-actions">
@@ -44,338 +44,103 @@
   </header>
 
   <div class="subnav">
-    <a href="index.html" class="active">Trang chủ</a>
-    <a href="shop.html">Tất cả sản phẩm (Có bộ lọc)</a>
-    <a href="#categories">Danh mục</a>
-    <a href="#campaigns">Bộ sưu tập Seamless</a>
-    <a href="#trending">Sản phẩm thịnh hành</a>
-    <a href="#guides">Cẩm nang tập luyện</a>
-    <a href="#newsletter">Ưu đãi 10%</a>
+    <a href="#" class="active">Tất cả sản phẩm Nữ</a>
+    <a href="#">Áo khoác</a>
+    <a href="#">Áo thun</a>
+    <a href="#">Quần legging</a>
+    <a href="#">Quần short</a>
+    <a href="#">Giày thể thao</a>
+    <a href="#">Đồ bơi</a>
+    <a href="#">Túi & Phụ kiện</a>
+    <a href="#">Bộ sưu tập mới</a>
   </div>
 
-  <!-- 1. HERO SHOWCASE (GYMSHARK HERO BANNER WITH LIVE INTRO VIDEO) -->
-  <section class="gs-hero" id="hero">
-    <video class="gs-hero-video" id="heroVideo" autoplay loop muted playsinline poster="assets/banners/relay.jpg">
-      <source src="assets/video/intro.mp4" type="video/mp4">
-      Trình duyệt của bạn không hỗ trợ phát video HTML5.
-    </video>
-    <div class="gs-hero-overlay"></div>
-    <div class="gs-hero-inner">
-      <div class="gs-hero-badge">BỘ SƯU TẬP MỚI · WOMAN WAN 2026</div>
-      <h1 class="gs-hero-title">RELAY SEAMLESS<br>NÂNG TẦM MỌI BUỔI TẬP</h1>
-      <p class="gs-hero-sub">
-        Đột phá cùng chất liệu dệt kim liền mạch siêu co giãn 4 chiều. Thoáng khí tối đa, ôm trọn đường cong thể thao và
-        bứt phá mọi giới hạn sức bền.
-      </p>
-      <div class="gs-hero-actions">
-        <a href="#trending" class="gs-btn gs-btn-white" onclick="setTrendingFilter('women', null, event)">MUA ĐỒ NỮ</a>
-        <a href="#trending" class="gs-btn gs-btn-outline" onclick="setTrendingFilter('men', null, event)">MUA ĐỒ NAM</a>
-      </div>
-    </div>
-    <div class="gs-hero-controls">
-      <button class="gs-hero-ctrl-btn" id="heroPlayToggle" onclick="toggleHeroPlay()" aria-label="Tạm dừng/Phát video"
-        title="Tạm dừng/Phát video">
-        <svg id="heroPauseIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-          <rect x="6" y="4" width="4" height="16"></rect>
-          <rect x="14" y="4" width="4" height="16"></rect>
-        </svg>
-        <svg id="heroPlayIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
-          <polygon points="5 3 19 12 5 21 5 3"></polygon>
-        </svg>
-      </button>
-      <button class="gs-hero-ctrl-btn" id="heroSoundToggle" onclick="toggleHeroSound()" aria-label="Bật/Tắt âm thanh"
-        title="Bật/Tắt âm thanh">
-        <svg id="heroMuteIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-          <line x1="23" y1="9" x2="17" y2="15"></line>
-          <line x1="17" y1="9" x2="23" y2="15"></line>
-        </svg>
-        <svg id="heroSoundIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
-          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-          <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-        </svg>
-      </button>
-    </div>
-  </section>
-
-  <!-- 2. QUICK BROWSE CATEGORIES (SHOP BY CATEGORY) -->
-  <!-- <section class="gs-category-section" id="categories">
-    <div class="gs-section-header">
-      <div>
-        <h2 class="gs-section-title">DANH MỤC PHỔ BIẾN</h2>
-        <p class="gs-section-subtitle">Khám phá nhanh dòng trang phục tối ưu cho từng bộ môn thể thao</p>
-      </div>
-      <a href="shop.html" class="gs-view-all-link">Xem tất cả &rarr;</a>
-    </div>
-
-    <div class="gs-category-grid">
-      <a href="#trending" class="gs-cat-card" onclick="filterByCategory('Quần legging', event)">
-        <div class="gs-cat-circle">
-          <img src="assets/sanpham_test/co_tau.jpg" alt="Quần Legging" class="gs-cat-img" loading="lazy">
-        </div>
-        <span class="gs-cat-title">Quần Legging</span>
-      </a>
-
-      <a href="#trending" class="gs-cat-card" onclick="filterByCategory('Áo thun', event)">
-        <div class="gs-cat-circle">
-          <img src="assets/sanpham_test/phong1.jpg" alt="Áo Thun & Tank" class="gs-cat-img" loading="lazy">
-        </div>
-        <span class="gs-cat-title">Áo Thun & Tank</span>
-      </a>
-
-      <a href="#trending" class="gs-cat-card" onclick="filterByCategory('Quần short', event)">
-        <div class="gs-cat-circle">
-          <img src="assets/sanpham_test/phong2.jpg" alt="Quần Short" class="gs-cat-img" loading="lazy">
-        </div>
-        <span class="gs-cat-title">Quần Short</span>
-      </a>
-
-      <a href="#trending" class="gs-cat-card" onclick="filterByCategory('Áo khoác', event)">
-        <div class="gs-cat-circle">
-          <img src="assets/sanpham_test/co_tau2.jpg" alt="Áo Khoác Thể Thao" class="gs-cat-img" loading="lazy">
-        </div>
-        <span class="gs-cat-title">Áo Khoác Gió</span>
-      </a>
-
-      <a href="#trending" class="gs-cat-card" onclick="setTrendingFilter('women', null, event)">
-        <div class="gs-cat-circle">
-          <img src="assets/sanpham_test/co_tau.jpg" alt="Bộ Tập Nữ" class="gs-cat-img" loading="lazy">
-        </div>
-        <span class="gs-cat-title">Set Đồ Tập Nữ</span>
-      </a>
-
-      <a href="#trending" class="gs-cat-card" onclick="setTrendingFilter('men', null, event)">
-        <div class="gs-cat-circle">
-          <img src="assets/sanpham_test/phong2.jpg" alt="Bộ Tập Nam" class="gs-cat-img" loading="lazy">
-        </div>
-        <span class="gs-cat-title">Trang Phục Nam</span>
-      </a>
-    </div>
-  </section> -->
-
-  <!-- 3. DUAL CAMPAIGN SPLIT BANNERS (GYMSHARK FEATURE TILES) -->
-  <section class="gs-split-section" id="campaigns">
-    <div class="gs-split-grid" id="campaignGrid">
-      <!-- Card 1: Everyday Seamless -->
-      <a href="#trending" class="gs-split-card" onclick="setTrendingFilter('women', null, event)">
-        <div class="gs-split-bg" style="background-image: url('assets/sanpham_test/everyday_seamless.jpg');"></div>
-        <div class="gs-split-gradient"></div>
-        <div class="gs-split-content">
-          <span class="gs-split-tag">BỘ SƯU TẬP NỮ</span>
-          <h2 class="gs-split-title">EVERYDAY SEAMLESS</h2>
-          <p class="gs-split-desc">
-            Sự kết hợp hoàn hảo giữa độ ôm nâng đỡ mềm mại và cảm giác nhẹ tựa làn da thứ hai cho mọi chuyển động.
-          </p>
-          <span class="gs-split-btn">MUA NGAY BỘ SƯU TẬP</span>
-        </div>
-      </a>
-
-      <!-- Card 2: Relay Performance -->
-      <a href="#trending" class="gs-split-card" onclick="setTrendingFilter('new', null, event)">
-        <div class="gs-split-bg" style="background-image: url('assets/sanpham_test/relay.jpg');"></div>
-        <div class="gs-split-gradient"></div>
-        <div class="gs-split-content">
-          <span class="gs-split-tag">HIỆU SUẤT ĐỈNH CAO</span>
-          <h2 class="gs-split-title">RELAY PERFORMANCE</h2>
-          <p class="gs-split-desc">
-            Vật liệu kháng khuẩn, công nghệ thoát ẩm siêu tốc cho những hiệp tập tạ nặng và cardio cường độ cao.
-          </p>
-          <span class="gs-split-btn">KHÁM PHÁ RELAY</span>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <!-- 4. TRENDING PRODUCTS (SẢN PHẨM THỊNH HÀNH - PRESERVING EXACT CARD STYLE) -->
-  <section class="gs-trending-section" id="trending">
-    <div class="gs-trending-toolbar">
-      <div>
-        <h2 class="gs-section-title">SẢN PHẨM THỊNH HÀNH</h2>
-        <p class="gs-section-subtitle">Những thiết kế được yêu thích nhất mùa này bởi cộng đồng Woman Wan</p>
-      </div>
-
-      <div class="gs-tab-group">
-        <button class="gs-tab-btn active" data-tab="all" onclick="setTrendingFilter('all', this, event)">Tất cả</button>
-        <button class="gs-tab-btn" data-tab="women" onclick="setTrendingFilter('women', this, event)">Đồ tập Nữ</button>
-        <button class="gs-tab-btn" data-tab="men" onclick="setTrendingFilter('men', this, event)">Đồ tập Nam</button>
-        <button class="gs-tab-btn" data-tab="sale" onclick="setTrendingFilter('sale', this, event)">Khuyến mãi</button>
-        <button class="gs-tab-btn" data-tab="new" onclick="setTrendingFilter('new', this, event)">Mới nhất</button>
-      </div>
-
-      <a href="shop.html" class="gs-view-all-link">Xem tất cả 124 sản phẩm &rarr;</a>
-    </div>
-
-    <!-- Product Grid (Exact user card style) -->
-    <div class="grid" id="productGrid"></div>
-
-    <div class="load-more" style="text-align: center; margin-top: 36px;">
-      <button id="loadMoreBtn" class="gs-btn gs-btn-black">Xem thêm sản phẩm</button>
-    </div>
-  </section>
-
-  <!-- 5. BRAND INSPIRATION & COMMUNITY STATEMENT -->
-  <section class="gs-statement-section">
-    <div class="gs-statement-inner">
-      <div class="gs-statement-eyebrow">THƯƠNG HIỆU THỂ THAO ĐẲNG CẤP</div>
-      <h2 class="gs-statement-heading">BE A VISIONARY · WOMAN WAN</h2>
-      <p class="gs-statement-text">
-        Woman Wan không chỉ tạo ra những bộ trang phục tập luyện, mà gửi gắm vào đó tinh thần kỷ luật, đam mê và nỗ lực
-        bứt phá giới hạn mỗi ngày. Dù là bước chân đầu tiên trên máy chạy hay mức tạ kỷ lục mới, chúng tôi luôn đồng
-        hành cùng bạn.
-      </p>
-      <div class="gs-statement-stats">
-        <div class="gs-stat-item">
-          <span class="gs-stat-num">100.000+</span>
-          <span class="gs-stat-label">Gymer & Runner tin dùng</span>
-        </div>
-        <div class="gs-stat-item">
-          <span class="gs-stat-num">100%</span>
-          <span class="gs-stat-label">Công nghệ dệt Seamless</span>
-        </div>
-        <div class="gs-stat-item">
-          <span class="gs-stat-num">30 Ngày</span>
-          <span class="gs-stat-label">Đổi trả miễn phí tận nơi</span>
-        </div>
-        <div class="gs-stat-item">
-          <span class="gs-stat-num">4.9 / 5★</span>
-          <span class="gs-stat-label">Hài lòng từ khách hàng</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. EDITORIAL & WORKOUT GUIDES (GYMSHARK BLOG & TRAINING HUB) -->
-  <section class="gs-guides-section" id="guides">
-    <div class="gs-section-header">
-      <div>
-        <h2 class="gs-section-title">CẨM NANG TẬP LUYỆN & PHONG CÁCH</h2>
-        <p class="gs-section-subtitle">Kiến thức chuyên sâu từ các huấn luyện viên thể hình & vận động viên</p>
-      </div>
-    </div>
-
-    <div class="gs-guides-grid" id="guidesGrid">
-      <article class="gs-guide-card">
-        <div class="gs-guide-media">
-          <img src="assets/sanpham_test/co_tau.jpg" alt="Bí Quyết Chọn Size Áo Cổ Tàu" class="gs-guide-img"
-            loading="lazy">
-        </div>
-        <div class="gs-guide-body">
-          <span class="gs-guide-tag">FIT GUIDE</span>
-          <h3 class="gs-guide-title">Bí Quyết Chọn Size Áo Cổ Tàu & Trang Phục Chuẩn Từng Centimet</h3>
-          <p class="gs-guide-excerpt">
-            Cách đo vòng ngực, vòng eo và chọn độ ôm co giãn phù hợp để áo luôn đứng form, tôn dáng và thoải mái khi vận
-            động.
-          </p>
-          <a href="#" class="gs-guide-link">Đọc cẩm nang &rarr;</a>
-        </div>
-      </article>
-
-      <article class="gs-guide-card">
-        <div class="gs-guide-media">
-          <img src="assets/sanpham_test/phong1.jpg" alt="Phong Cách Hybrid Áo Phông Thể Thao" class="gs-guide-img"
-            loading="lazy">
-        </div>
-        <div class="gs-guide-body">
-          <span class="gs-guide-tag">WORKOUT TRENDS</span>
-          <h3 class="gs-guide-title">Phong Cách Hybrid: Khi Áo Phông Thể Thao Gặp Gỡ Tốc Độ</h3>
-          <p class="gs-guide-excerpt">
-            Tìm hiểu vì sao dòng áo phông thể thao thoáng khí đa chiều, chống nhăn trở thành lựa chọn hàng đầu của gymer
-            & runner hiện đại.
-          </p>
-          <a href="#" class="gs-guide-link">Khám phá ngay &rarr;</a>
-        </div>
-      </article>
-
-      <article class="gs-guide-card">
-        <div class="gs-guide-media">
-          <img src="assets/sanpham_test/phong2.jpg" alt="Mẹo chăm sóc đồ tập thể thao" class="gs-guide-img"
-            loading="lazy">
-        </div>
-        <div class="gs-guide-body">
-          <span class="gs-guide-tag">CARE TIPS</span>
-          <h3 class="gs-guide-title">Bảo Quản Đồ Tập Thể Thao Bền Đẹp Co Giãn Như Mới</h3>
-          <p class="gs-guide-excerpt">
-            Những lưu ý quan trọng về nhiệt độ giặt và dung dịch tẩy rửa giúp tăng gấp đôi tuổi thọ cho sợi vải thể thao
-            công nghệ cao.
-          </p>
-          <a href="#" class="gs-guide-link">Xem chi tiết &rarr;</a>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- 7. VALUE PROPOSITIONS BAR -->
-  <div class="gs-features-bar">
-    <div class="gs-features-grid">
-      <div class="gs-feature-item">
-        <svg class="gs-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-          stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="23 4 23 10 17 10"></polyline>
-          <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
-        </svg>
-        <div>
-          <h4 class="gs-feature-title">Đổi Trả Dễ Dàng 30 Ngày</h4>
-          <p class="gs-feature-desc">Hỗ trợ đổi size hoặc hoàn tiền nhanh chóng cho thành viên</p>
-        </div>
-      </div>
-
-      <div class="gs-feature-item">
-        <svg class="gs-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-          stroke-linecap="round" stroke-linejoin="round">
-          <rect x="1" y="3" width="15" height="13"></rect>
-          <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-          <circle cx="5.5" cy="18.5" r="2.5"></circle>
-          <circle cx="18.5" cy="18.5" r="2.5"></circle>
-        </svg>
-        <div>
-          <h4 class="gs-feature-title">Miễn Phí Giao Hàng Toàn Quốc</h4>
-          <p class="gs-feature-desc">Freeship tiêu chuẩn cho mọi đơn hàng từ 1.000.000₫</p>
-        </div>
-      </div>
-
-      <div class="gs-feature-item">
-        <svg class="gs-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-          stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-        </svg>
-        <div>
-          <h4 class="gs-feature-title">Chất Lượng Vải Cao Cấp</h4>
-          <p class="gs-feature-desc">Công nghệ dệt Seamless 4 chiều kháng khuẩn và ôm dáng</p>
-        </div>
-      </div>
-
-      <div class="gs-feature-item">
-        <svg class="gs-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-          stroke-linecap="round" stroke-linejoin="round">
-          <path
-            d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
-          </path>
-        </svg>
-        <div>
-          <h4 class="gs-feature-title">Hỗ Trợ Khách Hàng 24/7</h4>
-          <p class="gs-feature-desc">Đội ngũ chuyên viên sẵn sàng tư vấn size và giải đáp thắc mắc</p>
-        </div>
-      </div>
-    </div>
+  <div class="page-head">
+    <div class="breadcrumb">Trang chủ <span>›</span> Nữ</div>
+    <h1 class="page-title">Sản phẩm Nữ</h1>
   </div>
 
-  <!-- 8. NEWSLETTER SUBSCRIBE BAR -->
-  <section class="gs-newsletter-section" id="newsletter">
-    <div class="gs-newsletter-box">
-      <h2 class="gs-newsletter-title">NHẬN NGAY VOUCHER GIẢM 10%</h2>
-      <p class="gs-newsletter-sub">
-        Gia nhập cộng đồng Woman Wan ngay hôm nay để nhận voucher chào mừng 10% và cập nhật sớm nhất các đợt phát hành
-        bộ sưu tập giới hạn.
-      </p>
-      <form class="gs-newsletter-form" onsubmit="handleNewsletterSubmit(event)">
-        <input type="email" id="newsletterEmail" class="gs-newsletter-input" placeholder="Nhập địa chỉ email của bạn..."
-          required aria-label="Email nhận voucher">
-        <button type="submit" class="gs-newsletter-btn">Đăng ký ngay</button>
-      </form>
-    </div>
-  </section>
+  <div class="layout">
+    <!-- FILTER SIDEBAR -->
+    <aside class="filters">
+      <h3>Bộ lọc</h3>
+
+      <details class="filter-group" open>
+        <summary>Danh mục</summary>
+        <div class="filter-options">
+          <label><input type="checkbox"> Áo khoác & Áo choàng (48)</label>
+          <label><input type="checkbox"> Áo thun & Áo ba lỗ (76)</label>
+          <label><input type="checkbox"> Quần legging (34)</label>
+          <label><input type="checkbox"> Quần short (22)</label>
+          <label><input type="checkbox"> Giày chạy bộ (41)</label>
+          <label><input type="checkbox"> Đồ bơi (12)</label>
+        </div>
+      </details>
+
+      <details class="filter-group">
+        <summary>Kích cỡ</summary>
+        <div class="size-grid">
+          <button>XS</button><button>S</button><button>M</button><button>L</button>
+          <button>XL</button><button>36</button><button>37</button><button>38</button>
+        </div>
+      </details>
+
+      <details class="filter-group" open>
+        <summary>Màu sắc</summary>
+        <div class="swatches">
+          <div class="swatch" style="background:#111"></div>
+          <div class="swatch" style="background:#fff"></div>
+          <div class="swatch" style="background:#e2231a"></div>
+          <div class="swatch" style="background:#0057ff"></div>
+          <div class="swatch" style="background:#8a6d3b"></div>
+          <div class="swatch" style="background:#7d7d7d"></div>
+          <div class="swatch" style="background:#e8b4c8"></div>
+          <div class="swatch" style="background:#2e5339"></div>
+        </div>
+      </details>
+
+      <details class="filter-group">
+        <summary>Khoảng giá</summary>
+        <div class="filter-options">
+          <label><input type="checkbox"> Dưới 500.000₫</label>
+          <label><input type="checkbox"> 500.000₫ – 1.000.000₫</label>
+          <label><input type="checkbox"> 1.000.000₫ – 2.000.000₫</label>
+          <label><input type="checkbox"> Trên 2.000.000₫</label>
+        </div>
+      </details>
+
+      <details class="filter-group">
+        <summary>Bộ môn</summary>
+        <div class="filter-options">
+          <label><input type="checkbox"> Chạy bộ</label>
+          <label><input type="checkbox"> Yoga & Tập luyện</label>
+          <label><input type="checkbox"> Bóng đá</label>
+          <label><input type="checkbox"> Đời thường</label>
+        </div>
+      </details>
+
+      <a href="#" class="clear-filters">Xóa tất cả bộ lọc</a>
+    </aside>
+
+    <!-- PRODUCTS -->
+    <section class="products-col">
+      <div class="results-bar">
+        <span id="resultCount">124 sản phẩm</span>
+        <select class="sort-select" id="sortSelect">
+          <option>Nổi bật</option>
+          <option>Mới nhất</option>
+          <option>Giá: Thấp đến cao</option>
+          <option>Giá: Cao đến thấp</option>
+        </select>
+      </div>
+
+      <div class="grid" id="productGrid"></div>
+
+      <div class="load-more">
+        <button id="loadMoreBtn">Xem thêm sản phẩm</button>
+      </div>
+    </section>
+  </div>
 
   <footer>
     <div class="footer-grid">
@@ -874,222 +639,97 @@
     }
 
     // =========================================================================
-    // 3. PRODUCT GRID & HOMEPAGE INTERACTION HANDLERS
+    // 3. PRODUCT GRID & INTERACTION HANDLERS
     // =========================================================================
     const grid = document.getElementById("productGrid");
     let loaded = 0;
-    const PAGE_SIZE = 8;
-    let activeDisplayList = [];
-    let currentTrendingTab = "all";
+    const PAGE_SIZE = 12;
+    let currentShopList = [];
+    let currentShopTab = "women";
 
     async function initProducts() {
       await WanAPI.products.fetchAll();
-      activeDisplayList = WanAPI.products.list;
-      loadMore();
+      const params = new URLSearchParams(window.location.search);
+      const g = params.get('gender');
+      const f = params.get('filter');
+      setShopGender(g === 'men' ? 'men' : (f === 'sale' ? 'sale' : 'women'));
       updateWishlistBadges();
       renderCart();
-      loadCampaigns();
-      loadGuides();
     }
 
-    async function loadCampaigns() {
-      try {
-        const res = await fetch("campaigns.json");
-        if (res.ok) {
-          const campaigns = await res.json();
-          renderCampaigns(campaigns);
-        }
-      } catch (e) {
-        console.warn("fetch campaigns.json fallback", e);
-      }
-    }
-
-    function renderCampaigns(campaigns) {
-      const container = document.getElementById("campaignGrid");
-      if (!container || !campaigns || campaigns.length === 0) return;
-      container.innerHTML = campaigns.map(c => `
-        <a href="${c.ctaLink || '#trending'}" class="gs-split-card" onclick="setTrendingFilter('${c.filterTab || 'all'}', null, event)">
-          <div class="gs-split-bg" style="background-image: url('${c.image}');"></div>
-          <div class="gs-split-gradient"></div>
-          <div class="gs-split-content">
-            <span class="gs-split-tag">${c.badge || ''}</span>
-            <h2 class="gs-split-title">${c.title || ''}</h2>
-            <p class="gs-split-desc">${c.description || ''}</p>
-            <span class="gs-split-btn">${c.ctaText || 'MUA NGAY'}</span>
-          </div>
-        </a>
-      `).join("");
-    }
-
-    async function loadGuides() {
-      try {
-        const res = await fetch("guides.json");
-        if (res.ok) {
-          const guides = await res.json();
-          renderGuides(guides);
-        }
-      } catch (e) {
-        console.warn("fetch guides.json fallback", e);
-      }
-    }
-
-    function renderGuides(guides) {
-      const container = document.getElementById("guidesGrid");
-      if (!container || !guides || guides.length === 0) return;
-      container.innerHTML = guides.map(g => `
-        <article class="gs-guide-card">
-          <div class="gs-guide-media">
-            <img src="${g.image}" alt="${g.title}" class="gs-guide-img" loading="lazy">
-          </div>
-          <div class="gs-guide-body">
-            <span class="gs-guide-tag">${g.tag || ''}</span>
-            <h3 class="gs-guide-title">${g.title || ''}</h3>
-            <p class="gs-guide-excerpt">${g.excerpt || ''}</p>
-            <a href="${g.linkUrl || '#'}" class="gs-guide-link">${g.linkText || 'Xem chi tiết &rarr;'}</a>
-          </div>
-        </article>
-      `).join("");
-    }
-
-    function loadMore() {
-      const frag = document.createDocumentFragment();
-      const wrapper = document.createElement("div");
-      let html = "";
-      const sourceList = (activeDisplayList && activeDisplayList.length > 0) ? activeDisplayList : WanAPI.products.list;
-      const end = Math.min(loaded + PAGE_SIZE, sourceList.length);
-      for (let i = loaded; i < end; i++) {
-        html += cardHTML(sourceList[i]);
-      }
-      loaded = end;
-      wrapper.innerHTML = html;
-      while (wrapper.firstChild) frag.appendChild(wrapper.firstChild);
-      grid.appendChild(frag);
-
-      const btn = document.getElementById("loadMoreBtn");
-      if (btn) {
-        btn.style.display = (loaded >= sourceList.length) ? "none" : "inline-flex";
-      }
-    }
-
-    function setTrendingFilter(tabKey, btnEl, event) {
-      if (event) {
-        event.preventDefault();
-      }
-      currentTrendingTab = tabKey;
-
-      // Cập nhật trạng thái active của nút tab
-      document.querySelectorAll(".gs-tab-btn").forEach(btn => {
-        if (btn.getAttribute("data-tab") === tabKey) {
-          btn.classList.add("active");
-        } else {
-          btn.classList.remove("active");
-        }
-      });
-
-      // Lọc danh sách theo tab
+    function setShopGender(tabKey) {
+      currentShopTab = tabKey;
       const all = WanAPI.products.list;
-      if (tabKey === "women") {
-        activeDisplayList = all.filter(p => {
-          const g = (p.gender || "").toLowerCase();
-          const c = (p.category || "").toLowerCase();
-          const n = (p.name || "").toLowerCase();
-          return g.includes("nữ") || c.includes("legging") || c.includes("choàng") || n.includes("nữ") || n.includes("croptop") || n.includes("đầm");
-        });
-      } else if (tabKey === "men") {
-        activeDisplayList = all.filter(p => {
+
+      // Update Nav Li active class
+      document.querySelectorAll("nav.primary li").forEach(li => li.classList.remove("active"));
+      const navEl = tabKey === 'men' ? (document.getElementById("navLiMen") || document.getElementById("navMen")?.parentElement) :
+                    (tabKey === 'sale' ? (document.getElementById("navLiSale") || document.getElementById("navSale")?.parentElement) :
+                    (document.getElementById("navLiWomen") || document.getElementById("navWomen")?.parentElement));
+      if (navEl) navEl.classList.add("active");
+
+      // Update Breadcrumb & Title & Subnav
+      const breadcrumb = document.querySelector(".breadcrumb");
+      const title = document.querySelector(".page-title");
+      const subnavActive = document.querySelector(".subnav a.active") || document.querySelector(".subnav a:first-child");
+
+      if (tabKey === 'men') {
+        if (breadcrumb) breadcrumb.innerHTML = 'Trang chủ <span>›</span> Nam';
+        if (title) title.textContent = 'Sản phẩm Nam';
+        if (subnavActive) subnavActive.textContent = 'Tất cả sản phẩm Nam';
+        currentShopList = all.filter(p => {
           const g = (p.gender || "").toLowerCase();
           const c = (p.category || "").toLowerCase();
           const n = (p.name || "").toLowerCase();
           return g.includes("nam") || c.includes("short") || c.includes("thun") || n.includes("nam") || n.includes("jogger");
         });
-      } else if (tabKey === "sale") {
-        activeDisplayList = all.filter(p => p.onSale || p.discountPercent > 0 || (p.tag && p.tag.includes("%")));
-      } else if (tabKey === "new") {
-        activeDisplayList = all.filter(p => p.tag === "Mới" || p.tag === "NEW" || p.isNew);
+      } else if (tabKey === 'sale') {
+        if (breadcrumb) breadcrumb.innerHTML = 'Trang chủ <span>›</span> Khuyến mãi';
+        if (title) title.textContent = 'Sản phẩm Khuyến Mãi';
+        if (subnavActive) subnavActive.textContent = 'Tất cả sản phẩm Khuyến Mãi';
+        currentShopList = all.filter(p => p.onSale || p.discountPercent > 0 || (p.tag && p.tag.includes("%")));
       } else {
-        activeDisplayList = all;
+        if (breadcrumb) breadcrumb.innerHTML = 'Trang chủ <span>›</span> Nữ';
+        if (title) title.textContent = 'Sản phẩm Nữ';
+        if (subnavActive) subnavActive.textContent = 'Tất cả sản phẩm Nữ';
+        currentShopList = all.filter(p => {
+          const g = (p.gender || "").toLowerCase();
+          const c = (p.category || "").toLowerCase();
+          const n = (p.name || "").toLowerCase();
+          return g.includes("nữ") || c.includes("legging") || c.includes("choàng") || n.includes("nữ") || n.includes("croptop") || n.includes("đầm");
+        });
       }
 
-      if (!activeDisplayList || activeDisplayList.length === 0) {
-        activeDisplayList = all;
+      if (!currentShopList || currentShopList.length === 0) {
+        currentShopList = all;
       }
 
       grid.innerHTML = "";
       loaded = 0;
       loadMore();
 
-      // Nếu click từ banner hoặc danh mục thì cuộn mượt xuống khu vực sản phẩm
-      const trendingEl = document.getElementById("trending");
-      if (trendingEl && (!btnEl || !btnEl.classList.contains("gs-tab-btn"))) {
-        trendingEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      const resultCountEl = document.getElementById("resultCount");
+      if (resultCountEl) {
+        resultCountEl.textContent = `${currentShopList.length} sản phẩm`;
       }
     }
 
-    function filterByCategory(catKeyword, event) {
-      if (event) event.preventDefault();
-      const all = WanAPI.products.list;
-      const kw = catKeyword.toLowerCase();
-      activeDisplayList = all.filter(p => {
-        const c = (p.category || "").toLowerCase();
-        const n = (p.name || "").toLowerCase();
-        return c.includes(kw) || n.includes(kw);
-      });
-
-      if (activeDisplayList.length === 0) activeDisplayList = all;
-
-      // Bỏ active tab hiện tại
-      document.querySelectorAll(".gs-tab-btn").forEach(btn => btn.classList.remove("active"));
-      grid.innerHTML = "";
-      loaded = 0;
-      loadMore();
-
-      const trendingEl = document.getElementById("trending");
-      if (trendingEl) {
-        trendingEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    function loadMore() {
+      const list = (currentShopList && currentShopList.length > 0) ? currentShopList : WanAPI.products.list;
+      const frag = document.createDocumentFragment();
+      const wrapper = document.createElement("div");
+      let html = "";
+      const end = Math.min(loaded + PAGE_SIZE, list.length);
+      for (let i = loaded; i < end; i++) {
+        html += cardHTML(list[i]);
       }
-      showToast(`Đang lọc: ${catKeyword}`);
-    }
-
-    function handleNewsletterSubmit(event) {
-      if (event) event.preventDefault();
-      const input = document.getElementById("newsletterEmail");
-      const email = input ? input.value.trim() : "";
-      if (!email || !email.includes("@")) {
-        showToast("Vui lòng nhập địa chỉ email hợp lệ!");
-        return;
-      }
-      showToast("✓ Chúc mừng! Mã voucher 10% của bạn là: WAN10");
-      if (input) input.value = "";
-    }
-
-    function toggleHeroPlay() {
-      const vid = document.getElementById("heroVideo");
-      const pauseIcon = document.getElementById("heroPauseIcon");
-      const playIcon = document.getElementById("heroPlayIcon");
-      if (!vid) return;
-      if (vid.paused) {
-        vid.play();
-        if (pauseIcon) pauseIcon.style.display = "block";
-        if (playIcon) playIcon.style.display = "none";
-      } else {
-        vid.pause();
-        if (pauseIcon) pauseIcon.style.display = "none";
-        if (playIcon) playIcon.style.display = "block";
-      }
-    }
-
-    function toggleHeroSound() {
-      const vid = document.getElementById("heroVideo");
-      const muteIcon = document.getElementById("heroMuteIcon");
-      const soundIcon = document.getElementById("heroSoundIcon");
-      if (!vid) return;
-      vid.muted = !vid.muted;
-      if (vid.muted) {
-        if (muteIcon) muteIcon.style.display = "block";
-        if (soundIcon) soundIcon.style.display = "none";
-      } else {
-        if (muteIcon) muteIcon.style.display = "none";
-        if (soundIcon) soundIcon.style.display = "block";
+      loaded = end;
+      wrapper.innerHTML = html;
+      while (wrapper.firstChild) frag.appendChild(wrapper.firstChild);
+      grid.appendChild(frag);
+      const btn = document.getElementById("loadMoreBtn");
+      if (btn) {
+        btn.style.display = (loaded >= list.length) ? "none" : "inline-block";
       }
     }
 
@@ -1240,7 +880,7 @@
       if (megaNavList) {
         megaNavList.innerHTML = data.categories.map(cat => `
           <li class="mega-nav-item">
-            <a class="mega-nav-link" href="shop.html?gender=${tabKey}&category=${encodeURIComponent(cat.name)}" onclick="handleMegaCategoryClick('${cat.tag}', '${cat.name}', event, '${tabKey}')">
+            <a class="mega-nav-link" href="#" onclick="handleMegaCategoryClick('${cat.tag}', '${cat.name}', event, '${tabKey}')">
               <span>${cat.name}</span>
               <svg class="mega-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="9 18 15 12 9 6"></polyline>
@@ -1316,22 +956,40 @@
       }
       cancelCloseMegaNav();
       closeMegaMenu();
-      if (tabKey === 'men') {
-        window.location.href = "shop.html?gender=men";
-      } else if (tabKey === 'sale') {
-        window.location.href = "shop.html?filter=sale";
-      } else {
-        window.location.href = "shop.html?gender=women";
-      }
+      const newUrl = tabKey === 'men' ? 'shop.html?gender=men' :
+                     (tabKey === 'sale' ? 'shop.html?filter=sale' : 'shop.html?gender=women');
+      window.history.pushState({ tabKey }, '', newUrl);
+      setShopGender(tabKey);
     }
 
     function handleMegaCategoryClick(tag, name, e, tabKey) {
       if (e) e.preventDefault();
       cancelCloseMegaNav();
       closeMegaMenu();
-      const currentTab = tabKey || currentMegaTab || 'women';
-      window.location.href = `shop.html?gender=${currentTab}&category=${encodeURIComponent(name)}`;
+      showToast(`Đang xem: ${name}`);
+      const query = name.toLowerCase();
+      const all = WanAPI.products.list;
+      currentShopList = all.filter(p => {
+        const cat = (p.category || "").toLowerCase();
+        const n = (p.name || "").toLowerCase();
+        return cat.includes(query) || n.includes(query) || (p.tag && p.tag.toLowerCase().includes(query));
+      });
+      if (currentShopList.length === 0) currentShopList = all;
+      grid.innerHTML = "";
+      loaded = 0;
+      loadMore();
+      const resultCountEl = document.getElementById("resultCount");
+      if (resultCountEl) {
+        resultCountEl.textContent = `${currentShopList.length} sản phẩm phù hợp`;
+      }
     }
+
+    window.addEventListener("popstate", () => {
+      const params = new URLSearchParams(window.location.search);
+      const g = params.get('gender');
+      const f = params.get('filter');
+      setShopGender(g === 'men' ? 'men' : (f === 'sale' ? 'sale' : 'women'));
+    });
 
     // Hover interactions for top navigation (Nam, Nữ, Khuyến mãi)
     const navHoverTabs = [
@@ -1694,20 +1352,14 @@
     // =========================================================================
     // 5. INITIALIZATION & SEARCH / SORT LISTENERS
     // =========================================================================
-    const loadMoreBtn = document.getElementById("loadMoreBtn");
-    if (loadMoreBtn) {
-      loadMoreBtn.addEventListener("click", loadMore);
-    }
+    document.getElementById("loadMoreBtn").addEventListener("click", loadMore);
 
-    const sortSelect = document.getElementById("sortSelect");
-    if (sortSelect) {
-      sortSelect.addEventListener("change", () => {
-        grid.innerHTML = "";
-        loaded = 0;
-        if (loadMoreBtn) loadMoreBtn.style.display = "inline-flex";
-        loadMore();
-      });
-    }
+    document.getElementById("sortSelect").addEventListener("change", () => {
+      grid.innerHTML = "";
+      loaded = 0;
+      document.getElementById("loadMoreBtn").style.display = "inline-block";
+      loadMore();
+    });
 
     const searchInput = document.getElementById("searchInput");
     if (searchInput) {
