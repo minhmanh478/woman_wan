@@ -8,6 +8,11 @@
   --accent-red: #e2231a;
   --radius: 2px;
   --header-bottom: 84px;
+
+  /* Responsive Container & Adaptive Side Gutters (Đồng bộ tỉ lệ chuẩn Image 1 trên mọi màn hình Laptop, Full HD, 2K, 4K) */
+  --container-max-width: 100%;
+  --container-gutter: clamp(20px, 2.8vw, 64px);
+  --container-side-offset: var(--container-gutter);
 }
 
 * {
@@ -49,6 +54,7 @@ button {
   border: none;
   background: none;
   color: inherit;
+  border-radius: 0;
 }
 
 /* ===== Top utility bar ===== */
@@ -69,7 +75,7 @@ button {
 header.main {
   display: flex;
   align-items: center;
-  padding: 15px 32px;
+  padding: 15px var(--container-side-offset);
   border-bottom: 1px solid var(--line);
   position: sticky;
   top: 0;
@@ -244,7 +250,7 @@ nav.primary li.active a {
 .subnav {
   display: flex;
   gap: 24px;
-  padding: 13px 32px;
+  padding: 13px var(--container-side-offset);
   border-bottom: 1px solid var(--line);
   font-size: 14px;
   color: var(--ink-soft);
@@ -435,7 +441,8 @@ nav.primary li.active a {
   aspect-ratio: 3 / 3.9;
   overflow: hidden;
   background: #f2f2f2;
-  border-radius: 10px;
+  border-radius: 0;
+  border: none;
 }
 
 .product-img-wrap {
@@ -443,7 +450,8 @@ nav.primary li.active a {
   height: 100%;
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 0;
+  border: none;
 }
 
 .product-img {
@@ -498,7 +506,8 @@ nav.primary li.active a {
   font-size: 12px;
   font-weight: 700;
   padding: 5px 9px;
-  border-radius: 4px;
+  border-radius: 0;
+  border: none;
   z-index: 10;
 }
 
@@ -587,7 +596,8 @@ nav.primary li.active a {
   font-size: 12.5px;
   font-weight: 700;
   padding: 9px 16px;
-  border-radius: 20px;
+  border-radius: 0;
+  border: none;
   display: flex;
   align-items: center;
   gap: 5px;
@@ -633,18 +643,18 @@ nav.primary li.active a {
 }
 
 .card-info {
-  padding: 10px 2px;
+  padding: 12px 2px 6px;
 }
 
 .card-info .name {
-  font-size: 15px;
+  font-size: clamp(14.5px, 1.05vw, 17px);
   font-weight: 700;
-  margin-bottom: 3px;
+  margin-bottom: 4px;
   line-height: 1.35;
 }
 
 .card-info .desc {
-  font-size: 13px;
+  font-size: clamp(12.5px, 0.9vw, 14.5px);
   color: var(--ink-soft);
   margin-bottom: 6px;
   line-height: 1.4;
@@ -652,15 +662,15 @@ nav.primary li.active a {
 
 .price-row {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   align-items: baseline;
-  font-size: 15px;
+  font-size: clamp(15px, 1.1vw, 18px);
 }
 
 .price-row .old {
   color: var(--ink-soft);
   text-decoration: line-through;
-  font-size: 13px;
+  font-size: clamp(12.5px, 0.9vw, 14.5px);
 }
 
 .price-row .now {
@@ -678,17 +688,21 @@ nav.primary li.active a {
 }
 
 .load-more button {
-  border: 1px solid var(--ink);
+  background: #111111;
+  color: #ffffff;
+  border: none;
   padding: 15px 44px;
   font-size: 15px;
   font-weight: 700;
-  border-radius: 30px;
+  border-radius: 0;
   transition: .2s;
+  cursor: pointer;
 }
 
 .load-more button:hover {
-  background: var(--ink);
+  background: #333333;
   color: #fff;
+  transform: translateY(-2px);
 }
 
 footer {
@@ -1235,9 +1249,9 @@ footer {
   font-weight: 800;
   letter-spacing: 0.05em;
   background: #f0f0f0;
-  border: 1px solid #dcdcdc;
+  border: none;
   padding: 2px 5px;
-  border-radius: 3px;
+  border-radius: 0;
   text-transform: uppercase;
 }
 
@@ -1527,7 +1541,8 @@ footer {
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.04em;
-  border-radius: 2px;
+  border-radius: 0;
+  border: none;
   transition: background 0.2s;
   cursor: pointer;
 }
@@ -1585,7 +1600,8 @@ footer {
   color: #ffffff;
   font-size: 15px;
   font-weight: 700;
-  border-radius: 3px;
+  border-radius: 0;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1728,13 +1744,9 @@ footer {
 .gs-hero {
   position: relative;
   width: 100%;
-  min-height: 560px;
   height: 76vh;
-  max-height: 820px;
-  background-color: #111;
-  background-image: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%), url('assets/banners/relay.jpg');
-  background-size: cover;
-  background-position: center 25%;
+  min-height: 520px;
+  background-color: #0b0b0b;
   display: flex;
   align-items: flex-end;
   color: #fff;
@@ -1748,7 +1760,7 @@ footer {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center 22%;
   z-index: 0;
   pointer-events: none;
 }
@@ -1756,7 +1768,7 @@ footer {
 .gs-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.05) 100%);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.38) 45%, rgba(0, 0, 0, 0.05) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -1765,29 +1777,103 @@ footer {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 40px 60px;
+  max-width: 100%;
+  margin: 0;
+  padding: 0 var(--container-gutter) clamp(26px, 3.5vh, 52px);
+}
+
+.gs-hero-inner .logo {
+  width: auto;
+  margin-bottom: clamp(20px, 1.3vh, 16px);
+  display: inline-flex;
+}
+
+.gs-hero-inner .logo img {
+  height: clamp(30px, 3.4vh, 48px);
+  width: auto;
+  filter: brightness(0) invert(1) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
+}
+
+.gs-hero-sound-prompt {
+  position: absolute;
+  top: clamp(20px, 3vh, 36px);
+  right: var(--container-gutter);
+  z-index: 10;
+  display: none;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  color: #111111;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  padding: 10px 20px;
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  transition: all 0.25s ease;
+  animation: promptPulse 2s infinite;
+}
+
+.gs-hero-sound-prompt:hover {
+  background: #111111;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.65);
+}
+
+.gs-sound-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2.5px;
+  height: 14px;
+}
+
+.gs-sound-bars .bar {
+  width: 3px;
+  background: currentColor;
+  border-radius: 1px;
+  animation: barEqualizer 1s infinite ease-in-out;
+}
+
+.gs-sound-bars .bar-1 { height: 45%; animation-delay: 0.1s; }
+.gs-sound-bars .bar-2 { height: 90%; animation-delay: 0.3s; }
+.gs-sound-bars .bar-3 { height: 60%; animation-delay: 0.2s; }
+.gs-sound-bars .bar-4 { height: 100%; animation-delay: 0.4s; }
+
+@keyframes barEqualizer {
+  0%, 100% { height: 25%; }
+  50% { height: 100%; }
+}
+
+@keyframes promptPulse {
+  0%, 100% {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 0 0 rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 0 8px rgba(255, 255, 255, 0);
+  }
 }
 
 .gs-hero-controls {
   position: absolute;
-  bottom: 24px;
-  right: 32px;
+  bottom: clamp(20px, 2.8vh, 36px);
+  right: var(--container-gutter);
   z-index: 3;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .gs-hero-ctrl-btn {
-  width: 38px;
-  height: 38px;
+  width: clamp(38px, 3.8vh, 46px);
+  height: clamp(38px, 3.8vh, 46px);
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: none;
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -1814,58 +1900,61 @@ footer {
   letter-spacing: 1.5px;
   text-transform: uppercase;
   padding: 6px 14px;
-  border-radius: 20px;
+  border-radius: 0;
   margin-bottom: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: none;
 }
 
 .gs-hero-title {
-  font-size: clamp(34px, 5.5vw, 64px);
+  font-size: clamp(22px, 3.6vw, 44px);
   font-weight: 900;
   text-transform: uppercase;
   line-height: 1.05;
   letter-spacing: -0.5px;
-  margin-bottom: 14px;
-  max-width: 800px;
-  text-shadow: 0 2px 14px rgba(0,0,0,0.4);
+  margin-bottom: 12px;
+  max-width: 640px;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
 }
 
 .gs-hero-sub {
-  font-size: clamp(15px, 1.8vw, 18px);
+  font-size: clamp(13px, 1.15vh, 15px);
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.92);
-  max-width: 600px;
+  color: rgba(255, 255, 255, 0.95);
+  max-width: clamp(430px, 34vw, 610px);
   line-height: 1.5;
-  margin-bottom: 28px;
-  text-shadow: 0 1px 6px rgba(0,0,0,0.3);
+  margin-bottom: clamp(14px, 1.9vh, 24px);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
 }
 
 .gs-hero-actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 16px;
+  gap: clamp(10px, 1vw, 16px);
 }
 
 .gs-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 14.5px;
+  font-size: clamp(12px, 1.1vh, 14.5px);
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.8px;
-  padding: 14px 34px;
-  border-radius: 40px;
+  padding: clamp(10px, 1.2vh, 15px) clamp(22px, 2vw, 36px);
+  border-radius: 0;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   text-decoration: none;
+  border: none;
+  outline: none;
 }
 
 .gs-btn-white {
   background: #ffffff;
   color: #111111;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+  border: none;
 }
 
 .gs-btn-white:hover {
@@ -1875,11 +1964,11 @@ footer {
 }
 
 .gs-btn-outline {
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: #ffffff;
-  border: 1.8px solid #ffffff;
+  border: none;
 }
 
 .gs-btn-outline:hover {
@@ -1891,6 +1980,7 @@ footer {
 .gs-btn-black {
   background: #111111;
   color: #ffffff;
+  border: none;
 }
 
 .gs-btn-black:hover {
@@ -1900,9 +1990,10 @@ footer {
 
 /* --- 2. Shop by Category (Quick Navigation Strip) --- */
 .gs-category-section {
-  max-width: 1440px;
+  width: 100%;
+  max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 36px 32px 20px;
+  padding: 28px var(--container-gutter) 16px;
 }
 
 .gs-section-header {
@@ -1972,13 +2063,13 @@ footer {
   justify-content: center;
   margin-bottom: 12px;
   border: 2px solid transparent;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .gs-cat-card:hover .gs-cat-circle {
   border-color: #111;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .gs-cat-img {
@@ -2001,27 +2092,29 @@ footer {
 
 /* --- 3. Dual Campaign Split Banners --- */
 .gs-split-section {
-  max-width: 1440px;
-  margin: 30px auto;
-  padding: 0 32px;
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 28px auto;
+  padding: 0 var(--container-gutter);
 }
 
 .gs-split-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 16px;
 }
 
 .gs-split-card {
   position: relative;
-  height: 580px;
-  border-radius: 12px;
+  height: clamp(520px, 48vh, 750px);
+  border-radius: 0;
+  border: none;
   overflow: hidden;
   display: flex;
   align-items: flex-end;
   color: #fff;
   text-decoration: none;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  box-shadow: none;
   cursor: pointer;
 }
 
@@ -2040,7 +2133,7 @@ footer {
 .gs-split-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.05) 100%);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.05) 100%);
   transition: opacity 0.3s ease;
 }
 
@@ -2061,7 +2154,8 @@ footer {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   padding: 5px 12px;
-  border-radius: 4px;
+  border-radius: 0;
+  border: none;
   margin-bottom: 12px;
 }
 
@@ -2093,7 +2187,8 @@ footer {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  border-radius: 30px;
+  border-radius: 0;
+  border: none;
   transition: all 0.25s ease;
 }
 
@@ -2101,14 +2196,34 @@ footer {
   background: #111;
   color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
 
 /* --- 4. Trending / Bestsellers Section --- */
 .gs-trending-section {
-  max-width: 1440px;
-  margin: 50px auto 40px;
-  padding: 0 32px;
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 40px auto 30px;
+  padding: 0 var(--container-gutter);
+}
+
+.gs-trending-section .grid {
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(24px, 2.2vw, 36px) clamp(14px, 1.4vw, 22px);
+}
+
+@media (max-width: 1024px) {
+  .gs-trending-section .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px 10px;
+  }
+}
+
+@media (max-width: 680px) {
+  .gs-trending-section .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px 8px;
+  }
 }
 
 .gs-trending-toolbar {
@@ -2130,8 +2245,8 @@ footer {
   padding: 9px 20px;
   background: #f5f5f5;
   color: #333;
-  border: 1.5px solid transparent;
-  border-radius: 30px;
+  border: none;
+  border-radius: 0;
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
@@ -2146,7 +2261,7 @@ footer {
 .gs-tab-btn.active {
   background: #111111;
   color: #ffffff;
-  border-color: #111111;
+  border: none;
 }
 
 .gs-view-all-link {
@@ -2236,33 +2351,35 @@ footer {
 
 /* --- 6. Editorial & Workout Guides --- */
 .gs-guides-section {
-  max-width: 1440px;
-  margin: 50px auto;
-  padding: 0 32px;
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 40px auto;
+  padding: 0 var(--container-gutter);
 }
 
 .gs-guides-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 16px;
 }
 
 .gs-guide-card {
   display: flex;
   flex-direction: column;
-  border-radius: 12px;
+  border-radius: 0;
   overflow: hidden;
   background: #ffffff;
-  border: 1px solid var(--line);
+  border: none;
   text-decoration: none;
   color: inherit;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease;
   cursor: pointer;
+  box-shadow: none;
 }
 
 .gs-guide-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+  box-shadow: none;
 }
 
 .gs-guide-media {
@@ -2330,18 +2447,21 @@ footer {
 
 /* --- 7. Features & Value Propositions Bar --- */
 .gs-features-bar {
-  background: #fafafa;
+  background: #f7f7f7;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  padding: 36px 32px;
+  width: 100%;
+  padding: 30px 0;
 }
 
 .gs-features-grid {
-  max-width: 1440px;
+  width: 100%;
+  max-width: var(--container-max-width);
   margin: 0 auto;
+  padding: 0 var(--container-gutter);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
+  gap: 24px;
 }
 
 .gs-feature-item {
@@ -2379,11 +2499,11 @@ footer {
 }
 
 .gs-newsletter-box {
-  background: #ffffff;
-  border: 1.5px solid var(--line);
-  border-radius: 16px;
+  background: var(--panel);
+  border: none;
+  border-radius: 0;
   padding: 44px 36px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+  box-shadow: none;
 }
 
 .gs-newsletter-title {
@@ -2413,7 +2533,7 @@ footer {
   flex: 1;
   padding: 14px 20px;
   border: 1.5px solid #ccc;
-  border-radius: 30px;
+  border-radius: 0;
   font-size: 14.5px;
   outline: none;
   transition: border-color 0.2s ease;
@@ -2428,7 +2548,7 @@ footer {
   background: #111;
   color: #fff;
   border: none;
-  border-radius: 30px;
+  border-radius: 0;
   font-size: 14px;
   font-weight: 800;
   text-transform: uppercase;
@@ -2444,15 +2564,44 @@ footer {
 
 /* --- Responsive Breakpoints for Gymshark Homepage --- */
 @media (max-width: 1024px) {
+  .gs-hero {
+    min-height: 380px;
+    height: 50vh;
+  }
+
+  .gs-hero-inner {
+    padding: 0 24px 28px;
+  }
+
+  .gs-hero-inner .logo img {
+    height: 26px;
+  }
+
+  .gs-hero-sub {
+    font-size: 12px;
+    line-height: 1.45;
+    margin-bottom: 14px;
+    max-width: 480px;
+  }
+
+  .gs-btn {
+    padding: 10px 20px;
+    font-size: 11.5px;
+    border: none;
+  }
+
   .gs-split-grid {
     gap: 16px;
   }
+
   .gs-split-card {
-    height: 480px;
+    height: 420px;
   }
+
   .gs-guides-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .gs-features-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
@@ -2461,44 +2610,69 @@ footer {
 
 @media (max-width: 768px) {
   .gs-hero {
-    min-height: 480px;
-    height: 65vh;
+    min-height: 320px;
+    height: 46vh;
   }
+
   .gs-hero-inner {
-    padding: 0 20px 40px;
+    padding: 0 16px 20px;
   }
+
+  .gs-hero-inner .logo img {
+    height: 21px;
+  }
+
+  .gs-hero-sub {
+    font-size: 11px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    max-width: 100%;
+  }
+
   .gs-hero-actions {
     width: 100%;
+    gap: 8px;
   }
+
   .gs-btn {
     width: 100%;
+    padding: 10px 16px;
+    font-size: 11.5px;
+    border: none;
   }
+
   .gs-split-grid {
     grid-template-columns: 1fr;
   }
+
   .gs-split-card {
-    height: 420px;
+    height: 380px;
   }
+
   .gs-guides-grid {
     grid-template-columns: 1fr;
   }
+
   .gs-features-grid {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 16px;
   }
+
   .gs-newsletter-form {
     flex-direction: column;
   }
+
   .gs-newsletter-btn {
     width: 100%;
   }
+
   .gs-category-section,
   .gs-split-section,
   .gs-trending-section,
   .gs-guides-section,
   .gs-features-bar,
   .gs-newsletter-section {
-    padding-left: 18px;
-    padding-right: 18px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }

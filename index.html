@@ -19,7 +19,8 @@
     <nav class="primary">
       <ul style="display:flex;gap:26px;">
         <li><a href="shop.html?gender=men" id="navMen" onclick="handleNavClick('men', event)">Nam</a></li>
-        <li class="active"><a href="shop.html?gender=women" id="navWomen" onclick="handleNavClick('women', event)">Nữ</a></li>
+        <li class="active"><a href="shop.html?gender=women" id="navWomen"
+            onclick="handleNavClick('women', event)">Nữ</a></li>
         <li><a href="shop.html?filter=sale" id="navSale" onclick="handleNavClick('sale', event)">Khuyến mãi</a></li>
       </ul>
     </nav>
@@ -43,26 +44,17 @@
     </div>
   </header>
 
-  <div class="subnav">
-    <a href="index.html" class="active">Trang chủ</a>
-    <a href="shop.html">Tất cả sản phẩm (Có bộ lọc)</a>
-    <a href="#categories">Danh mục</a>
-    <a href="#campaigns">Bộ sưu tập Seamless</a>
-    <a href="#trending">Sản phẩm thịnh hành</a>
-    <a href="#guides">Cẩm nang tập luyện</a>
-    <a href="#newsletter">Ưu đãi 10%</a>
-  </div>
-
   <!-- 1. HERO SHOWCASE (GYMSHARK HERO BANNER WITH LIVE INTRO VIDEO) -->
-  <section class="gs-hero" id="hero">
-    <video class="gs-hero-video" id="heroVideo" autoplay loop muted playsinline poster="assets/banners/relay.jpg">
+  <section class="gs-hero" id="hero" onclick="handleHeroClick(event)">
+    <video class="gs-hero-video" id="heroVideo" autoplay loop muted playsinline preload="auto">
       <source src="assets/video/intro.mp4" type="video/mp4">
       Trình duyệt của bạn không hỗ trợ phát video HTML5.
     </video>
     <div class="gs-hero-overlay"></div>
     <div class="gs-hero-inner">
-      <div class="gs-hero-badge">BỘ SƯU TẬP MỚI · WOMAN WAN 2026</div>
-      <h1 class="gs-hero-title">RELAY SEAMLESS<br>NÂNG TẦM MỌI BUỔI TẬP</h1>
+      <a href="index.html" class="logo">
+        <img src="assets/logos/LOGO-WOMANWAN-RAW.png" alt="Woman Wan">
+      </a>
       <p class="gs-hero-sub">
         Đột phá cùng chất liệu dệt kim liền mạch siêu co giãn 4 chiều. Thoáng khí tối đa, ôm trọn đường cong thể thao và
         bứt phá mọi giới hạn sức bền.
@@ -71,6 +63,16 @@
         <a href="#trending" class="gs-btn gs-btn-white" onclick="setTrendingFilter('women', null, event)">MUA ĐỒ NỮ</a>
         <a href="#trending" class="gs-btn gs-btn-outline" onclick="setTrendingFilter('men', null, event)">MUA ĐỒ NAM</a>
       </div>
+    </div>
+    <div class="gs-hero-sound-prompt" id="heroSoundPrompt" onclick="unmuteHeroVideo(event)" role="button"
+      aria-label="Bật âm thanh" title="Bấm để bật âm thanh sôi động">
+      <div class="gs-sound-bars">
+        <span class="bar bar-1"></span>
+        <span class="bar bar-2"></span>
+        <span class="bar bar-3"></span>
+        <span class="bar bar-4"></span>
+      </div>
+      <span>BẬT ÂM THANH SÔI ĐỘNG</span>
     </div>
     <div class="gs-hero-controls">
       <button class="gs-hero-ctrl-btn" id="heroPlayToggle" onclick="toggleHeroPlay()" aria-label="Tạm dừng/Phát video"
@@ -84,7 +86,7 @@
         </svg>
       </button>
       <button class="gs-hero-ctrl-btn" id="heroSoundToggle" onclick="toggleHeroSound()" aria-label="Bật/Tắt âm thanh"
-        title="Bật/Tắt âm thanh">
+        title="Bật âm thanh">
         <svg id="heroMuteIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
@@ -155,38 +157,8 @@
     </div>
   </section> -->
 
-  <!-- 3. DUAL CAMPAIGN SPLIT BANNERS (GYMSHARK FEATURE TILES) -->
-  <section class="gs-split-section" id="campaigns">
-    <div class="gs-split-grid" id="campaignGrid">
-      <!-- Card 1: Everyday Seamless -->
-      <a href="#trending" class="gs-split-card" onclick="setTrendingFilter('women', null, event)">
-        <div class="gs-split-bg" style="background-image: url('assets/sanpham_test/everyday_seamless.jpg');"></div>
-        <div class="gs-split-gradient"></div>
-        <div class="gs-split-content">
-          <span class="gs-split-tag">BỘ SƯU TẬP NỮ</span>
-          <h2 class="gs-split-title">EVERYDAY SEAMLESS</h2>
-          <p class="gs-split-desc">
-            Sự kết hợp hoàn hảo giữa độ ôm nâng đỡ mềm mại và cảm giác nhẹ tựa làn da thứ hai cho mọi chuyển động.
-          </p>
-          <span class="gs-split-btn">MUA NGAY BỘ SƯU TẬP</span>
-        </div>
-      </a>
 
-      <!-- Card 2: Relay Performance -->
-      <a href="#trending" class="gs-split-card" onclick="setTrendingFilter('new', null, event)">
-        <div class="gs-split-bg" style="background-image: url('assets/sanpham_test/relay.jpg');"></div>
-        <div class="gs-split-gradient"></div>
-        <div class="gs-split-content">
-          <span class="gs-split-tag">HIỆU SUẤT ĐỈNH CAO</span>
-          <h2 class="gs-split-title">RELAY PERFORMANCE</h2>
-          <p class="gs-split-desc">
-            Vật liệu kháng khuẩn, công nghệ thoát ẩm siêu tốc cho những hiệp tập tạ nặng và cardio cường độ cao.
-          </p>
-          <span class="gs-split-btn">KHÁM PHÁ RELAY</span>
-        </div>
-      </a>
-    </div>
-  </section>
+
 
   <!-- 4. TRENDING PRODUCTS (SẢN PHẨM THỊNH HÀNH - PRESERVING EXACT CARD STYLE) -->
   <section class="gs-trending-section" id="trending">
@@ -218,12 +190,15 @@
   <!-- 5. BRAND INSPIRATION & COMMUNITY STATEMENT -->
   <section class="gs-statement-section">
     <div class="gs-statement-inner">
-      <div class="gs-statement-eyebrow">THƯƠNG HIỆU THỂ THAO ĐẲNG CẤP</div>
-      <h2 class="gs-statement-heading">BE A VISIONARY · WOMAN WAN</h2>
+      <div class="gs-statement-eyebrow">THƯƠNG HIỆU CLEAN FIT</div>
+      <h2 class="gs-statement-heading">WOMAN WAN</h2>
       <p class="gs-statement-text">
-        Woman Wan không chỉ tạo ra những bộ trang phục tập luyện, mà gửi gắm vào đó tinh thần kỷ luật, đam mê và nỗ lực
-        bứt phá giới hạn mỗi ngày. Dù là bước chân đầu tiên trên máy chạy hay mức tạ kỷ lục mới, chúng tôi luôn đồng
-        hành cùng bạn.
+        "WOMANWAN ra đời năm 2024, lấy cảm hứng từ phong cách American Casual – tự do, tối giản và có cá tính.
+        Chúng tôi tin rằng thời trang không nên tạo ra một khuôn mẫu cho tất cả mọi người. Cùng một sản phẩm, khi được
+        mặc bởi những con người khác nhau, sẽ tạo nên những phong cách hoàn toàn khác nhau.
+        WOMANWAN không định nghĩa bạn phải mặc như thế nào. Chúng tôi tạo ra những sản phẩm đủ đơn giản để bạn tự do
+        biến chúng thành phong cách của chính mình.
+        tôi cần câu chuyện thương hiệu hay và khớp"
       </p>
       <div class="gs-statement-stats">
         <div class="gs-stat-item">
@@ -245,6 +220,8 @@
       </div>
     </div>
   </section>
+
+
 
   <!-- 6. EDITORIAL & WORKOUT GUIDES (GYMSHARK BLOG & TRAINING HUB) -->
   <section class="gs-guides-section" id="guides">
@@ -417,7 +394,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 WOMAN WAN. Đây là trang demo minh họa, không liên kết với bất kỳ thương hiệu nào.</span>
+      <span>© 2026 WOMAN WAN. Đây là trang demo minh họa, đang thiết kế bởi đội ngũ.</span>
       <span>Điều khoản · Bảo mật</span>
     </div>
   </footer>
@@ -1078,18 +1055,123 @@
       }
     }
 
-    function toggleHeroSound() {
-      const vid = document.getElementById("heroVideo");
+    let userManuallyMuted = false;
+    const gestureEvents = ["click", "mouseup", "touchend", "keydown"];
+
+    function updateHeroSoundUI(isMuted) {
       const muteIcon = document.getElementById("heroMuteIcon");
       const soundIcon = document.getElementById("heroSoundIcon");
+      const btn = document.getElementById("heroSoundToggle");
+      const prompt = document.getElementById("heroSoundPrompt");
+      if (muteIcon) muteIcon.style.display = isMuted ? "block" : "none";
+      if (soundIcon) soundIcon.style.display = isMuted ? "none" : "block";
+      if (btn) btn.title = isMuted ? "Bật âm thanh" : "Tắt âm thanh";
+      if (prompt) {
+        if (!isMuted) {
+          prompt.style.opacity = "0";
+          prompt.style.pointerEvents = "none";
+          setTimeout(() => { prompt.style.display = "none"; }, 300);
+        } else {
+          prompt.style.display = "flex";
+          prompt.style.pointerEvents = "auto";
+          setTimeout(() => { prompt.style.opacity = "1"; }, 10);
+        }
+      }
+    }
+
+    function removeAudioActivationListeners() {
+      gestureEvents.forEach(evt => {
+        document.removeEventListener(evt, handleFirstUserActivation, true);
+        window.removeEventListener(evt, handleFirstUserActivation, true);
+      });
+    }
+
+    function handleFirstUserActivation(e) {
+      if (userManuallyMuted) {
+        removeAudioActivationListeners();
+        return;
+      }
+      unmuteHeroVideo(e);
+    }
+
+    function handleHeroClick(e) {
+      if (e.target && e.target.closest && e.target.closest('a, button, input, select')) return;
+      const vid = document.getElementById("heroVideo");
+      if (vid && vid.muted) {
+        unmuteHeroVideo(e);
+      }
+    }
+
+    function unmuteHeroVideo(e) {
+      if (e && e.target && e.target.closest && e.target.closest('#heroSoundToggle, #heroSoundPrompt')) {
+        if (e.stopPropagation) e.stopPropagation();
+      }
+      const vid = document.getElementById("heroVideo");
       if (!vid) return;
-      vid.muted = !vid.muted;
-      if (vid.muted) {
-        if (muteIcon) muteIcon.style.display = "block";
-        if (soundIcon) soundIcon.style.display = "none";
+
+      userManuallyMuted = false;
+      vid.muted = false;
+      vid.volume = 1.0;
+
+      const p = vid.play();
+      if (p !== undefined) {
+        p.then(() => {
+          updateHeroSoundUI(false);
+          removeAudioActivationListeners();
+        }).catch(err => {
+          console.warn("Chờ tương tác hợp lệ để phát tiếng:", err);
+          // Giữ video tiếp tục chạy mượt mà không bị treo
+          vid.muted = true;
+          vid.play().catch(() => { });
+          updateHeroSoundUI(true);
+        });
       } else {
-        if (muteIcon) muteIcon.style.display = "none";
-        if (soundIcon) soundIcon.style.display = "block";
+        updateHeroSoundUI(false);
+        removeAudioActivationListeners();
+      }
+    }
+
+    function initHeroVideoAudio() {
+      const vid = document.getElementById("heroVideo");
+      if (!vid) return;
+
+      vid.volume = 1.0;
+
+      // Đăng ký bộ lắng nghe tương tác người dùng ngay lập tức
+      gestureEvents.forEach(evt => {
+        document.addEventListener(evt, handleFirstUserActivation, { capture: true });
+        window.addEventListener(evt, handleFirstUserActivation, { capture: true });
+      });
+
+      // 1. Thử phát unmuted trực tiếp (nếu trình duyệt đã cho phép / MEI / cài đặt trang web)
+      vid.muted = false;
+      const playPromise = vid.play();
+
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          // Trình duyệt cho phép phát âm thanh trực tiếp
+          updateHeroSoundUI(false);
+          removeAudioActivationListeners();
+        }).catch(() => {
+          // Nếu chính sách bảo mật trình duyệt chặn tiếng khi mới mở trang:
+          // A. Phát tạm muted để video luôn chạy mượt mà ngay tức khắc
+          vid.muted = true;
+          vid.play().catch(() => { });
+          updateHeroSoundUI(true);
+        });
+      }
+    }
+
+    function toggleHeroSound(e) {
+      if (e && e.stopPropagation) e.stopPropagation();
+      const vid = document.getElementById("heroVideo");
+      if (!vid) return;
+      if (vid.muted) {
+        unmuteHeroVideo(e);
+      } else {
+        userManuallyMuted = true;
+        vid.muted = true;
+        updateHeroSoundUI(true);
       }
     }
 
@@ -1571,7 +1653,7 @@
         cartItemsList.innerHTML = `
           <div class="empty-cart-state">
             <p>Giỏ hàng của bạn đang trống</p>
-            <button class="load-more-btn" onclick="closeCart()" style="margin-top:12px;padding:10px 24px;border:1px solid #111;font-weight:700;border-radius:30px;">Khám phá ngay</button>
+            <button class="load-more-btn" onclick="closeCart()" style="margin-top:12px;padding:10px 24px;background:#111;color:#fff;font-weight:700;border:none;border-radius:0;">Khám phá ngay</button>
           </div>
         `;
       } else {
@@ -1681,7 +1763,7 @@
             <div class="cart-item-variant">${p.category || 'Thời trang thể thao'}</div>
             <div class="cart-item-bottom">
               <div class="cart-item-price">${formatVND(p.price || p.now || 0)}</div>
-              <button class="cross-add-btn" style="position:static;font-size:12px;font-weight:700;border:1px solid #111;padding:4px 12px;border-radius:4px;" onclick="handleAddToCart('${p.id}', false); switchDrawerTab('cart');">
+              <button class="cross-add-btn" style="position:static;font-size:12px;font-weight:700;background:#111;color:#fff;padding:5px 12px;border:none;border-radius:0;" onclick="handleAddToCart('${p.id}', false); switchDrawerTab('cart');">
                 + Thêm vào giỏ
               </button>
             </div>
@@ -1733,7 +1815,8 @@
       });
     }
 
-    // Khởi động dữ liệu
+    // Khởi động dữ liệu & âm thanh video
+    initHeroVideoAudio();
     initProducts();
   </script>
 </body>

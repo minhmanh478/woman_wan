@@ -1229,7 +1229,7 @@
         cartItemsList.innerHTML = `
           <div class="empty-cart-state">
             <p>Giỏ hàng của bạn đang trống</p>
-            <button class="load-more-btn" onclick="closeCart()" style="margin-top:12px;padding:10px 24px;border:1px solid #111;font-weight:700;border-radius:30px;">Khám phá ngay</button>
+            <button class="load-more-btn" onclick="closeCart()" style="margin-top:12px;padding:10px 24px;background:#111;color:#fff;font-weight:700;border:none;border-radius:0;">Khám phá ngay</button>
           </div>
         `;
       } else {
@@ -1339,7 +1339,7 @@
             <div class="cart-item-variant">${p.category || 'Thời trang thể thao'}</div>
             <div class="cart-item-bottom">
               <div class="cart-item-price">${formatVND(p.price || p.now || 0)}</div>
-              <button class="cross-add-btn" style="position:static;font-size:12px;font-weight:700;border:1px solid #111;padding:4px 12px;border-radius:4px;" onclick="handleAddToCart('${p.id}', false); switchDrawerTab('cart');">
+              <button class="cross-add-btn" style="position:static;font-size:12px;font-weight:700;background:#111;color:#fff;padding:5px 12px;border:none;border-radius:0;" onclick="handleAddToCart('${p.id}', false); switchDrawerTab('cart');">
                 + Thêm vào giỏ
               </button>
             </div>
