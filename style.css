@@ -1839,11 +1839,7 @@ footer {
 }
 
 .gs-hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.38) 45%, rgba(0, 0, 0, 0.05) 100%);
-  z-index: 1;
-  pointer-events: none;
+  display: none;
 }
 
 .gs-hero-inner {
@@ -1936,52 +1932,51 @@ footer {
   max-width: clamp(430px, 34vw, 610px);
   line-height: 1.5;
   margin-bottom: clamp(14px, 1.9vh, 24px);
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.75);
 }
 
 .gs-hero-actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: clamp(10px, 1vw, 16px);
+  gap: 16px;
 }
 
 .gs-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: clamp(12px, 1.1vh, 14.5px);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  padding: clamp(10px, 1.2vh, 15px) clamp(22px, 2vw, 36px);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(14px, 1.1vw, 15.5px);
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  padding: 13px 32px; /* <-- KÍCH THƯỚC NÚT TO/BÉ: 13px (trên-dưới) 32px (trái-phải) */
   border-radius: 0;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.2s ease;
   cursor: pointer;
   text-decoration: none;
-  border: none;
   outline: none;
+  box-sizing: border-box;
 }
 
 .gs-btn-white {
   background: #ffffff;
   color: #111111;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
-  border: none;
+  border: 1px solid #ffffff; /* <-- Độ dày viền nút trắng (đồng bộ với nút viền) */
 }
 
 .gs-btn-white:hover {
-  background: #f0f0f0;
+  background: #e6e6e6;
+  border-color: #e6e6e6;
+  color: #111111;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 .gs-btn-outline {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: transparent;
   color: #ffffff;
-  border: none;
+  border: 1px solid #ffffff; /* <====== CHỈNH ĐỘ DÀY LINE VIỀN TẠI ĐÂY (1px là mảnh nhất, 1.5px, 2px,...) ====== */
 }
 
 .gs-btn-outline:hover {
@@ -1993,11 +1988,13 @@ footer {
 .gs-btn-black {
   background: #111111;
   color: #ffffff;
-  border: none;
+  border: 2px solid #111111;
+  font-weight: 700;
 }
 
 .gs-btn-black:hover {
   background: #333333;
+  border-color: #333333;
   transform: translateY(-2px);
 }
 
@@ -2313,16 +2310,22 @@ footer {
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: #999999;
-  margin-bottom: 14px;
+  margin-bottom: 20px;
 }
 
 .gs-statement-heading {
-  font-size: clamp(28px, 4.2vw, 44px);
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: -0.5px;
-  line-height: 1.2;
-  margin-bottom: 18px;
+  margin: 0 auto 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gs-statement-logo {
+  width: clamp(260px, 42vw, 450px);
+  height: auto;
+  display: block;
+  filter: brightness(0) invert(1); /* Chuyển chữ logo sang màu trắng tinh khiết */
+  margin: 0 auto;
 }
 
 .gs-statement-text {
@@ -2598,9 +2601,8 @@ footer {
   }
 
   .gs-btn {
-    padding: 10px 20px;
-    font-size: 11.5px;
-    border: none;
+    padding: 10px 22px;
+    font-size: 13px;
   }
 
   .gs-split-grid {
@@ -2649,9 +2651,8 @@ footer {
 
   .gs-btn {
     width: 100%;
-    padding: 10px 16px;
-    font-size: 11.5px;
-    border: none;
+    padding: 11px 18px;
+    font-size: 13px;
   }
 
   .gs-split-grid {
