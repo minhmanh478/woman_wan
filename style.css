@@ -699,20 +699,7 @@ nav.primary li.active a {
 }
 
 .swatch-row {
-  position: absolute;
-  bottom: 12px;
-  left: 12px;
-  display: flex;
-  gap: 6px;
-  z-index: 10;
-}
-
-.swatch-row .dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  border: 1.5px solid #fff;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+  display: none !important;
 }
 
 .card-info {
@@ -1853,13 +1840,16 @@ footer {
 
 .gs-hero-inner .logo {
   width: auto;
-  margin-bottom: clamp(20px, 1.3vh, 16px);
+  margin-bottom: 14px;
   display: inline-flex;
 }
 
 .gs-hero-inner .logo img {
-  height: clamp(30px, 3.4vh, 48px);
-  width: auto;
+  width: 380px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
   filter: brightness(0) invert(1) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
 }
 
@@ -1926,12 +1916,12 @@ footer {
 }
 
 .gs-hero-sub {
-  font-size: clamp(13px, 1.15vh, 15px);
+  font-size: 14.5px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.95);
-  max-width: clamp(430px, 34vw, 610px);
+  max-width: 520px;
   line-height: 1.5;
-  margin-bottom: clamp(14px, 1.9vh, 24px);
+  margin-bottom: 20px;
   text-shadow: 0 1px 10px rgba(0, 0, 0, 0.75);
 }
 
@@ -1951,7 +1941,8 @@ footer {
   font-weight: 500;
   text-transform: none;
   letter-spacing: 0;
-  padding: 13px 32px; /* <-- KÍCH THƯỚC NÚT TO/BÉ: 13px (trên-dưới) 32px (trái-phải) */
+  padding: 13px 32px;
+  /* <-- KÍCH THƯỚC NÚT TO/BÉ: 13px (trên-dưới) 32px (trái-phải) */
   border-radius: 0;
   transition: all 0.2s ease;
   cursor: pointer;
@@ -1963,7 +1954,8 @@ footer {
 .gs-btn-white {
   background: #ffffff;
   color: #111111;
-  border: 1px solid #ffffff; /* <-- Độ dày viền nút trắng (đồng bộ với nút viền) */
+  border: 1px solid #ffffff;
+  /* <-- Độ dày viền nút trắng (đồng bộ với nút viền) */
 }
 
 .gs-btn-white:hover {
@@ -1976,7 +1968,8 @@ footer {
 .gs-btn-outline {
   background: transparent;
   color: #ffffff;
-  border: 1px solid #ffffff; /* <====== CHỈNH ĐỘ DÀY LINE VIỀN TẠI ĐÂY (1px là mảnh nhất, 1.5px, 2px,...) ====== */
+  border: 1px solid #ffffff;
+  /* <====== CHỈNH ĐỘ DÀY LINE VIỀN TẠI ĐÂY (1px là mảnh nhất, 1.5px, 2px,...) ====== */
 }
 
 .gs-btn-outline:hover {
@@ -2321,10 +2314,11 @@ footer {
 }
 
 .gs-statement-logo {
-  width: clamp(260px, 42vw, 450px);
+  width: 350px;
+  max-width: 100%;
   height: auto;
   display: block;
-  filter: brightness(0) invert(1); /* Chuyển chữ logo sang màu trắng tinh khiết */
+  filter: brightness(0) invert(1);
   margin: 0 auto;
 }
 
@@ -2589,9 +2583,6 @@ footer {
     padding: 0 24px 28px;
   }
 
-  .gs-hero-inner .logo img {
-    height: 26px;
-  }
 
   .gs-hero-sub {
     font-size: 12px;
@@ -2633,9 +2624,6 @@ footer {
     padding: 0 16px 20px;
   }
 
-  .gs-hero-inner .logo img {
-    height: 21px;
-  }
 
   .gs-hero-sub {
     font-size: 11px;
