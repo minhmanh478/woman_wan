@@ -45,7 +45,7 @@
   </header>
 
   <!-- 1. HERO SHOWCASE (GYMSHARK HERO BANNER WITH LIVE INTRO VIDEO) -->
-  <section class="gs-hero" id="hero" onclick="handleHeroClick(event)">
+  <section class="gs-hero" id="hero">
     <video class="gs-hero-video" id="heroVideo" autoplay loop muted playsinline preload="auto">
       <source src="assets/video/intro.mp4" type="video/mp4">
       Trình duyệt của bạn không hỗ trợ phát video HTML5.
@@ -64,16 +64,6 @@
         <a href="#trending" class="gs-btn gs-btn-outline" onclick="setTrendingFilter('men', null, event)">MUA ĐỒ NAM</a>
       </div>
     </div>
-    <div class="gs-hero-sound-prompt" id="heroSoundPrompt" onclick="unmuteHeroVideo(event)" role="button"
-      aria-label="Bật âm thanh" title="Bấm để bật âm thanh sôi động">
-      <div class="gs-sound-bars">
-        <span class="bar bar-1"></span>
-        <span class="bar bar-2"></span>
-        <span class="bar bar-3"></span>
-        <span class="bar bar-4"></span>
-      </div>
-      <span>BẬT ÂM THANH SÔI ĐỘNG</span>
-    </div>
     <div class="gs-hero-controls">
       <button class="gs-hero-ctrl-btn" id="heroPlayToggle" onclick="toggleHeroPlay()" aria-label="Tạm dừng/Phát video"
         title="Tạm dừng/Phát video">
@@ -87,14 +77,14 @@
       </button>
       <button class="gs-hero-ctrl-btn" id="heroSoundToggle" onclick="toggleHeroSound()" aria-label="Bật/Tắt âm thanh"
         title="Bật âm thanh">
-        <svg id="heroMuteIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg id="heroMuteIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-          <line x1="23" y1="9" x2="17" y2="15"></line>
-          <line x1="17" y1="9" x2="23" y2="15"></line>
+          <line x1="22" y1="9" x2="16" y2="15"></line>
+          <line x1="16" y1="9" x2="22" y2="15"></line>
         </svg>
-        <svg id="heroSoundIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+        <svg id="heroSoundIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
           <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
           <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
         </svg>
@@ -1055,80 +1045,13 @@
       }
     }
 
-    let userManuallyMuted = false;
-    const gestureEvents = ["click", "mouseup", "touchend", "keydown"];
-
     function updateHeroSoundUI(isMuted) {
       const muteIcon = document.getElementById("heroMuteIcon");
       const soundIcon = document.getElementById("heroSoundIcon");
       const btn = document.getElementById("heroSoundToggle");
-      const prompt = document.getElementById("heroSoundPrompt");
       if (muteIcon) muteIcon.style.display = isMuted ? "block" : "none";
       if (soundIcon) soundIcon.style.display = isMuted ? "none" : "block";
       if (btn) btn.title = isMuted ? "Bật âm thanh" : "Tắt âm thanh";
-      if (prompt) {
-        if (!isMuted) {
-          prompt.style.opacity = "0";
-          prompt.style.pointerEvents = "none";
-          setTimeout(() => { prompt.style.display = "none"; }, 300);
-        } else {
-          prompt.style.display = "flex";
-          prompt.style.pointerEvents = "auto";
-          setTimeout(() => { prompt.style.opacity = "1"; }, 10);
-        }
-      }
-    }
-
-    function removeAudioActivationListeners() {
-      gestureEvents.forEach(evt => {
-        document.removeEventListener(evt, handleFirstUserActivation, true);
-        window.removeEventListener(evt, handleFirstUserActivation, true);
-      });
-    }
-
-    function handleFirstUserActivation(e) {
-      if (userManuallyMuted) {
-        removeAudioActivationListeners();
-        return;
-      }
-      unmuteHeroVideo(e);
-    }
-
-    function handleHeroClick(e) {
-      if (e.target && e.target.closest && e.target.closest('a, button, input, select')) return;
-      const vid = document.getElementById("heroVideo");
-      if (vid && vid.muted) {
-        unmuteHeroVideo(e);
-      }
-    }
-
-    function unmuteHeroVideo(e) {
-      if (e && e.target && e.target.closest && e.target.closest('#heroSoundToggle, #heroSoundPrompt')) {
-        if (e.stopPropagation) e.stopPropagation();
-      }
-      const vid = document.getElementById("heroVideo");
-      if (!vid) return;
-
-      userManuallyMuted = false;
-      vid.muted = false;
-      vid.volume = 1.0;
-
-      const p = vid.play();
-      if (p !== undefined) {
-        p.then(() => {
-          updateHeroSoundUI(false);
-          removeAudioActivationListeners();
-        }).catch(err => {
-          console.warn("Chờ tương tác hợp lệ để phát tiếng:", err);
-          // Giữ video tiếp tục chạy mượt mà không bị treo
-          vid.muted = true;
-          vid.play().catch(() => { });
-          updateHeroSoundUI(true);
-        });
-      } else {
-        updateHeroSoundUI(false);
-        removeAudioActivationListeners();
-      }
     }
 
     function initHeroVideoAudio() {
@@ -1136,25 +1059,13 @@
       if (!vid) return;
 
       vid.volume = 1.0;
-
-      // Đăng ký bộ lắng nghe tương tác người dùng ngay lập tức
-      gestureEvents.forEach(evt => {
-        document.addEventListener(evt, handleFirstUserActivation, { capture: true });
-        window.addEventListener(evt, handleFirstUserActivation, { capture: true });
-      });
-
-      // 1. Thử phát unmuted trực tiếp (nếu trình duyệt đã cho phép / MEI / cài đặt trang web)
       vid.muted = false;
-      const playPromise = vid.play();
 
-      if (playPromise !== undefined) {
-        playPromise.then(() => {
-          // Trình duyệt cho phép phát âm thanh trực tiếp
+      const p = vid.play();
+      if (p !== undefined) {
+        p.then(() => {
           updateHeroSoundUI(false);
-          removeAudioActivationListeners();
         }).catch(() => {
-          // Nếu chính sách bảo mật trình duyệt chặn tiếng khi mới mở trang:
-          // A. Phát tạm muted để video luôn chạy mượt mà ngay tức khắc
           vid.muted = true;
           vid.play().catch(() => { });
           updateHeroSoundUI(true);
@@ -1167,9 +1078,11 @@
       const vid = document.getElementById("heroVideo");
       if (!vid) return;
       if (vid.muted) {
-        unmuteHeroVideo(e);
+        vid.muted = false;
+        vid.volume = 1.0;
+        vid.play().catch(() => { });
+        updateHeroSoundUI(false);
       } else {
-        userManuallyMuted = true;
         vid.muted = true;
         updateHeroSoundUI(true);
       }
