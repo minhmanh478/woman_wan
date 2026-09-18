@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanh toán đơn hàng - WOMAN WAN</title>
+  <meta name="description" content="Thanh toán an toàn, nhanh chóng các sản phẩm thời trang Clean Fit tại WOMAN WAN.">
+  <link rel="stylesheet" href="../style.css?v=gs_mobile_2">
+  <link rel="stylesheet" href="../css/components/page-transition.css?v=gs_mobile_2">
+  <link rel="stylesheet" href="checkout.css?v=ww_brand_1">
+  <script src="../components/header-widget.js?v=gs_mobile_2" defer></script>
+  <script src="../components/footer-widget.js?v=gs_mobile_2" defer></script>
+  <script src="../components/page-transition-widget.js?v=gs_mobile_2" defer></script>
+</head>
+
+<body class="checkout-page-body">
+  <womanwan-header base-path="../"></womanwan-header>
+  <womanwan-page-transition base-path="../"></womanwan-page-transition>
+
+  <main class="checkout-page-container">
+
+    <!-- Top Breadcrumb & Clean Header -->
+    <div class="checkout-top-bar">
+      <nav class="checkout-breadcrumb" aria-label="Đường dẫn">
+        <a href="../index.html">Trang chủ</a>
+        <span class="sep">›</span>
+        <a href="../shop.html">Giỏ hàng</a>
+        <span class="sep">›</span>
+        <span class="current">Thanh toán</span>
+      </nav>
+
+      <div class="checkout-header-main">
+        <h1 class="checkout-title">THANH TOÁN ĐƠN HÀNG</h1>
+        <p class="checkout-header-summary" id="checkoutHeaderSummary">Đang tải thông tin đơn hàng...</p>
+      </div>
+
+      <!-- Checkout Process Indicator (Phong cách Clean Fit WOMAN WAN) -->
+      <div class="checkout-stepper">
+        <div class="step-item completed">
+          <span class="step-num">01</span>
+          <span class="step-label">Giỏ hàng</span>
+        </div>
+        <div class="step-line active"></div>
+        <div class="step-item active">
+          <span class="step-num">02</span>
+          <span class="step-label">Giao hàng & Thanh toán</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item">
+          <span class="step-num">03</span>
+          <span class="step-label">Hoàn tất</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main 2-Column Grid -->
+    <div class="checkout-wrapper">
+
+      <!-- ================= LEFT COLUMN: MAIN FORM ================= -->
+      <div class="checkout-left">
+
+        <!-- BƯỚC 1: THÔNG TIN GIAO HÀNG -->
+        <section class="checkout-card" id="stepShipping">
+          <div class="card-header">
+            <div class="card-header-left">
+              <span class="step-badge">1</span>
+              <h2 class="card-title">THÔNG TIN GIAO HÀNG</h2>
+            </div>
+            <div class="card-header-right">
+              <span class="contact-email-tag" id="contactEmailDisplay" style="display: none;"></span>
+            </div>
+          </div>
+
+          <form id="checkoutShippingForm" class="checkout-form" onsubmit="return false;">
+
+            <!-- Họ tên & Số điện thoại -->
+            <div class="form-row">
+              <div class="form-group half">
+                <label class="form-label" for="shippingFullName">Họ và tên người nhận <span class="req">*</span></label>
+                <input type="text" class="form-control" id="shippingFullName" placeholder="Ví dụ: Nguyễn Văn A"
+                  required>
+              </div>
+              <div class="form-group half">
+                <label class="form-label" for="shippingPhone">Số điện thoại liên hệ <span class="req">*</span></label>
+                <input type="tel" class="form-control" id="shippingPhone" placeholder="Ví dụ: 0912 345 678" required>
+              </div>
+            </div>
+
+            <!-- Email nhận thông tin -->
+            <div class="form-group">
+              <label class="form-label" for="shippingEmail">Email nhận xác nhận đơn hàng <span
+                  class="req">*</span></label>
+              <input type="email" class="form-control" id="shippingEmail" placeholder="Ví dụ: email@gmail.com" required>
+            </div>
+
+            <!-- Tỉnh/Thành & Quận/Huyện -->
+            <div class="form-row">
+              <div class="form-group half">
+                <label class="form-label" for="shippingProvince">Tỉnh / Thành phố <span class="req">*</span></label>
+                <select class="form-control custom-select" id="shippingProvince" required>
+                  <option value="" disabled selected>Chọn Tỉnh/Thành phố</option>
+                </select>
+              </div>
+              <div class="form-group half">
+                <label class="form-label" for="shippingDistrict">Quận / Huyện <span class="req">*</span></label>
+                <select class="form-control custom-select" id="shippingDistrict" required disabled>
+                  <option value="" disabled selected>Chọn Quận/Huyện</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Phường/Xã & Quốc gia -->
+            <div class="form-row">
+              <div class="form-group half">
+                <label class="form-label" for="shippingWard">Phường / Xã <span class="req">*</span></label>
+                <select class="form-control custom-select" id="shippingWard" required disabled>
+                  <option value="" disabled selected>Chọn Phường/Xã</option>
+                </select>
+              </div>
+              <div class="form-group half">
+                <label class="form-label">Quốc gia</label>
+                <div class="static-country-field">
+                  <span class="flag-icon">🇻🇳</span>
+                  <span class="country-name">Việt Nam</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Địa chỉ cụ thể -->
+            <div class="form-group">
+              <label class="form-label" for="shippingAddress">Địa chỉ giao hàng cụ thể <span
+                  class="req">*</span></label>
+              <input type="text" class="form-control" id="shippingAddress"
+                placeholder="Số nhà, tên đường, số căn hộ / tòa nhà..." required>
+            </div>
+
+            <!-- Ghi chú cho shipper -->
+            <div class="form-group">
+              <label class="form-label" for="orderNotes">Ghi chú giao hàng (Tùy chọn)</label>
+              <input type="text" class="form-control" id="orderNotes"
+                placeholder="Ví dụ: Giao giờ hành chính, gọi trước khi giao 15 phút...">
+            </div>
+
+            <!-- Lưu địa chỉ -->
+            <div class="checkbox-line">
+              <label class="custom-check-wrap">
+                <input type="checkbox" id="saveAddressCheck" checked>
+                <span class="check-box"></span>
+                <span class="check-label">Lưu địa chỉ giao hàng này cho lần mua sau</span>
+              </label>
+            </div>
+
+          </form>
+        </section>
+
+
+        <!-- BƯỚC 2: PHƯƠNG THỨC VẬN CHUYỂN -->
+        <section class="checkout-card" id="stepDelivery">
+          <div class="card-header">
+            <div class="card-header-left">
+              <span class="step-badge">2</span>
+              <h2 class="card-title">PHƯƠNG THỨC VẬN CHUYỂN</h2>
+            </div>
+          </div>
+
+          <div class="shipping-methods-list">
+            <!-- Tùy chọn 1: Tiêu chuẩn -->
+            <label class="shipping-method-option active" for="shipStandard">
+              <div class="option-left">
+                <input type="radio" name="shippingMethod" id="shipStandard" value="standard" checked>
+                <span class="radio-custom"></span>
+                <div class="method-info">
+                  <div class="method-title-row">
+                    <span class="method-name">Giao hàng Tiêu Chuẩn toàn quốc</span>
+                    <span class="badge-pill clean">Đồng giá</span>
+                  </div>
+                  <p class="method-desc">Dự kiến nhận hàng sau 2 - 3 ngày làm việc (Đồng kiểm khi nhận)</p>
+                </div>
+              </div>
+              <div class="option-price">20.000₫</div>
+            </label>
+
+            <!-- Tùy chọn 2: Hỏa tốc -->
+            <label class="shipping-method-option" for="shipExpress"
+              style="opacity: 0.6; cursor: not-allowed; pointer-events: none;">
+              <div class="option-left">
+                <input type="radio" name="shippingMethod" id="shipExpress" value="express" disabled>
+                <span class="radio-custom"></span>
+                <div class="method-info">
+                  <div class="method-title-row">
+                    <span class="method-name">Giao hàng Hỏa Tốc 2H (Nội thành)</span>
+                    <span class="badge-pill" style="background: #f0f0f0; color: #666; border-color: #ddd;">Đang bảo
+                      trì</span>
+                  </div>
+                  <p class="method-desc">Giao ngay trong 2 giờ tại khu vực TP. Hồ Chí Minh & Hà Nội</p>
+                </div>
+              </div>
+              <div class="option-price">-</div>
+            </label>
+          </div>
+        </section>
+
+
+        <!-- BƯỚC 3: PHƯƠNG THỨC THANH TOÁN -->
+        <section class="checkout-card" id="stepPayment">
+          <div class="card-header">
+            <div class="card-header-left">
+              <span class="step-badge">3</span>
+              <h2 class="card-title">PHƯƠNG THỨC THANH TOÁN</h2>
+            </div>
+            <div class="secure-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              <span>Bảo mật SSL 256-bit</span>
+            </div>
+          </div>
+
+          <div class="payment-methods-list">
+
+            <!-- COD -->
+            <label class="payment-method-option active" for="payCod">
+              <div class="option-header-row">
+                <div class="option-left">
+                  <input type="radio" name="paymentMethod" id="payCod" value="cod" checked>
+                  <span class="radio-custom"></span>
+                  <div class="method-info">
+                    <span class="method-name">Thanh toán khi nhận hàng (COD)</span>
+                    <p class="method-desc">Kiểm tra sản phẩm tận tay, thanh toán tiền mặt trực tiếp cho nhân viên giao
+                      hàng</p>
+                  </div>
+                </div>
+                <div class="method-icon-box">
+                  <span class="cod-tag">TIỀN MẶT</span>
+                </div>
+              </div>
+            </label>
+
+            <!-- Chuyển khoản VietQR -->
+            <label class="payment-method-option" for="payQr">
+              <div class="option-header-row">
+                <div class="option-left">
+                  <input type="radio" name="paymentMethod" id="payQr" value="vietqr">
+                  <span class="radio-custom"></span>
+                  <div class="method-info">
+                    <span class="method-name">Chuyển khoản qua mã QR (VietQR / Mobile Banking)</span>
+                    <p class="method-desc">Quét mã QR tự động điền số tiền và nội dung, xác nhận đơn tức thì</p>
+                  </div>
+                </div>
+                <div class="method-icon-box qr-badge">
+                  <span>VIETQR</span>
+                </div>
+              </div>
+            </label>
+
+            <!-- Ví MoMo / ZaloPay -->
+            <label class="payment-method-option" for="payEwallet">
+              <div class="option-header-row">
+                <div class="option-left">
+                  <input type="radio" name="paymentMethod" id="payEwallet" value="ewallet">
+                  <span class="radio-custom"></span>
+                  <div class="method-info">
+                    <span class="method-name">Ví điện tử MoMo / ZaloPay</span>
+                    <p class="method-desc">Liên kết ví thanh toán siêu tốc chỉ với 1 chạm</p>
+                  </div>
+                </div>
+                <div class="method-icon-box ewallet-badges" style="display: flex; gap: 8px; align-items: center;">
+                  <img src="../assets/bank/icon_momo.png" alt="MoMo"
+                    style="height: 24px; width: auto; border-radius: 4px; object-fit: contain;">
+                  <img src="../assets/bank/icon_zalo.png" alt="ZaloPay"
+                    style="height: 24px; width: auto; border-radius: 4px; object-fit: contain;">
+                </div>
+              </div>
+            </label>
+
+          </div>
+        </section>
+
+
+        <!-- BƯỚC 4: HÓA ĐƠN GTGT (VAT) -->
+        <!-- <section class="checkout-card vat-card-section">
+          <div class="checkbox-line vat-toggle-line">
+            <label class="custom-check-wrap" style="opacity: 0.6; cursor: not-allowed; pointer-events: none;">
+              <input type="checkbox" id="vatInvoiceCheck" disabled>
+              <span class="check-box"></span>
+              <span class="check-label font-bold">Yêu cầu xuất hóa đơn điện tử GTGT (VAT) cho doanh nghiệp / cá
+                nhân <span class="badge-pill" style="background: #f0f0f0; color: #666; border-color: #ddd; margin-left: 8px; font-weight: 500;">Đang bảo trì</span></span>
+            </label>
+          </div>
+
+          <div class="vat-expand-form hidden" id="vatExpandForm">
+            <div class="vat-alert-info">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span>Hóa đơn điện tử hợp lệ sẽ được gửi tự động qua email sau khi đơn hàng giao thành công.</span>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group half">
+                <label class="form-label">Loại đối tượng xuất</label>
+                <select class="form-control custom-select" id="vatCustomerType">
+                  <option value="company">Công ty / Doanh nghiệp</option>
+                  <option value="personal">Cá nhân</option>
+                </select>
+              </div>
+              <div class="form-group half">
+                <label class="form-label">Mã số thuế <span class="req">*</span></label>
+                <input type="text" class="form-control" id="vatTaxCode" placeholder="Ví dụ: 0312345678">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Tên đầy đủ công ty / đơn vị <span class="req">*</span></label>
+              <input type="text" class="form-control" id="vatCompanyName" placeholder="Công ty TNHH / Cổ phần...">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Địa chỉ trụ sở theo đăng ký kinh doanh</label>
+              <input type="text" class="form-control" id="vatCompanyAddress"
+                placeholder="Địa chỉ ghi trên giấy phép ĐKKD...">
+            </div>
+          </div>
+        </section> -->
+
+
+        <!-- ĐIỀU KHOẢN & NÚT HOÀN TẤT ĐẶT HÀNG -->
+        <div class="checkout-footer-action">
+          <div class="checkbox-line terms-line">
+            <label class="custom-check-wrap">
+              <input type="checkbox" id="termsAgreementCheck" checked required>
+              <span class="check-box"></span>
+              <span class="check-label">Tôi đồng ý với <a href="#" target="_blank" class="terms-link">Điều khoản mua
+                  hàng</a> và <a href="#" target="_blank" class="terms-link">Chính sách đổi trả trong 30 ngày</a> của
+                WOMAN WAN.</span>
+            </label>
+          </div>
+
+          <div class="submit-button-container">
+            <button type="button" class="btn-submit-order" id="btnSubmitOrder" aria-label="Đặt hàng ngay">
+              <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M15.5999 8.3998V5.39981C15.5999 3.41158 13.9881 1.7998 11.9999 1.7998C10.0117 1.7998 8.3999 3.41158 8.3999 5.3998V8.3998M4.72717 22.1998H19.2726C20.5579 22.1998 21.5999 21.1772 21.5999 19.9158L20.109 7.79977C20.109 6.53835 19.067 5.51576 17.7817 5.51576H5.92717C4.64186 5.51576 3.5999 6.53835 3.5999 7.79977L2.3999 19.9158C2.3999 21.1772 3.44186 22.1998 4.72717 22.1998Z">
+                </path>
+              </svg>
+              <span>ĐẶT HÀNG NGAY</span>
+              <span class="btn-dot">•</span>
+              <span class="btn-total-val" id="btnOrderTotal">1.617.000₫</span>
+            </button>
+            <p class="btn-guarantee-hint">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              <span>Bảo mật 100% • Đồng kiểm khi nhận hàng • Đổi trả 30 ngày</span>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ================= RIGHT COLUMN: ORDER SUMMARY ================= -->
+      <aside class="checkout-right">
+        <div class="summary-card-sticky">
+
+          <!-- Summary Header -->
+          <div class="summary-top">
+            <div class="summary-title-wrap">
+              <h2 class="summary-heading">ĐƠN HÀNG CỦA BẠN</h2>
+              <span class="summary-items-badge" id="summaryItemsBadge">3 sản phẩm</span>
+            </div>
+            <a href="../shop.html" class="summary-edit-btn" title="Chỉnh sửa giỏ hàng">Chỉnh sửa</a>
+          </div>
+
+          <!-- Product Items List -->
+          <div class="summary-items-scroll" id="checkoutItemsList">
+            <!-- Populated dynamically by checkout.js -->
+          </div>
+
+          <!-- Voucher Promo Code -->
+          <div class="summary-promo-box">
+            <div class="promo-input-group">
+              <input type="text" class="promo-input" id="promoInput" placeholder="Nhập mã ưu đãi..." autocomplete="off">
+              <button type="button" class="promo-apply-btn" id="promoApplyBtn">Áp dụng</button>
+            </div>
+            <!-- Quick Voucher Chips gợi ý phong cách WOMAN WAN -->
+            <div class="promo-suggestions">
+              <button type="button" class="voucher-chip" data-code="WOMANWAN">WOMANWAN (-10%)</button>
+              <button type="button" class="voucher-chip" data-code="FREESHIP">FREESHIP</button>
+            </div>
+            <div class="promo-feedback-msg" id="promoFeedbackMsg"></div>
+          </div>
+
+          <!-- Price Calculation Lines -->
+          <div class="summary-financials">
+            <div class="fin-row">
+              <span class="fin-label">Tạm tính:</span>
+              <span class="fin-val" id="summarySubtotal">1.617.000₫</span>
+            </div>
+            <div class="fin-row">
+              <span class="fin-label">Phí vận chuyển:</span>
+              <span class="fin-val" id="summaryShippingFee">Miễn phí</span>
+            </div>
+            <div class="fin-row discount-row hidden" id="summaryDiscountRow">
+              <span class="fin-label">Mã giảm giá (<span id="discountCodeName">WOMANWAN</span>):</span>
+              <span class="fin-val discount-val" id="summaryDiscountVal">-161.700₫</span>
+            </div>
+            <div class="fin-divider"></div>
+            <div class="fin-row total-row">
+              <div class="total-col">
+                <span class="fin-total-label">TỔNG CỘNG</span>
+                <span class="fin-tax-note">(Đã bao gồm thuế GTGT 8%)</span>
+              </div>
+              <span class="fin-total-val" id="summaryTotal">1.617.000₫</span>
+            </div>
+          </div>
+
+          <!-- Brand Commitments / Trust Box (WOMAN WAN Clean Fit Style) -->
+          <div class="brand-commitments-box">
+            <div class="commitment-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              <span>100% Sản phẩm chính hãng WOMAN WAN</span>
+            </div>
+            <div class="commitment-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+              </svg>
+              <span>Miễn phí đổi trả trong 30 ngày nếu không vừa</span>
+            </div>
+            <div class="commitment-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+              <span>Đồng kiểm & thử đồ trước khi thanh toán</span>
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- ================= SUCCESS CONFIRMATION MODAL ================= -->
+  <div class="order-success-modal-backdrop" id="orderSuccessModal" aria-hidden="true">
+    <div class="order-success-dialog">
+      <div class="success-icon-circle">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      <h3 class="success-dialog-title">ĐẶT HÀNG THÀNH CÔNG!</h3>
+      <p class="success-dialog-subtitle">Cảm ơn bạn đã lựa chọn phong cách Clean Fit của WOMAN WAN.</p>
+
+      <div class="order-info-card">
+        <div class="order-info-line">
+          <span>Mã đơn hàng:</span>
+          <strong id="modalOrderCode">WW-928471</strong>
+        </div>
+        <div class="order-info-line">
+          <span>Người nhận:</span>
+          <strong id="modalCustomerName">Lê Minh Mạnh</strong>
+        </div>
+        <div class="order-info-line">
+          <span>Tổng thanh toán:</span>
+          <strong class="highlight-total" id="modalFinalTotal">1.617.000₫</strong>
+        </div>
+        <div class="order-info-line">
+          <span>Phương thức:</span>
+          <strong id="modalPaymentMethod">Thanh toán khi nhận hàng (COD)</strong>
+        </div>
+      </div>
+
+      <p class="order-confirm-hint">Thông báo xác nhận chi tiết đã được gửi tới email của bạn. Chuyên viên chăm sóc
+        khách hàng WOMAN WAN sẽ sớm liên hệ xác nhận lộ trình giao hàng.</p>
+
+      <div class="modal-actions">
+        <a href="../shop.html" class="btn-continue-shopping">Tiếp tục khám phá</a>
+        <a href="../index.html" class="btn-home-return">Về trang chủ</a>
+      </div>
+    </div>
+  </div>
+
+  <womanwan-footer base-path="../"></womanwan-footer>
+
+  <script src="checkout.js?v=ww_brand_1"></script>
+</body>
+
+</html>

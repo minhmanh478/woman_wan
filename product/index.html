@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi tiết sản phẩm - WOMAN WAN</title>
+  <meta name="description" content="Chi tiết sản phẩm thời trang thể thao phong cách Clean Fit cao cấp của WOMAN WAN.">
+  <link rel="stylesheet" href="../style.css?v=gs_mobile_2">
+  <link rel="stylesheet" href="product.css?v=gs_mobile_2">
+  <link rel="stylesheet" href="../css/components/page-transition.css?v=gs_mobile_2">
+  <script src="../components/footer-widget.js?v=gs_mobile_2" defer></script>
+  <script src="../components/header-widget.js?v=gs_mobile_2" defer></script>
+  <script src="../components/page-transition-widget.js?v=gs_mobile_2" defer></script>
+</head>
+
+<body>
+  <!-- REUSABLE HEADER & MEGA NAV WIDGET (DATA-DRIVEN FROM navigation.json) -->
+  <womanwan-header></womanwan-header>
+
+  <!-- PAGE TRANSITION WIDGET -->
+  <womanwan-page-transition></womanwan-page-transition>
+
+  <!-- PRODUCT DETAIL PAGE CONTAINER -->
+  <main class="pdp-page-container">
+    <div class="pdp-wrapper">
+
+      <!-- LEFT COLUMN: BREADCRUMB & 2x2 GALLERY -->
+      <div class="pdp-left">
+        <nav class="pdp-breadcrumb" id="pdpBreadcrumb" aria-label="Đường dẫn"></nav>
+
+        <!-- 2x2 Grid of 4 large images (wrapped) -->
+        <div class="pdp-gallery-container">
+          <div class="pdp-gallery-grid" id="pdpGalleryGrid">
+            <!-- Dynamically populated from product.json -->
+          </div>
+
+          <!-- "Hiện thêm" Button -->
+          <div class="pdp-expand-wrap">
+            <button class="pdp-expand-btn" id="pdpExpandBtn" onclick="handleExpandGallery()">
+              <span>Hiện thêm chi tiết</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ACCORDION SECTION: ĐÁNH GIÁ, MÔ TẢ & THÔNG TIN CHI TIẾT -->
+        <section class="pdp-details-accordion-container" id="pdpDetailsSection">
+          <div class="pdp-details-accordion-list">
+
+
+            <!-- Accordion Item 2: Mô tả sản phẩm -->
+            <div class="pdp-details-item">
+              <button class="pdp-details-header" onclick="toggleDetailsItem(this)">
+                <span>Mô tả</span>
+                <span class="pdp-details-header-right">
+                  <svg class="pdp-details-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </button>
+              <div class="pdp-details-content">
+                <div class="pdp-desc-grid">
+                  <div class="pdp-desc-main">
+                    <h3 id="pdpDescTitle">Áo thun tăng chiều cao Clean Fit - WOMAN WAN cổ tròn cotton Menswear</h3>
+                    <p class="pdp-desc-lead" id="pdpDescLead"></p>
+                    <div class="pdp-desc-body" id="pdpDescBody"></div>
+                  </div>
+                  <div class="pdp-desc-highlights">
+                    <h4>Đặc điểm nổi bật</h4>
+                    <ul id="pdpDescHighlightsList"></ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Accordion Item 3: Thông tin chi tiết -->
+            <div class="pdp-details-item">
+              <button class="pdp-details-header" onclick="toggleDetailsItem(this)">
+                <span>Thông tin chi tiết</span>
+                <span class="pdp-details-header-right">
+                  <svg class="pdp-details-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </button>
+              <div class="pdp-details-content">
+                <table class="pdp-specs-table">
+                  <tbody id="pdpSpecsTableBody"></tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+
+      <!-- RIGHT COLUMN: STICKY BUY & DETAILS PANEL -->
+      <div class="pdp-right">
+
+        <!-- Category & Rating -->
+        <div class="pdp-meta-row">
+          <span class="pdp-category-text" id="pdpCategoryText">Nam • Originals</span>
+          <a href="#pdpTabsSection" class="pdp-reviews-box" id="pdpRatingText">
+            4.7 <span class="pdp-stars">★★★★★</span> <span class="pdp-reviews-count">(137)</span>
+          </a>
+        </div>
+
+        <!-- Badges -->
+        <div class="pdp-badges-row" id="pdpBadgesRow">
+          <span class="pdp-badge-pill new-tag">MỚI</span>
+          <span class="pdp-badge-pill sale-tag">GIẢM THÊM 25% TẠI GIỎ</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="pdp-title" id="pdpTitle">Áo thun tăng chiều cao Clean Fit - WOMAN WAN cổ tròn cotton Menswear</h1>
+
+        <!-- Price -->
+        <div class="pdp-price-row">
+          <span class="pdp-price-current" id="pdpPriceCurrent">1.300.000₫</span>
+          <span class="pdp-price-base" id="pdpPriceBase">1.650.000₫</span>
+        </div>
+
+        <!-- Flash Sale / Promo Banner Box -->
+        <!-- <div class="pdp-promo-card">
+          <div class="pdp-promo-head">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+            <span id="pdpPromoHeadTitle">Săn sale 9.9 đã bắt đầu!</span>
+          </div>
+          <p class="pdp-promo-desc" id="pdpPromoDesc">
+            Chưa chọn được sản phẩm phù hợp? Khám phá các sản phẩm giảm thêm 25% tại giỏ hàng. Ưu đãi này không áp dụng đồng thời với các chương trình khuyến mãi hoặc voucher khác.
+          </p>
+          <div class="pdp-promo-timer-row">
+            <span>Ends in <span class="pdp-timer-val" id="pdpTimerVal">00:01:44:42</span></span>
+            <a href="../shop.html?filter=sale" class="pdp-promo-link">Đừng bỏ lỡ!</a>
+          </div>
+        </div> -->
+
+        <!-- Colors Selection -->
+        <div class="pdp-colors-section">
+          <div class="pdp-section-header">
+            <span>Màu sắc: <strong class="pdp-color-name-label" id="pdpSelectedColorName">Aurora Coffee</strong></span>
+          </div>
+          <div class="pdp-color-thumbnails" id="pdpColorThumbnails">
+            <!-- Dynamically populated from product.json -->
+          </div>
+        </div>
+
+        <!-- Sizes Selection -->
+        <div class="pdp-sizes-section" id="pdpSizesSection">
+          <div class="pdp-section-header">
+            <span style="font-weight:700;">Kích cỡ<span class="pdp-size-status" id="pdpSizeStatus">: Chưa
+                chọn</span></span>
+            <a href="../guides.json" class="pdp-guide-link"
+              onclick="showToast('Bảng size chuẩn: S (50-60kg), M (60-70kg), L (70-80kg), XL (80-90kg)'); return false;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="10" rx="2"></rect>
+                <line x1="6" y1="7" x2="6" y2="12"></line>
+                <line x1="10" y1="7" x2="10" y2="10"></line>
+                <line x1="14" y1="7" x2="14" y2="12"></line>
+                <line x1="18" y1="7" x2="18" y2="10"></line>
+              </svg>
+              Hướng dẫn chọn kích cỡ
+            </a>
+          </div>
+
+          <div class="pdp-sizes-grid" id="pdpSizesGrid">
+            <!-- Dynamically populated from product.json -->
+          </div>
+
+          <!-- Fit Tip Box -->
+          <div class="pdp-fit-tip-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <span id="pdpFitTipText"><strong>Đúng kích cỡ.</strong> Chúng tôi khuyên bạn nên đặt theo kích cỡ thông
+              thường.</span>
+          </div>
+        </div>
+
+        <!-- Action Buttons Group (Add to Cart & Buy Now) -->
+        <div class="pdp-cta-group">
+          <div class="pdp-actions-row">
+            <button class="pdp-add-cart-btn" id="pdpAddToCartBtn" onclick="handleAddToCartPDP()"
+              aria-label="Thêm vào giỏ hàng">
+              <span>THÊM VÀO GIỎ HÀNG</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M15.5999 8.3998V5.39981C15.5999 3.41158 13.9881 1.7998 11.9999 1.7998C10.0117 1.7998 8.3999 3.41158 8.3999 5.3998V8.3998M4.72717 22.1998H19.2726C20.5579 22.1998 21.5999 21.1772 21.5999 19.9158L20.109 7.79977C20.109 6.53835 19.067 5.51576 17.7817 5.51576H5.92717C4.64186 5.51576 3.5999 6.53835 3.5999 7.79977L2.3999 19.9158C2.3999 21.1772 3.44186 22.1998 4.72717 22.1998Z">
+                </path>
+              </svg>
+            </button>
+            <button class="pdp-wishlist-btn" id="pdpWishlistBtn" onclick="handleToggleWishlistPDP()"
+              aria-label="Thêm vào yêu thích" title="Thêm vào yêu thích">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                </path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Secondary Button: Đặt hàng ngay (Express Checkout) -->
+          <button type="button" class="pdp-buy-now-btn" id="pdpBuyNowBtn" onclick="handleBuyNowPDP()"
+            aria-label="Đặt hàng ngay">
+            <span>ĐẶT HÀNG NGAY</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+
+          <!-- Quick Trust & Service Strip -->
+        </div>
+
+        <!-- Membership Rewards -->
+        <div class="pdp-membership-row">
+          <div class="pdp-club-points">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+              <line x1="9" y1="9" x2="9.01" y2="9"></line>
+              <line x1="15" y1="9" x2="15.01" y2="9"></line>
+            </svg>
+            <span id="pdpClubPointsText">Mua sắm và nhận WanClub: <strong>464 Điểm</strong></span>
+          </div>
+          <span class="pdp-club-badge">WanClub</span>
+        </div>
+
+        <!-- Policy Accordions (Siêu sale, Free shipping, Hoàn trả) -->
+        <div class="pdp-policy-list" id="pdpPolicyList">
+          <!-- Dynamically populated from product.json -->
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- LIGHTBOX MODAL FOR IMAGE ZOOM -->
+  <div class="pdp-lightbox" id="pdpLightbox" onclick="closeLightbox()">
+    <button class="pdp-lightbox-close" onclick="closeLightbox()" aria-label="Đóng">&times;</button>
+    <img src="" alt="Ảnh sản phẩm phóng to" class="pdp-lightbox-img" id="pdpLightboxImg"
+      onclick="event.stopPropagation()">
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="wan-toast" id="wanToast" role="alert" aria-live="polite"></div>
+
+  <!-- FOOTER WIDGET -->
+  <womanwan-footer></womanwan-footer>
+
+  <script src="product.js"></script>
+</body>
+
+</html>

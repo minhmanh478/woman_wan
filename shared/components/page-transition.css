@@ -1,0 +1,154 @@
+/* ==========================================================================
+   PAGE TRANSITION OVERLAY — WOMANWAN LOGO SPLASH
+   Hiệu ứng chuyển trang: Trắng (logo đen) -> Đen (logo trắng) -> Chuyển trang
+   Tương tự site-intro nhưng ngắn hơn (1.4s) để UX mượt mà
+   ========================================================================== */
+
+.page-transition-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483646;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  will-change: opacity, background-color, transform;
+  transition: none;
+}
+
+/* Khi active: chạy animation */
+.page-transition-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  animation: ptBgTransition 1.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.page-transition-overlay .pt-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  will-change: transform, opacity;
+}
+
+.page-transition-overlay.is-active .pt-content {
+  animation: ptContentScale 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.page-transition-overlay .pt-logo {
+  width: min(280px, 65vw);
+  height: auto;
+  display: block;
+  will-change: filter, opacity, transform;
+}
+
+.page-transition-overlay.is-active .pt-logo {
+  animation: ptLogoInvert 1.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.page-transition-overlay .pt-tagline {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #111111;
+  padding-left: 5px;
+  will-change: color, opacity;
+}
+
+.page-transition-overlay.is-active .pt-tagline {
+  animation: ptTaglineColor 1.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+/*
+   Keyframe Timeline (1.4s total):
+   0.0s - 0.45s (0% - 32%):  Nền trắng, logo đen (fade-in nhanh)
+   0.45s - 0.7s (32% - 50%): Chuyển sang nền đen, logo trắng
+   0.7s - 1.0s (50% - 72%):  Giữ nền đen sang trọng
+   1.0s - 1.4s (72% - 100%): Giữ nguyên (chuyển trang trong giai đoạn này)
+*/
+@keyframes ptBgTransition {
+  0% {
+    background-color: #ffffff;
+    opacity: 1;
+    visibility: visible;
+  }
+  32% {
+    background-color: #ffffff;
+  }
+  50% {
+    background-color: #000000;
+    opacity: 1;
+  }
+  72% {
+    background-color: #000000;
+    opacity: 1;
+  }
+  100% {
+    background-color: #000000;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes ptLogoInvert {
+  0% {
+    filter: invert(1);
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  15% {
+    filter: invert(1);
+    opacity: 1;
+    transform: scale(1);
+  }
+  32% {
+    filter: invert(1);
+  }
+  50% {
+    filter: invert(0);
+  }
+  100% {
+    filter: invert(0);
+    opacity: 1;
+  }
+}
+
+@keyframes ptTaglineColor {
+  0% {
+    color: #111111;
+    opacity: 0;
+  }
+  15% {
+    color: #111111;
+    opacity: 0.9;
+  }
+  32% {
+    color: #111111;
+  }
+  50% {
+    color: #888888;
+  }
+  100% {
+    color: #888888;
+    opacity: 0.9;
+  }
+}
+
+@keyframes ptContentScale {
+  0% {
+    transform: scale(0.94);
+  }
+  32% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

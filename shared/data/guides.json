@@ -1,0 +1,29 @@
+[
+  {
+    "id": "guide-001",
+    "tag": "FIT GUIDE",
+    "title": "Bí Quyết Chọn Size Áo Cổ Tàu & Trang Phục Chuẩn Từng Centimet",
+    "excerpt": "Cách đo vòng ngực, vòng eo và chọn độ ôm co giãn phù hợp để áo luôn đứng form, tôn dáng và thoải mái khi vận động.",
+    "linkText": "Đọc cẩm nang →",
+    "linkUrl": "#",
+    "image": "assets/sanpham_test/co_tau.jpg"
+  },
+  {
+    "id": "guide-002",
+    "tag": "WORKOUT TRENDS",
+    "title": "Phong Cách Hybrid: Khi Áo Phông Thể Thao Gặp Gỡ Tốc Độ",
+    "excerpt": "Tìm hiểu vì sao dòng áo phông thể thao thoáng khí đa chiều, chống nhăn trở thành lựa chọn hàng đầu của gymer & runner hiện đại.",
+    "linkText": "Khám phá ngay →",
+    "linkUrl": "#",
+    "image": "assets/sanpham_test/phong1.jpg"
+  },
+  {
+    "id": "guide-003",
+    "tag": "CARE TIPS",
+    "title": "Bảo Quản Đồ Tập Thể Thao Bền Đẹp Co Giãn Như Mới",
+    "excerpt": "Những lưu ý quan trọng về nhiệt độ giặt và dung dịch tẩy rửa giúp tăng gấp đôi tuổi thọ cho sợi vải thể thao công nghệ cao.",
+    "linkText": "Xem chi tiết →",
+    "linkUrl": "#",
+    "image": "assets/sanpham_test/phong2.jpg"
+  }
+]

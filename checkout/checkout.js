@@ -1,0 +1,478 @@
+/**
+ * ============================================================================
+ * WOMAN WAN - CHECKOUT LOGIC & INTERACTION ENGINE
+ * Phong cách Clean Fit & Trải nghiệm mua sắm cao cấp
+ * ============================================================================
+ */
+
+document.addEventListener("DOMContentLoaded", () => {
+  initCheckout();
+});
+
+// Trạng thái đơn hàng
+const orderState = {
+  cart: [],
+  subtotal: 0,
+  shippingFee: 20000,
+  discount: 0,
+  discountCode: "",
+  shippingMethod: "standard",
+  paymentMethod: "cod"
+};
+
+// Định dạng tiền tệ VND
+function formatVND(amount) {
+  const rounded = Math.round(Number(amount) || 0);
+  return rounded.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "₫";
+}
+
+// Xử lý đường dẫn tương đối tới ảnh tài nguyên từ thư mục /checkout/
+function resolveAssetPath(imgPath) {
+  if (!imgPath) return "../assets/sanpham_test/co_tau.jpg";
+  if (imgPath.startsWith("http://") || imgPath.startsWith("https://") || imgPath.startsWith("data:")) {
+    return imgPath;
+  }
+  if (imgPath.startsWith("../")) {
+    return imgPath;
+  }
+  if (imgPath.startsWith("./")) {
+    return "../" + imgPath.slice(2);
+  }
+  return "../" + imgPath;
+}
+
+function initCheckout() {
+  loadCartData();
+  renderSummary();
+  setupShippingMethods();
+  setupPaymentMethods();
+  setupVatToggle();
+  setupVouchers();
+  setupOrderSubmission();
+  initProvinces();
+}
+
+/**
+ * Khởi tạo dữ liệu Tỉnh/Thành, Quận/Huyện, Phường/Xã từ API
+ */
+function initProvinces() {
+  const provinceSelect = document.getElementById("shippingProvince");
+  const districtSelect = document.getElementById("shippingDistrict");
+  const wardSelect = document.getElementById("shippingWard");
+
+  if (!provinceSelect || !districtSelect || !wardSelect) return;
+
+  // Tải danh sách Tỉnh/Thành phố
+  fetch("https://provinces.open-api.vn/api/p/")
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(p => {
+        const option = document.createElement("option");
+        option.value = p.code;
+        option.textContent = p.name;
+        provinceSelect.appendChild(option);
+      });
+    })
+    .catch(err => console.error("Lỗi tải tỉnh/thành:", err));
+
+  // Khi chọn Tỉnh/Thành phố -> Tải Quận/Huyện
+  provinceSelect.addEventListener("change", (e) => {
+    const pCode = e.target.value;
+    districtSelect.innerHTML = '<option value="" disabled selected>Chọn Quận/Huyện</option>';
+    wardSelect.innerHTML = '<option value="" disabled selected>Chọn Phường/Xã</option>';
+    wardSelect.disabled = true;
+
+    if (!pCode) {
+      districtSelect.disabled = true;
+      return;
+    }
+
+    fetch(`https://provinces.open-api.vn/api/p/${pCode}?depth=2`)
+      .then(response => response.json())
+      .then(data => {
+        districtSelect.disabled = false;
+        data.districts.forEach(d => {
+          const option = document.createElement("option");
+          option.value = d.code;
+          option.textContent = d.name;
+          districtSelect.appendChild(option);
+        });
+      })
+      .catch(err => console.error("Lỗi tải quận/huyện:", err));
+  });
+
+  // Khi chọn Quận/Huyện -> Tải Phường/Xã
+  districtSelect.addEventListener("change", (e) => {
+    const dCode = e.target.value;
+    wardSelect.innerHTML = '<option value="" disabled selected>Chọn Phường/Xã</option>';
+
+    if (!dCode) {
+      wardSelect.disabled = true;
+      return;
+    }
+
+    fetch(`https://provinces.open-api.vn/api/d/${dCode}?depth=2`)
+      .then(response => response.json())
+      .then(data => {
+        wardSelect.disabled = false;
+        data.wards.forEach(w => {
+          const option = document.createElement("option");
+          option.value = w.code;
+          option.textContent = w.name;
+          wardSelect.appendChild(option);
+        });
+      })
+      .catch(err => console.error("Lỗi tải phường/xã:", err));
+  });
+}
+
+/**
+ * Tải dữ liệu giỏ hàng từ localStorage
+ */
+function loadCartData() {
+  const raw = localStorage.getItem("wan_cart_v1") || localStorage.getItem("wan_cart");
+  let items = [];
+  try {
+    items = raw ? JSON.parse(raw) : [];
+  } catch (e) {
+    console.warn("Lỗi đọc giỏ hàng:", e);
+  }
+
+  // Nếu giỏ hàng có sản phẩm, dùng sản phẩm thực tế
+  if (Array.isArray(items) && items.length > 0) {
+    orderState.cart = items;
+  } else {
+    // Nếu chưa có sản phẩm (mở trực tiếp), nạp sản phẩm mẫu tương ứng giỏ hàng Clean Fit
+    orderState.cart = [
+      {
+        id: "ww-002-1",
+        name: "Áo thun tập luyện AeroReady",
+        price: 384000,
+        quantity: 1,
+        size: "XS",
+        color: "Xanh dương",
+        image: "assets/sanpham_test/co_tau.jpg"
+      },
+      {
+        id: "ww-002-2",
+        name: "Áo thun tập luyện AeroReady",
+        price: 384000,
+        quantity: 1,
+        size: "2XL",
+        color: "Ivory",
+        image: "assets/sanpham_test/phong1.jpg"
+      },
+      {
+        id: "ww-001",
+        name: "Áo khoác gió Ultraboost Layer",
+        price: 849000,
+        quantity: 1,
+        size: "2XL",
+        color: "Ivory",
+        image: "assets/sanpham_test/co_tau2.jpg"
+      }
+    ];
+  }
+}
+
+/**
+ * Hiển thị tóm tắt đơn hàng ở cột bên phải
+ */
+function renderSummary() {
+  const itemsListEl = document.getElementById("checkoutItemsList");
+  const itemsBadgeEl = document.getElementById("summaryItemsBadge");
+  const headerSummaryEl = document.getElementById("checkoutHeaderSummary");
+  const subtotalEl = document.getElementById("summarySubtotal");
+  const shippingFeeEl = document.getElementById("summaryShippingFee");
+  const totalEl = document.getElementById("summaryTotal");
+  const btnTotalEl = document.getElementById("btnOrderTotal");
+
+  if (!itemsListEl) return;
+
+  let totalQty = 0;
+  let subtotal = 0;
+  let html = "";
+
+  orderState.cart.forEach((item) => {
+    const qty = Number(item.quantity || item.qty) || 1;
+    const price = Number(item.price) || 0;
+    const itemTotal = price * qty;
+    totalQty += qty;
+    subtotal += itemTotal;
+
+    const imgSrc = resolveAssetPath(item.image);
+    const sizeStr = item.size || item.variant || "M";
+    const colorStr = item.color || "Tiêu chuẩn";
+
+    html += `
+      <div class="cart-item-card">
+        <div class="item-thumb-frame">
+          <img src="${imgSrc}" alt="${item.name}" loading="lazy" onerror="this.src='../assets/sanpham_test/co_tau.jpg'">
+          <span class="item-badge-corner">Clean Fit</span>
+        </div>
+        <div class="item-details-block">
+          <h4 class="item-title-name">${item.name}</h4>
+          <div class="item-variant-line">Size: <strong>${sizeStr}</strong> &bull; Màu: <strong>${colorStr}</strong></div>
+          <div class="item-price-calc">
+            <span class="item-unit-price">${formatVND(price)} &times; ${qty}</span>
+            <span class="item-total-price">${formatVND(itemTotal)}</span>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  itemsListEl.innerHTML = html;
+  orderState.subtotal = subtotal;
+
+  // Tính tổng thanh toán cuối cùng
+  const finalTotal = Math.max(0, subtotal + orderState.shippingFee - orderState.discount);
+  const formattedFinal = formatVND(finalTotal);
+
+  if (itemsBadgeEl) itemsBadgeEl.textContent = `${totalQty} sản phẩm`;
+  if (headerSummaryEl) headerSummaryEl.textContent = `(${totalQty} sản phẩm) • ${formattedFinal}`;
+  if (subtotalEl) subtotalEl.textContent = formatVND(subtotal);
+  if (shippingFeeEl) {
+    shippingFeeEl.textContent = orderState.shippingFee > 0 ? formatVND(orderState.shippingFee) : "Miễn phí";
+  }
+  if (totalEl) totalEl.textContent = formattedFinal;
+  if (btnTotalEl) btnTotalEl.textContent = formattedFinal;
+}
+
+/**
+ * Xử lý chọn phương thức vận chuyển
+ */
+function setupShippingMethods() {
+  const options = document.querySelectorAll(".shipping-method-option");
+  options.forEach((opt) => {
+    opt.addEventListener("click", () => {
+      options.forEach(o => o.classList.remove("active"));
+      opt.classList.add("active");
+
+      const radio = opt.querySelector('input[type="radio"]');
+      if (radio) {
+        radio.checked = true;
+        orderState.shippingMethod = radio.value;
+        orderState.shippingFee = radio.value === "express" ? 35000 : 20000;
+        renderSummary();
+      }
+    });
+  });
+}
+
+/**
+ * Xử lý chọn phương thức thanh toán
+ */
+function setupPaymentMethods() {
+  const options = document.querySelectorAll(".payment-method-option");
+  options.forEach((opt) => {
+    opt.addEventListener("click", () => {
+      options.forEach(o => o.classList.remove("active"));
+      opt.classList.add("active");
+
+      const radio = opt.querySelector('input[type="radio"]');
+      if (radio) {
+        radio.checked = true;
+        orderState.paymentMethod = radio.value;
+      }
+    });
+  });
+}
+
+/**
+ * Xử lý mở/gập form hóa đơn VAT
+ */
+function setupVatToggle() {
+  const vatCheck = document.getElementById("vatInvoiceCheck");
+  const vatForm = document.getElementById("vatExpandForm");
+
+  if (!vatCheck || !vatForm) return;
+
+  vatCheck.addEventListener("change", () => {
+    if (vatCheck.checked) {
+      vatForm.classList.remove("hidden");
+    } else {
+      vatForm.classList.add("hidden");
+    }
+  });
+}
+
+/**
+ * Xử lý mã voucher ưu đãi
+ */
+function setupVouchers() {
+  const input = document.getElementById("promoInput");
+  const applyBtn = document.getElementById("promoApplyBtn");
+  const msgEl = document.getElementById("promoFeedbackMsg");
+  const discountRow = document.getElementById("summaryDiscountRow");
+  const discountCodeEl = document.getElementById("discountCodeName");
+  const discountValEl = document.getElementById("summaryDiscountVal");
+  const chips = document.querySelectorAll(".voucher-chip");
+
+  function applyCode(code) {
+    const clean = code.trim().toUpperCase();
+    if (!clean) {
+      showMessage("Vui lòng nhập mã khuyến mãi!", "error");
+      return;
+    }
+
+    // Vô hiệu hóa tất cả các mã giảm giá theo yêu cầu
+    orderState.discount = 0;
+    orderState.discountCode = "";
+    discountRow.classList.add("hidden");
+    showMessage("Hiện tại hệ thống không áp dụng mã ưu đãi.", "error");
+    renderSummary();
+  }
+
+  function showMessage(text, type) {
+    if (!msgEl) return;
+    msgEl.textContent = text;
+    msgEl.className = `promo-feedback-msg ${type}`;
+  }
+
+  if (applyBtn && input) {
+    applyBtn.addEventListener("click", () => applyCode(input.value));
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        applyCode(input.value);
+      }
+    });
+  }
+
+  chips.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      const code = chip.getAttribute("data-code");
+      if (input) input.value = code;
+      applyCode(code);
+    });
+  });
+}
+
+/**
+ * Xử lý bấm HOÀN TẤT ĐẶT HÀNG & Kiểm tra dữ liệu
+ */
+function setupOrderSubmission() {
+  const btnSubmit = document.getElementById("btnSubmitOrder");
+  const modal = document.getElementById("orderSuccessModal");
+  if (!btnSubmit) return;
+
+  btnSubmit.addEventListener("click", () => {
+    const fullName = document.getElementById("shippingFullName")?.value.trim();
+    const phone = document.getElementById("shippingPhone")?.value.trim();
+    const email = document.getElementById("shippingEmail")?.value.trim();
+    const address = document.getElementById("shippingAddress")?.value.trim();
+    const terms = document.getElementById("termsAgreementCheck");
+
+    // Kiểm tra các trường bắt buộc
+    if (!fullName) {
+      showToastNotice("Vui lòng điền họ và tên người nhận");
+      document.getElementById("shippingFullName")?.focus();
+      return;
+    }
+    if (!phone || phone.length < 9) {
+      showToastNotice("Vui lòng nhập số điện thoại hợp lệ (ít nhất 9 số)");
+      document.getElementById("shippingPhone")?.focus();
+      return;
+    }
+    if (!email || !email.includes("@")) {
+      showToastNotice("Vui lòng nhập địa chỉ email hợp lệ để nhận thông báo");
+      document.getElementById("shippingEmail")?.focus();
+      return;
+    }
+    if (!address) {
+      showToastNotice("Vui lòng nhập địa chỉ nhận hàng chi tiết");
+      document.getElementById("shippingAddress")?.focus();
+      return;
+    }
+    if (terms && !terms.checked) {
+      showToastNotice("Vui lòng đồng ý với Điều khoản mua hàng & Chính sách đổi trả");
+      terms.focus();
+      return;
+    }
+
+    // Nếu chọn VAT thì kiểm tra mã số thuế
+    const vatCheck = document.getElementById("vatInvoiceCheck");
+    if (vatCheck && vatCheck.checked) {
+      const taxCode = document.getElementById("vatTaxCode")?.value.trim();
+      const compName = document.getElementById("vatCompanyName")?.value.trim();
+      if (!taxCode || !compName) {
+        showToastNotice("Vui lòng điền đầy đủ Mã số thuế và Tên công ty/cá nhân");
+        return;
+      }
+    }
+
+    // Hiển thị Dialog Đặt hàng thành công
+    const orderCode = `WW-${Math.floor(100000 + Math.random() * 900000)}`;
+    const finalAmount = Math.max(0, orderState.subtotal + orderState.shippingFee - orderState.discount);
+
+    const paymentTexts = {
+      cod: "Thanh toán khi nhận hàng (COD)",
+      vietqr: "Chuyển khoản VietQR",
+      ewallet: "Ví điện tử (MoMo / ZaloPay)"
+    };
+
+    if (modal) {
+      const codeEl = document.getElementById("modalOrderCode");
+      const nameEl = document.getElementById("modalCustomerName");
+      const totalEl = document.getElementById("modalFinalTotal");
+      const payEl = document.getElementById("modalPaymentMethod");
+
+      if (codeEl) codeEl.textContent = orderCode;
+      if (nameEl) nameEl.textContent = fullName;
+      if (totalEl) totalEl.textContent = formatVND(finalAmount);
+      if (payEl) payEl.textContent = paymentTexts[orderState.paymentMethod] || "COD";
+
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+    }
+
+    // Xóa giỏ hàng sau khi đặt hàng thành công
+    localStorage.removeItem("wan_cart_v1");
+    localStorage.removeItem("wan_cart");
+    window.dispatchEvent(new Event("wan:cart-updated"));
+  });
+}
+
+/**
+ * Toast thông báo nhanh, tinh gọn
+ */
+function showToastNotice(msg) {
+  const old = document.querySelector(".ck-floating-toast");
+  if (old) old.remove();
+
+  const toast = document.createElement("div");
+  toast.className = "ck-floating-toast";
+  toast.style.cssText = `
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #111111;
+    color: #ffffff;
+    padding: 12px 22px;
+    border-radius: 4px;
+    font-size: 13.5px;
+    font-weight: 500;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    transition: all 0.25s ease;
+  `;
+  toast.innerHTML = `<span>⚠️ ${msg}</span>`;
+  document.body.appendChild(toast);
+
+  requestAnimationFrame(() => {
+    toast.style.opacity = "1";
+    toast.style.transform = "translateX(-50%) translateY(0)";
+  });
+
+  setTimeout(() => {
+    toast.style.opacity = "0";
+    toast.style.transform = "translateX(-50%) translateY(10px)";
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
+}

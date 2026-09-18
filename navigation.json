@@ -1,0 +1,154 @@
+{
+  "announcement": {
+    "text": "Ở ĐÂY KHÔNG CÓ GÌ CẢ... NGOÀI MỘT ĐỘI NGŨ ĐANG SAY SƯA CODE TỪ CON SỐ 0. QUAY LẠI SAU NHÉ!",
+    "link": "shop.html?filter=sale",
+    "enabled": true
+  },
+  "brand": {
+    "name": "Woman Wan",
+    "logo": "assets/logos/1212.png",
+    "homeUrl": "index.html",
+    "megaDrawerLogo": "assets/logos/LOGO-WOMANWAN.png"
+  },
+  "navTabs": [
+    {
+      "id": "navMen",
+      "key": "men",
+      "label": "Nam",
+      "url": "shop.html?gender=men"
+    },
+    {
+      "id": "navWomen",
+      "key": "women",
+      "label": "Nữ",
+      "url": "shop.html?gender=women"
+    },
+    {
+      "id": "navSale",
+      "key": "sale",
+      "label": "Khuyến mãi",
+      "url": "shop.html?filter=sale"
+    }
+  ],
+  "search": {
+    "placeholder": "Tìm kiếm sản phẩm...",
+    "actionUrl": "shop.html"
+  },
+  "megaMenu": {
+    "men": {
+      "title": "Nam",
+      "categories": [
+        {
+          "name": "Thịnh hành",
+          "tag": "trending",
+          "link": "shop.html?gender=men&filter=trending"
+        },
+        {
+          "name": "Áo thun & Tank",
+          "tag": "tshirt",
+          "link": "shop.html?gender=men&category=tshirt"
+        },
+        {
+          "name": "Quần short & Dài",
+          "tag": "shorts",
+          "link": "shop.html?gender=men&category=shorts"
+        },
+        {
+          "name": "Áo khoác thể thao",
+          "tag": "jacket",
+          "link": "shop.html?gender=men&category=jacket"
+        },
+        {
+          "name": "Bộ sưu tập Nam",
+          "tag": "collection",
+          "link": "shop.html?gender=men&collection=all"
+        },
+        {
+          "name": "Phụ kiện",
+          "tag": "accessories",
+          "link": "shop.html?gender=men&category=accessories"
+        },
+        {
+          "name": "Khuyến mãi Nam",
+          "tag": "sale",
+          "link": "shop.html?gender=men&filter=sale"
+        },
+        {
+          "name": "Khám phá",
+          "tag": "explore",
+          "link": "shop.html?gender=men"
+        }
+      ]
+    },
+    "women": {
+      "title": "Nữ",
+      "categories": [
+        {
+          "name": "Thịnh hành",
+          "tag": "trending",
+          "link": "shop.html?gender=women&filter=trending"
+        },
+        {
+          "name": "Quần legging",
+          "tag": "legging",
+          "link": "shop.html?gender=women&category=legging"
+        },
+        {
+          "name": "Tất cả sản phẩm",
+          "tag": "all",
+          "link": "shop.html?gender=women"
+        },
+        {
+          "name": "Bộ sưu tập",
+          "tag": "collection",
+          "link": "shop.html?gender=women&collection=all"
+        },
+        {
+          "name": "Hoạt động thể thao",
+          "tag": "activity",
+          "link": "shop.html?gender=women&filter=activity"
+        },
+        {
+          "name": "Phụ kiện",
+          "tag": "accessories",
+          "link": "shop.html?gender=women&category=accessories"
+        },
+        {
+          "name": "Cơ hội cuối",
+          "tag": "sale",
+          "link": "shop.html?gender=women&filter=sale"
+        },
+        {
+          "name": "Khám phá",
+          "tag": "explore",
+          "link": "shop.html?gender=women"
+        }
+      ]
+    },
+    "sale": {
+      "title": "Khuyến mãi",
+      "categories": [
+        {
+          "name": "Giảm giá đến 50%",
+          "tag": "sale-50",
+          "link": "shop.html?filter=sale&discount=50"
+        },
+        {
+          "name": "Sản phẩm mới giảm giá",
+          "tag": "new-sale",
+          "link": "shop.html?filter=sale&sort=new"
+        },
+        {
+          "name": "Phụ kiện giảm giá",
+          "tag": "acc-sale",
+          "link": "shop.html?category=accessories&filter=sale"
+        },
+        {
+          "name": "Cơ hội cuối cùng",
+          "tag": "last-chance",
+          "link": "shop.html?filter=sale"
+        }
+      ]
+    }
+  }
+}

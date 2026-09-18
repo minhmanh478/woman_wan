@@ -1,0 +1,16 @@
+[
+  {
+    "code": "WOMANWAN",
+    "type": "percent",
+    "value": 10,
+    "label": "WOMANWAN (-10%)",
+    "description": "Giảm ngay 10% tổng đơn hàng!"
+  },
+  {
+    "code": "FREESHIP",
+    "type": "freeship",
+    "value": 0,
+    "label": "FREESHIP",
+    "description": "Miễn phí vận chuyển toàn quốc!"
+  }
+]

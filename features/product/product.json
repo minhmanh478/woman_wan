@@ -1,0 +1,318 @@
+[
+  {
+    "id": "ww-jac-001",
+    "name": "Áo thun tăng chiều cao Clean Fit - WOMAN WAN cổ tròn cotton Menswear",
+    "subName": "Áo thun cổ tròn cotton Menswear tôn vai, ngực và vóc dáng cao ráo",
+    "category": "Nam • Clean Fit Menswear",
+    "breadcrumb": [
+      {
+        "name": "Trang Chủ",
+        "url": "../index.html"
+      },
+      {
+        "name": "Nam",
+        "url": "../shop.html?gender=men"
+      },
+      {
+        "name": "Quần áo",
+        "url": "../shop.html?gender=men&category=clothing"
+      }
+    ],
+    "price": 1300000,
+    "basePrice": 1650000,
+    "discountPercent": 21,
+    "tag": "Mới",
+    "promoTag": "GIẢM THÊM 25% TẠI GIỎ",
+    "rating": 4.7,
+    "reviewsCount": 137,
+    "flashSale": {
+      "title": "Săn sale 9.9 đã bắt đầu!",
+      "description": "Chưa chọn được sản phẩm phù hợp? Khám phá các sản phẩm giảm thêm 25% tại giỏ hàng. Ưu đãi này không áp dụng đồng thời với các chương trình khuyến mãi hoặc voucher khác.",
+      "countdown": "Ends in 00:01:44:42"
+    },
+    "colors": [
+      {
+        "name": "Trắng Cloud White",
+        "hex": "#ffffff",
+        "thumb": "images/color_white.png",
+        "code": "white"
+      },
+      {
+        "name": "Đen Core Black",
+        "hex": "#111111",
+        "thumb": "images/color_black.png",
+        "code": "black"
+      },
+      {
+        "name": "Đỏ Better Scarlet",
+        "hex": "#d01e29",
+        "thumb": "images/color_red.png",
+        "code": "red"
+      },
+      {
+        "name": "Aurora Coffee / Nâu Cà Phê",
+        "hex": "#553e35",
+        "thumb": "images/color_brown.png",
+        "code": "brown",
+        "selected": true
+      },
+      {
+        "name": "Xanh Royal Blue",
+        "hex": "#0055d4",
+        "thumb": "images/color_blue.png",
+        "code": "blue"
+      },
+      {
+        "name": "Trắng Kem Wonder White",
+        "hex": "#f5f0eb",
+        "thumb": "images/color_cream.png",
+        "code": "cream"
+      }
+    ],
+    "sizes": [
+      {
+        "name": "XS",
+        "available": true
+      },
+      {
+        "name": "S",
+        "available": true
+      },
+      {
+        "name": "M",
+        "available": true,
+        "selected": true
+      },
+      {
+        "name": "L",
+        "available": true
+      },
+      {
+        "name": "XL",
+        "available": true
+      },
+      {
+        "name": "2XL",
+        "available": true
+      }
+    ],
+    "sizeGuideTip": "Đúng kích cỡ. Chúng tôi khuyên bạn nên đặt theo kích cỡ thông thường.",
+    "images": [
+      "images/product_1.png",
+      "images/product_2.png",
+      "images/product_3.png",
+      "images/product_4.png"
+    ],
+    "description": {
+      "title": "Áo thun tăng chiều cao Clean Fit - WOMAN WAN cổ tròn cotton Menswear",
+      "lead": "Form Slimfit ôm vừa cơ thể, giúp tôn vai, ngực và tạo hiệu ứng vóc dáng cao ráo, mang phong cách tối giản thanh lịch.",
+      "paragraphs": [
+        "🌿 <strong>THÔNG TIN SẢN PHẨM</strong>",
+        "• <strong>Chất liệu:</strong> Vải pha Polyester (52,4%) + Rayon (43%) + Spandex (4,6%). Có độ co giãn nhẹ, mềm mịn, bề mặt mượt và đứng form.",
+        "• <strong>Lưu ý:</strong> Vì trong thành phần vải có tỷ lệ Polyester cao (52,4%), nên có thể tạo cảm giác hơi nóng nếu mặc trong thời tiết quá oi bức hoặc vận động mạnh ngoài trời nắng. Khách hàng cần cân nhắc điều kiện sử dụng phù hợp (mặc phòng lạnh, buổi tối, thời tiết mát...).",
+        "• <strong>Kiểu dáng:</strong> Fit TAY ÁO, không quá ôm, tôn dáng.",
+        "--------------------------------------------------",
+        "🌿 <strong>HƯỚNG DẪN SỬ DỤNG & BẢO QUẢN</strong>",
+        "• Lần giặt đầu chỉ nên xả nước lạnh rồi phơi khô.<br>• Ưu tiên giặt tay.<br>• Chú ý lộn trái sản phẩm trước khi giặt để không ảnh hưởng tới bề mặt vải.<br>• Không giặt chung với các sản phẩm dễ phai màu.<br>• Hạn chế phơi trực tiếp dưới ánh nắng mặt trời, nên phơi khô dưới ánh sáng tự nhiên.",
+        "<em>*LƯU Ý: Do màn hình và điều kiện ánh sáng khác nhau, màu sắc thực tế của sản phẩm có thể chênh lệch khoảng 3-5%</em>"
+      ],
+      "highlights": [
+        "Form Slimfit ôm vừa cơ thể, giúp tôn vai, ngực và tạo hiệu ứng vóc dáng cao ráo",
+        "Thiết kế tối giản, cổ tròn basic dễ phối với nhiều phong cách",
+        "Tay áo ôm gọn bắp tay, đường may chắc chắn, tinh tế",
+        "Độ dài áo vừa vặn, dễ sơ vin hoặc mặc thả",
+        "Phù hợp mặc đi làm, đi học, đi chơi, cà phê, tập luyện nhẹ hoặc mặc hằng ngày"
+      ]
+    },
+    "specifications": {
+      "title": "Thông tin chi tiết",
+      "items": [
+        {
+          "label": "Tên sản phẩm",
+          "value": "Áo thun tăng chiều cao Clean Fit - WOMAN WAN cổ tròn cotton Menswear"
+        },
+        {
+          "label": "Chất liệu",
+          "value": "Vải pha Polyester (52,4%) + Rayon (43%) + Spandex (4,6%)"
+        },
+        {
+          "label": "Đặc tính vải",
+          "value": "Có độ co giãn nhẹ, mềm mịn, bề mặt mượt và đứng form"
+        },
+        {
+          "label": "Lưu ý sử dụng",
+          "value": "Tỷ lệ Polyester (52,4%) nên cân nhắc mặc phòng lạnh, buổi tối, thời tiết mát"
+        },
+        {
+          "label": "Kiểu dáng",
+          "value": "Fit TAY ÁO, không quá ôm, tôn dáng"
+        },
+        {
+          "label": "Thiết kế form",
+          "value": "Form Slimfit ôm vừa cơ thể, giúp tôn vai, ngực và tạo hiệu ứng vóc dáng cao ráo"
+        },
+        {
+          "label": "Cổ áo",
+          "value": "Thiết kế tối giản, cổ tròn basic dễ phối với nhiều phong cách"
+        },
+        {
+          "label": "Tay áo",
+          "value": "Tay áo ôm gọn bắp tay, đường may chắc chắn, tinh tế"
+        },
+        {
+          "label": "Độ dài áo",
+          "value": "Độ dài áo vừa vặn, dễ sơ vin hoặc mặc thả"
+        },
+        {
+          "label": "Ứng dụng",
+          "value": "Phù hợp mặc đi làm, đi học, đi chơi, cà phê, tập luyện nhẹ hoặc mặc hằng ngày"
+        },
+        {
+          "label": "Hướng dẫn bảo quản",
+          "value": "Lần đầu xả nước lạnh phơi khô; Ưu tiên giặt tay; Lộn trái khi giặt; Không giặt chung đồ phai màu; Hạn chế phơi nắng gắt"
+        },
+        {
+          "label": "Lưu ý màu sắc",
+          "value": "Thực tế có thể chênh lệch khoảng 3-5% do màn hình và điều kiện ánh sáng"
+        }
+      ]
+    },
+    "membership": {
+      "clubName": "WanClub",
+      "points": 464,
+      "text": "Mua sắm và nhận WanClub: 464 Điểm"
+    },
+    "benefits": [
+      {
+        "title": "SIÊU SALE 9.9",
+        "content": "Giảm thêm 25% trực tiếp tại giỏ hàng khi mua từ 2 sản phẩm bất kỳ trong chương trình 9.9."
+      },
+      {
+        "title": "FREE SHIPPING FOR WANCLUB MEMBERS!",
+        "content": "Miễn phí giao hàng tiêu chuẩn toàn quốc cho tất cả thành viên khi đăng nhập đặt hàng."
+      },
+      {
+        "title": "HOÀN TRẢ DỄ DÀNG",
+        "content": "Miễn phí đổi trả trong vòng 30 ngày tận nơi. Hỗ trợ đổi size hoặc hoàn tiền nhanh chóng nếu sản phẩm chưa qua sử dụng."
+      }
+    ]
+  },
+  {
+    "id": "ww-001",
+    "name": "ÁO KHOÁC GIÓ ULTRABOOST LAYER",
+    "subName": "Áo khoác gió chống nước nhẹ, thoáng khí tối đa cho chạy bộ",
+    "category": "Nữ • Running Performance",
+    "breadcrumb": [
+      {
+        "name": "Trang Chủ",
+        "url": "../index.html"
+      },
+      {
+        "name": "Nữ",
+        "url": "../shop.html?gender=women"
+      },
+      {
+        "name": "Áo khoác",
+        "url": "../shop.html?gender=women&category=jackets"
+      }
+    ],
+    "price": 849000,
+    "basePrice": 849000,
+    "discountPercent": 0,
+    "tag": "Mới",
+    "promoTag": "MIỄN PHÍ VẬN CHUYỂN",
+    "rating": 4.9,
+    "reviewsCount": 48,
+    "flashSale": {
+      "title": "Ưu đãi thành viên WOMAN WAN",
+      "description": "Nhận ngay voucher 10% khi đăng ký thành viên mới tại trang thanh toán.",
+      "countdown": "Ends in 03:12:30:00"
+    },
+    "colors": [
+      {
+        "name": "Đen Carbon",
+        "hex": "#111111",
+        "thumb": "images/color_black.png",
+        "code": "black",
+        "selected": true
+      },
+      {
+        "name": "Xanh Rêu",
+        "hex": "#2e5339",
+        "thumb": "images/color_brown.png",
+        "code": "green"
+      }
+    ],
+    "sizes": [
+      {
+        "name": "S",
+        "available": true
+      },
+      {
+        "name": "M",
+        "available": true,
+        "selected": true
+      },
+      {
+        "name": "L",
+        "available": true
+      },
+      {
+        "name": "XL",
+        "available": true
+      }
+    ],
+    "sizeGuideTip": "Đúng kích cỡ. Form dáng thể thao ôm vừa vặn.",
+    "images": [
+      "../assets/sanpham_test/co_tau.jpg",
+      "../assets/sanpham_test/co_tau2.jpg",
+      "../assets/sanpham_test/cotau.jpg",
+      "../assets/sanpham_test/cotau.jpg"
+    ],
+    "description": {
+      "title": "Mô tả sản phẩm",
+      "lead": "Áo khoác gió thể thao siêu nhẹ chống tia UV và gió lạnh, tối ưu cho các buổi chạy bộ ngoài trời.",
+      "paragraphs": [
+        "Được dệt từ sợi kỹ thuật micro-ripstop siêu bền và siêu nhẹ, chiếc áo Ultraboost Layer cản gió tối ưu mà vẫn giữ trọn sự thông thoáng nhờ hệ thống lỗ thoát khí laser sau lưng.",
+        "Thiết kế tối giản Clean Fit, tay áo bo thun linh hoạt và khóa kéo chống nước mượt mà."
+      ],
+      "highlights": [
+        "Chất liệu cản gió, trượt nước nhẹ",
+        "Trọng lượng chỉ 120g, gấp gọn dễ dàng bỏ túi",
+        "Chi tiết phản quang an toàn khi chạy đêm"
+      ]
+    },
+    "specifications": {
+      "title": "Thông tin chi tiết",
+      "items": [
+        {
+          "label": "Chất liệu",
+          "value": "100% Recycled Nylon Micro-Ripstop"
+        },
+        {
+          "label": "Công nghệ",
+          "value": "WindProof & DWR Water-Repellent"
+        },
+        {
+          "label": "Trọng lượng",
+          "value": "120 grams"
+        }
+      ]
+    },
+    "membership": {
+      "clubName": "WanClub",
+      "points": 340,
+      "text": "Mua sắm và nhận WanClub: 340 Điểm"
+    },
+    "benefits": [
+      {
+        "title": "GIAO HÀNG HỎA TỐC",
+        "content": "Giao ngay trong 2 giờ tại khu vực nội thành."
+      },
+      {
+        "title": "ĐỔI TRẢ 30 NGÀY",
+        "content": "Đổi size tận nơi hoàn toàn miễn phí."
+      }
+    ]
+  }
+]

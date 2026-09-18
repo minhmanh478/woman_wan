@@ -1,0 +1,134 @@
+@import url("css/components/site-intro.css");
+
+/* ===== Typography: Helvetica Neue Local Web Fonts ===== */
+@font-face {
+  font-family: "Helvetica Neue";
+  src: local("Helvetica Neue Light"), local("HelveticaNeue-Light"), url("assets/fonts/HelveticaNeue-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: local("Helvetica Neue"), local("HelveticaNeue"), url("assets/fonts/HelveticaNeue-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: local("Helvetica Neue Italic"), local("HelveticaNeue-Italic"), url("assets/fonts/HelveticaNeue-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: local("Helvetica Neue Medium"), local("HelveticaNeue-Medium"), url("assets/fonts/HelveticaNeue-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: local("Helvetica Neue Medium"), local("HelveticaNeue-Medium"), url("assets/fonts/HelveticaNeue-Medium.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: local("Helvetica Neue Bold"), local("HelveticaNeue-Bold"), url("assets/fonts/HelveticaNeue-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: local("Helvetica Neue Bold"), local("HelveticaNeue-Bold"), url("assets/fonts/HelveticaNeue-Bold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: local("Helvetica Neue Bold"), local("HelveticaNeue-Bold"), url("assets/fonts/HelveticaNeue-Bold.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: local("Helvetica Neue Bold Italic"), local("HelveticaNeue-BoldItalic"), url("assets/fonts/HelveticaNeue-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  --ink: #111111;
+  --ink-soft: #4d4d4d;
+  --line: #e2e2e2;
+  --bg: #ffffff;
+  --panel: #f6f6f6;
+  --accent: #0057ff;
+  --accent-red: #e2231a;
+  --radius: 2px;
+  --header-bottom: 84px;
+
+  /* Responsive Container & Adaptive Side Gutters (Đồng bộ tỉ lệ chuẩn Image 1 trên mọi màn hình Laptop, Full HD, 2K, 4K) */
+  --container-max-width: 100%;
+  --container-gutter: clamp(20px, 2.8vw, 64px);
+  --container-side-offset: var(--container-gutter);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+  border-radius: 0;
+}
+

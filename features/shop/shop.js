@@ -1,497 +1,3 @@
-<!DOCTYPE html>
-<html lang="vi">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nữ | WOMAN WAN</title>
-  <link rel="stylesheet" href="style.css?v=gs_mobile_2">
-  <link rel="stylesheet" href="css/components/page-transition.css?v=gs_mobile_2">
-  <script src="components/footer-widget.js?v=gs_mobile_2" defer></script>
-  <script src="components/header-widget.js?v=gs_mobile_2" defer></script>
-  <script src="components/page-transition-widget.js?v=gs_mobile_2" defer></script>
-</head>
-
-<body>
-
-  <!-- REUSABLE HEADER & MEGA NAV WIDGET (DATA-DRIVEN FROM navigation.json) -->
-  <womanwan-header></womanwan-header>
-
-  <!-- PAGE TRANSITION WIDGET -->
-  <womanwan-page-transition></womanwan-page-transition>
-
-  <div class="subnav">
-    <a href="#" class="active">Tất cả sản phẩm Nữ</a>
-    <a href="#">Áo khoác</a>
-    <a href="#">Áo thun</a>
-    <a href="#">Quần legging</a>
-    <a href="#">Quần short</a>
-    <a href="#">Giày thể thao</a>
-    <a href="#">Đồ bơi</a>
-    <a href="#">Túi & Phụ kiện</a>
-    <a href="#">Bộ sưu tập mới</a>
-  </div>
-
-  <div class="layout">
-    <!-- FILTER SIDEBAR -->
-    <aside class="filters">
-      <div class="filters-top-title">
-        <h1 class="page-title">Sản phẩm Nữ</h1>
-      </div>
-
-      <div class="filters-header-row">
-        <div class="filters-title-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="4" y1="21" x2="4" y2="14"></line>
-            <line x1="4" y1="10" x2="4" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="12"></line>
-            <line x1="12" y1="8" x2="12" y2="3"></line>
-            <line x1="20" y1="21" x2="20" y2="16"></line>
-            <line x1="20" y1="12" x2="20" y2="3"></line>
-            <line x1="1" y1="14" x2="7" y2="14"></line>
-            <line x1="9" y1="8" x2="15" y2="8"></line>
-            <line x1="17" y1="16" x2="23" y2="16"></line>
-          </svg>
-          <h3>Bộ lọc</h3>
-        </div>
-        <a href="#" class="clear-filters-link" id="topClearFiltersBtn">Xóa tất cả</a>
-      </div>
-
-      <!-- Filter 1: Danh mục -->
-      <details class="filter-group" open>
-        <summary>
-          <span>Danh mục</span>
-          <svg class="filter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </summary>
-        <div class="filter-options">
-          <label class="filter-checkbox-item">
-            <div class="filter-checkbox-left">
-              <input type="checkbox">
-              <span class="custom-checkbox">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </span>
-              <span class="filter-label-text">Áo khoác & Áo choàng</span>
-            </div>
-            <span class="filter-count">48</span>
-          </label>
-          <label class="filter-checkbox-item">
-            <div class="filter-checkbox-left">
-              <input type="checkbox">
-              <span class="custom-checkbox">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </span>
-              <span class="filter-label-text">Áo thun & Áo ba lỗ</span>
-            </div>
-            <span class="filter-count">76</span>
-          </label>
-          <label class="filter-checkbox-item">
-            <div class="filter-checkbox-left">
-              <input type="checkbox">
-              <span class="custom-checkbox">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </span>
-              <span class="filter-label-text">Quần legging</span>
-            </div>
-            <span class="filter-count">34</span>
-          </label>
-          <label class="filter-checkbox-item">
-            <div class="filter-checkbox-left">
-              <input type="checkbox">
-              <span class="custom-checkbox">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </span>
-              <span class="filter-label-text">Quần short</span>
-            </div>
-            <span class="filter-count">22</span>
-          </label>
-          <label class="filter-checkbox-item">
-            <div class="filter-checkbox-left">
-              <input type="checkbox">
-              <span class="custom-checkbox">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </span>
-              <span class="filter-label-text">Giày chạy bộ</span>
-            </div>
-            <span class="filter-count">41</span>
-          </label>
-          <label class="filter-checkbox-item">
-            <div class="filter-checkbox-left">
-              <input type="checkbox">
-              <span class="custom-checkbox">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </span>
-              <span class="filter-label-text">Đồ bơi</span>
-            </div>
-            <span class="filter-count">12</span>
-          </label>
-        </div>
-      </details>
-
-      <!-- Filter 2: Kích cỡ -->
-      <details class="filter-group">
-        <summary>
-          <span>Kích cỡ</span>
-          <svg class="filter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </summary>
-        <div class="size-grid">
-          <button type="button">XS</button>
-          <button type="button">S</button>
-          <button type="button">M</button>
-          <button type="button">L</button>
-          <button type="button">XL</button>
-          <button type="button">36</button>
-          <button type="button">37</button>
-          <button type="button">38</button>
-        </div>
-      </details>
-
-      <!-- Filter 3: Màu sắc -->
-      <details class="filter-group" open>
-        <summary>
-          <span>Màu sắc</span>
-          <svg class="filter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </summary>
-        <div class="swatches">
-          <div class="swatch" data-color="black" style="background:#111111" title="Đen"></div>
-          <div class="swatch is-white" data-color="white" style="background:#ffffff" title="Trắng"></div>
-          <div class="swatch" data-color="red" style="background:#e2231a" title="Đỏ"></div>
-          <div class="swatch" data-color="blue" style="background:#0057ff" title="Xanh dương"></div>
-          <div class="swatch" data-color="brown" style="background:#8a6d3b" title="Nâu"></div>
-          <div class="swatch" data-color="gray" style="background:#7d7d7d" title="Xám"></div>
-          <div class="swatch" data-color="pink" style="background:#e8b4c8" title="Hồng"></div>
-          <div class="swatch" data-color="green" style="background:#2e5339" title="Xanh lá"></div>
-        </div>
-      </details>
-
-      <!-- Filter 4: Khoảng giá -->
-      <details class="filter-group">
-        <summary>
-          <span>Khoảng giá</span>
-          <svg class="filter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </summary>
-        <div class="filter-options">
-          <label class="filter-checkbox-item">
-            <div class="filter-checkbox-left">
-              <input type="checkbox" value="under-500">
-              <span class="custom-checkbox">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </span>
-              <span class="filter-label-text">Dưới 500.000₫</span>
-            </div>
-          </label>
-          <label class="filter-checkbox-item">
-            <div class="filter-checkbox-left">
-              <input type="checkbox" value="500-1000">
-              <span class="custom-checkbox">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </span>
-              <span class="filter-label-text">500.000₫ – 1.000.000₫</span>
-            </div>
-          </label>
-          <label class="filter-checkbox-item">
-            <div class="filter-checkbox-left">
-              <input type="checkbox" value="1000-2000">
-              <span class="custom-checkbox">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </span>
-              <span class="filter-label-text">1.000.000₫ – 2.000.000₫</span>
-            </div>
-          </label>
-          <label class="filter-checkbox-item">
-            <div class="filter-checkbox-left">
-              <input type="checkbox" value="over-2000">
-              <span class="custom-checkbox">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </span>
-              <span class="filter-label-text">Trên 2.000.000₫</span>
-            </div>
-          </label>
-        </div>
-      </details>
-
-      <!-- Filter 5: Bộ môn -->
-      <details class="filter-group">
-        <summary>
-          <span>Bộ môn</span>
-          <svg class="filter-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </summary>
-        <div class="filter-options">
-          <label class="filter-checkbox-item">
-            <div class="filter-checkbox-left">
-              <input type="checkbox" value="running">
-              <span class="custom-checkbox">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </span>
-              <span class="filter-label-text">Chạy bộ</span>
-            </div>
-          </label>
-          <label class="filter-checkbox-item">
-            <div class="filter-checkbox-left">
-              <input type="checkbox" value="yoga">
-              <span class="custom-checkbox">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </span>
-              <span class="filter-label-text">Yoga & Tập luyện</span>
-            </div>
-          </label>
-          <label class="filter-checkbox-item">
-            <div class="filter-checkbox-left">
-              <input type="checkbox" value="football">
-              <span class="custom-checkbox">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </span>
-              <span class="filter-label-text">Bóng đá</span>
-            </div>
-          </label>
-          <label class="filter-checkbox-item">
-            <div class="filter-checkbox-left">
-              <input type="checkbox" value="lifestyle">
-              <span class="custom-checkbox">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-              </span>
-              <span class="filter-label-text">Đời thường</span>
-            </div>
-          </label>
-        </div>
-      </details>
-
-      <button class="apply-filters-btn" id="applyFiltersBtn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
-        </svg>
-        <span>Lọc</span>
-      </button>
-    </aside>
-
-    <!-- PRODUCTS -->
-    <section class="products-col">
-      <div class="results-bar">
-        <span class="results-count" id="resultCount">124 sản phẩm</span>
-        <select class="sort-select" id="sortSelect">
-          <option>Nổi bật</option>
-          <option>Mới nhất</option>
-          <option>Giá: Thấp đến cao</option>
-          <option>Giá: Cao đến thấp</option>
-        </select>
-      </div>
-
-      <div class="grid" id="productGrid"></div>
-
-      <div class="load-more">
-        <button id="loadMoreBtn">Xem thêm sản phẩm</button>
-      </div>
-    </section>
-  </div>
-
-  <!-- FOOTER WIDGET -->
-  <womanwan-footer></womanwan-footer>
-
-  <!-- TOAST NOTIFICATION -->
-  <div class="wan-toast" id="wanToast" role="alert" aria-live="polite"></div>
-
-  <!-- CART OVERLAY -->
-  <div class="cart-overlay" id="cartOverlay"></div>
-
-  <!-- CART DRAWER -->
-  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Giỏ hàng">
-    <!-- Header -->
-    <div class="cart-header">
-      <h2 class="cart-title" id="cartTitle">GIỎ HÀNG CỦA BẠN</h2>
-      <div class="cart-header-actions">
-        <button class="cart-header-tab" id="tabWishlist" onclick="switchDrawerTab('wishlist')"
-          title="Sản phẩm yêu thích" aria-label="Sản phẩm yêu thích">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path
-              d="M12.62 20.81C12.28 20.93 11.72 20.93 11.38 20.81C8.48 19.82 2 15.69 2 8.69C2 5.6 4.49 3.1 7.56 3.1C9.38 3.1 10.99 3.98 12 5.34C13.01 3.98 14.63 3.1 16.44 3.1C19.51 3.1 22 5.6 22 8.69C22 15.69 15.52 19.82 12.62 20.81Z" />
-          </svg>
-        </button>
-        <button class="cart-header-tab active" id="tabCart" onclick="switchDrawerTab('cart')" title="Giỏ hàng"
-          aria-label="Giỏ hàng">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path
-              d="M15.6 8.4V5.4C15.6 3.4 14 1.8 12 1.8C10 1.8 8.4 3.4 8.4 5.4V8.4M4.7 22.2H19.3C20.6 22.2 21.6 21.2 21.6 19.9L20.1 7.8C20.1 6.5 19.1 5.5 17.8 5.5H5.9C4.6 5.5 3.6 6.5 3.6 7.8L2.4 19.9C2.4 21.2 3.4 22.2 4.7 22.2Z" />
-          </svg>
-        </button>
-        <button class="cart-close-btn" id="cartCloseBtn" aria-label="Đóng">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- Scrollable Body -->
-    <div class="cart-body">
-      <!-- CART ITEMS VIEW -->
-      <div class="cart-items-view" id="cartItemsView">
-        <!-- Free Shipping Progress -->
-        <div class="shipping-progress-box">
-          <div class="shipping-progress-text">
-            <span id="shippingProgressText">Bạn chỉ còn thiếu <strong>151.000₫</strong> để được Miễn phí giao
-              hàng</span>
-            <span class="info-icon" title="Miễn phí vận chuyển cho đơn từ 1.000.000₫">ⓘ</span>
-          </div>
-          <div class="progress-track">
-            <div class="progress-bar" id="shippingProgressBar" style="width: 85%;"></div>
-          </div>
-          <div class="progress-labels">
-            <span>0₫</span>
-            <span>1.000.000₫</span>
-          </div>
-        </div>
-
-        <!-- Warning Notice -->
-        <div class="cart-alert">
-          <span class="alert-icon">ⓘ</span>
-          <p><strong>Sản phẩm chưa được giữ trước</strong>, hãy thanh toán nhanh để không bỏ lỡ.</p>
-        </div>
-
-        <!-- Cart Items Container -->
-        <div class="cart-items-list" id="cartItemsList">
-          <!-- Rendered via JavaScript -->
-        </div>
-
-        <!-- Cross-sell Section -->
-        <div class="cross-sell-section">
-          <div class="cross-sell-header">
-            <h3>GỢI Ý THÊM CHO BẠN</h3>
-            <p>Thêm các sản phẩm dưới đây để nhận ưu đãi miễn phí giao hàng</p>
-          </div>
-          <div class="cross-sell-grid">
-            <div class="cross-sell-card">
-              <div class="cross-sell-thumb">
-                <img src="assets/sanpham_test/co_tau2.jpg" alt="Conditioning Club Cap">
-              </div>
-              <div class="cross-sell-info">
-                <span class="cross-tag">Mới</span>
-                <div class="cross-name">Conditioning Club Cap</div>
-                <div class="cross-price">250.000₫</div>
-              </div>
-              <button class="cross-add-btn"
-                onclick="addCrossItem('Conditioning Club Cap', 250000, 'assets/sanpham_test/co_tau2.jpg', 'Mũ thể thao · Free size')">+
-                Thêm</button>
-            </div>
-            <div class="cross-sell-card">
-              <div class="cross-sell-thumb">
-                <img src="assets/sanpham_test/co_tau.jpg" alt="Sport Tote Bag Mini">
-              </div>
-              <div class="cross-sell-info">
-                <span class="cross-tag">Mới</span>
-                <div class="cross-name">Sport Tote Bag Mini</div>
-                <div class="cross-price">320.000₫</div>
-              </div>
-              <button class="cross-add-btn"
-                onclick="addCrossItem('Sport Tote Bag Mini', 320000, 'assets/sanpham_test/co_tau.jpg', 'Túi tote thể thao · Đen')">+
-                Thêm</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Discount Code -->
-        <div class="discount-section">
-          <h3 class="section-heading">MÃ GIẢM GIÁ</h3>
-          <form class="discount-form" id="discountForm" onsubmit="event.preventDefault(); applyDiscount();">
-            <input type="text" class="discount-input" id="discountCodeInput" placeholder="Nhập mã giảm giá...">
-            <button type="submit" class="discount-btn">Áp dụng</button>
-          </form>
-          <div class="discount-hint">ⓘ Mã phiếu quà tặng có thể áp dụng tại bước thanh toán.</div>
-        </div>
-
-        <!-- Order Summary -->
-        <div class="summary-section">
-          <h3 class="section-heading">TỔNG KẾT ĐƠN HÀNG</h3>
-          <div class="summary-row">
-            <span>Tạm tính</span>
-            <span id="cartSubTotal">849.000₫</span>
-          </div>
-          <div class="summary-row" id="discountRow" style="display:none;color:#e2231a;">
-            <span>Giảm giá</span>
-            <span id="cartDiscount">-0₫</span>
-          </div>
-          <div class="summary-row">
-            <span>Phí vận chuyển dự tính</span>
-            <span id="cartShipping">30.000₫</span>
-          </div>
-          <div class="summary-row total-row">
-            <span>Tổng cộng</span>
-            <span id="cartTotal">879.000₫</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- SAVED / WISHLIST ITEMS VIEW -->
-      <div class="saved-items-view" id="savedItemsView">
-        <div class="cart-items-list" id="savedItemsList">
-          <!-- Rendered via JavaScript -->
-        </div>
-      </div>
-    </div>
-
-    <!-- Sticky Footer Checkout -->
-    <div class="cart-footer" id="cartFooter">
-      <button class="checkout-btn" onclick="handleCheckout()">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" />
-        </svg>
-        Thanh toán an toàn
-      </button>
-      <!-- <div class="payment-badges">
-        <span class="pay-badge visa">VISA</span>
-        <span class="pay-badge mc">MC</span>
-        <span class="pay-badge paypal">PayPal</span>
-        <span class="pay-badge apple">Pay</span>
-        <span class="pay-badge klarna">Klarna</span>
-        <span class="pay-badge amex">AMEX</span>
-        <span class="pay-badge sezzle">sezzle</span>
-      </div>
-    </div> -->
-  </aside>
-
-  <!-- JAVASCRIPT: WAN API & CART CONTROLLER -->
-  <script>
     // =========================================================================
     // 1. WAN API & DATA SERVICE (Sẵn sàng mở rộng thành REST API / Backend)
     // =========================================================================
@@ -501,7 +7,7 @@
         list: [],
         async fetchAll() {
           try {
-            const res = await fetch("products.json");
+            const res = await fetch("shared/data/products.json");
             if (res.ok) {
               this.list = await res.json();
               return this.list;
@@ -1346,9 +852,9 @@
     }
 
     function initSidebarFilters() {
-      // 1. Lắng nghe tất cả checkbox bộ lọc (Danh mục, Giá, Bộ môn)
-      const filterCheckboxes = document.querySelectorAll(".filters input[type='checkbox']");
-      filterCheckboxes.forEach(cb => {
+      // 1. Lắng nghe các checkbox danh mục
+      const catCheckboxes = document.querySelectorAll(".filters .filter-group:first-of-type input[type='checkbox']");
+      catCheckboxes.forEach(cb => {
         cb.addEventListener("change", applySidebarFilters);
       });
 
@@ -1358,6 +864,13 @@
         btn.addEventListener("click", (e) => {
           e.preventDefault();
           btn.classList.toggle("active");
+          if (btn.classList.contains("active")) {
+            btn.style.background = "#111";
+            btn.style.color = "#fff";
+          } else {
+            btn.style.background = "";
+            btn.style.color = "";
+          }
           applySidebarFilters();
         });
       });
@@ -1365,36 +878,46 @@
       // 3. Màu sắc
       const swatches = document.querySelectorAll(".swatches .swatch");
       swatches.forEach(sw => {
+        sw.style.cursor = "pointer";
         sw.addEventListener("click", () => {
           sw.classList.toggle("active");
+          if (sw.classList.contains("active")) {
+            sw.style.outline = "2px solid #111";
+            sw.style.outlineOffset = "2px";
+          } else {
+            sw.style.outline = "";
+            sw.style.outlineOffset = "";
+          }
           applySidebarFilters();
         });
       });
 
-      // 4. Hàm xử lý Xóa tất cả bộ lọc
-      const resetFilters = (e) => {
-        if (e) e.preventDefault();
-        filterCheckboxes.forEach(cb => cb.checked = false);
-        sizeBtns.forEach(btn => btn.classList.remove("active"));
-        swatches.forEach(sw => sw.classList.remove("active"));
+      // 4. Khoảng giá
+      const priceCheckboxes = document.querySelectorAll(".filters details:nth-of-type(3) input[type='checkbox']");
+      priceCheckboxes.forEach(cb => {
+        cb.addEventListener("change", applySidebarFilters);
+      });
 
-        const params = new URLSearchParams(window.location.search);
-        const g = params.get('gender');
-        const f = params.get('filter');
-        setShopGender(g === 'men' ? 'men' : (f === 'sale' ? 'sale' : 'women'));
-      };
-
-      const clearBtns = document.querySelectorAll(".clear-filters, .clear-filters-link");
-      clearBtns.forEach(btn => btn.addEventListener("click", resetFilters));
-
-      const applyBtn = document.getElementById("applyFiltersBtn");
-      if (applyBtn) {
-        applyBtn.addEventListener("click", (e) => {
+      // 5. Xóa tất cả bộ lọc
+      const clearBtn = document.querySelector(".clear-filters");
+      if (clearBtn) {
+        clearBtn.addEventListener("click", (e) => {
           e.preventDefault();
-          applySidebarFilters();
-          if (window.innerWidth <= 768) {
-            document.querySelector('.products-col')?.scrollIntoView({ behavior: 'smooth' });
-          }
+          document.querySelectorAll(".filters input[type='checkbox']").forEach(cb => cb.checked = false);
+          sizeBtns.forEach(btn => {
+            btn.classList.remove("active");
+            btn.style.background = "";
+            btn.style.color = "";
+          });
+          swatches.forEach(sw => {
+            sw.classList.remove("active");
+            sw.style.outline = "";
+            sw.style.outlineOffset = "";
+          });
+          const params = new URLSearchParams(window.location.search);
+          const g = params.get('gender');
+          const f = params.get('filter');
+          setShopGender(g === 'men' ? 'men' : (f === 'sale' ? 'sale' : 'women'));
         });
       }
     }
@@ -1452,7 +975,3 @@
 
     // Khởi động dữ liệu
     initProducts();
-  </script>
-</body>
-
-</html>
