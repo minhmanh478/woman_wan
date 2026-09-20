@@ -62,31 +62,19 @@
   font-size: 11px;
 }
 
-/* Editorial PDP Image Grid Gallery (1 Hero Top Image + 2-Column Grid Below) */
+/* 2x2 Image Grid Gallery (Desktop) */
 .pdp-gallery-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6px;
+  gap: 4px;
   background: #ffffff;
   position: relative;
 }
 
-/* First image: Full-width Hero display (Spanning 2 columns) */
-.pdp-gallery-item:first-child,
-.pdp-gallery-item.pdp-gallery-hero {
-  grid-column: 1 / -1;
-  aspect-ratio: 1 / 1;
-  width: 100%;
-}
-
-/* Subsequent images: 2-column lookbook portrait ratio */
-.pdp-gallery-item:not(:first-child) {
-  aspect-ratio: 3 / 4;
-}
-
 .pdp-gallery-item {
   position: relative;
-  background: #f4f4f4;
+  background: #eaeef0;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   cursor: zoom-in;
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23111111' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='10' cy='10' r='7'/%3E%3Cline x1='21' y1='21' x2='15' y2='15'/%3E%3Cline x1='10' y1='7' x2='10' y2='13'/%3E%3Cline x1='7' y1='10' x2='13' y2='10'/%3E%3C/svg%3E") 10 10, zoom-in;
@@ -128,8 +116,8 @@
   margin-bottom: 24px;
 }
 
-/* Hide images from 8 onwards by default (shows 1 full-width hero + 3 rows of 2 = 7 images) */
-.pdp-gallery-grid:not(.expanded) .pdp-gallery-item:nth-child(n+8) {
+/* Hide images from 5 onwards by default */
+.pdp-gallery-grid:not(.expanded) .pdp-gallery-item:nth-child(n+5) {
   display: none;
 }
 
@@ -180,7 +168,7 @@
   top: calc(var(--header-bottom) + 16px);
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
   max-height: calc(100vh - var(--header-bottom) - 30px);
   overflow-y: auto;
   padding-right: 8px;
@@ -240,7 +228,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: -6px;
+  margin-top: -4px;
 }
 
 .pdp-badge-pill {
@@ -265,20 +253,20 @@
 
 /* Title & Pricing */
 .pdp-title {
-  font-size: clamp(22px, 2.2vw, 28px);
+  font-size: clamp(20px, 2vw, 26px);
   font-weight: 800;
-  line-height: 1.18;
+  line-height: 1.22;
   letter-spacing: -0.3px;
   text-transform: uppercase;
   color: var(--ink);
-  margin-top: -6px;
+  margin: 0;
 }
 
 .pdp-price-row {
   display: flex;
   align-items: baseline;
   gap: 12px;
-  margin-top: -8px;
+  margin: 0;
 }
 
 .pdp-price-current {
@@ -358,7 +346,7 @@
 .pdp-colors-section {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .pdp-section-header {
@@ -377,7 +365,7 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
 }
 
 .pdp-color-thumb-btn {
@@ -414,7 +402,7 @@
 .pdp-sizes-section {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .pdp-guide-link {
@@ -497,10 +485,11 @@
   background: #fafafa;
   border: 1px solid #e8e8e8;
   border-radius: 3px;
-  padding: 10px 14px;
+  padding: 9px 12px;
   font-size: 12.5px;
   color: var(--ink-soft);
   line-height: 1.45;
+  margin: 0;
 }
 
 .pdp-fit-tip-box strong {
@@ -711,33 +700,18 @@
    ========================================================================== */
 .pdp-specifications-container {
   width: 100%;
-  margin-top: 28px;
-  padding-top: 20px;
+  margin-top: 4px;
+  padding-top: 16px;
   border-top: 1px solid #eeeeee;
-}
-
-.pdp-spec-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  font-size: 14px;
-  color: #333333;
-  margin-bottom: 20px;
-  line-height: 1.5;
-}
-
-.pdp-spec-meta span {
-  color: #111111;
-  font-weight: 500;
 }
 
 .pdp-size-chart-box {
   width: 100%;
-  background: #f7f7f7;
+  background: #ffffff;
   border: 1px solid #eeeeee;
-  border-radius: 6px;
+  border-radius: 4px;
   overflow: hidden;
-  margin: 16px 0 24px;
+  margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -797,8 +771,8 @@
    ========================================================================== */
 .pdp-details-accordion-container {
   width: 100%;
-  max-width: 680px;
-  margin: 24px auto 0;
+  max-width: 100%;
+  margin: 28px 0 0 0;
 }
 
 .pdp-details-accordion-list {
@@ -815,7 +789,7 @@
   width: 100%;
   background: transparent;
   border: none;
-  padding: 20px 24px;
+  padding: 18px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -851,7 +825,7 @@
 
 .pdp-details-content {
   display: none;
-  padding: 0 24px 24px 24px;
+  padding: 8px 0 24px 0;
   animation: fadeInPane 0.3s ease;
 }
 
@@ -1056,9 +1030,9 @@
   .pdp-gallery-container {
     order: 2;
     margin-bottom: 12px;
-    margin-left: -15px;
-    margin-right: -15px;
-    width: calc(100% + 30px);
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
   }
 
   .pdp-gallery-grid {
@@ -1081,7 +1055,7 @@
     width: 100%;
     aspect-ratio: 3 / 4;
     background: #f5f5f5;
-    border-radius: 0;
+    border-radius: 2px;
     overflow: hidden;
     position: relative;
     display: flex;
@@ -1105,18 +1079,15 @@
     width: 100%;
     display: flex;
     align-items: center;
-    padding: 0 15px;
+    padding: 0;
   }
 
   .pdp-mobile-thumbs-strip {
     display: flex;
     gap: 6px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding: 2px 30px 2px 0;
-    flex: 1;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
   }
 
   .pdp-mobile-thumbs-strip::-webkit-scrollbar {
@@ -1124,23 +1095,23 @@
   }
 
   .pdp-mobile-thumb-item {
-    flex: 0 0 64px;
-    width: 64px;
-    height: 80px;
+    flex: 1 1 0;
+    min-width: 0;
     aspect-ratio: 3 / 4;
     background: #f5f5f5;
-    border: 1px solid #e0e0e0;
+    border: 1.5px solid transparent;
     border-radius: 2px;
     overflow: hidden;
     padding: 0;
     cursor: pointer;
     box-sizing: border-box;
-    transition: all 0.15s ease;
+    transition: opacity 0.2s ease, border-color 0.2s ease;
+    opacity: 0.35;
   }
 
   .pdp-mobile-thumb-item.active {
+    opacity: 1;
     border-color: #111111;
-    border-width: 2px;
   }
 
   .pdp-mobile-thumb-item img {
@@ -1153,27 +1124,44 @@
 
   .pdp-thumb-arrow-btn {
     position: absolute;
-    right: 15px;
-    top: 0;
-    bottom: 0;
+    top: 50%;
+    transform: translateY(-50%);
     width: 28px;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.92) 40%, #ffffff 100%);
+    height: 42px;
+    background: transparent;
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    padding-right: 0;
-    color: #111111;
-    z-index: 2;
-    transition: opacity 0.2s ease;
+    justify-content: center;
+    padding: 0;
+    color: #000000;
+    z-index: 10;
+    transition: opacity 0.2s ease, transform 0.15s ease;
+  }
+
+  .pdp-thumb-arrow-btn:active {
+    transform: translateY(-50%) scale(0.88);
+  }
+
+  .pdp-thumb-prev-btn {
+    left: 2px;
+  }
+
+  .pdp-thumb-next-btn {
+    right: 2px;
+  }
+
+  .pdp-thumb-arrow-btn:hover {
+    opacity: 0.7;
   }
 
   .pdp-thumb-arrow-btn svg {
-    width: 16px;
-    height: 16px;
-    stroke: #111111;
-    stroke-width: 2;
+    width: 20px;
+    height: 20px;
+    stroke: #000000;
+    stroke-width: 3.2;
+    filter: drop-shadow(0 0 2.5px rgba(255, 255, 255, 0.95));
   }
 
   /* Right Information & Actions Column on Mobile */
@@ -1275,18 +1263,12 @@
   }
 
   .pdp-specifications-container {
-    margin-top: 16px;
-    padding-top: 14px;
-  }
-
-  .pdp-spec-meta {
-    font-size: 13px;
-    gap: 3px;
-    margin-bottom: 10px;
+    margin-top: 4px;
+    padding-top: 12px;
   }
 
   .pdp-size-chart-box {
-    margin: 8px 0 0 0;
+    margin: 0;
   }
 
   /* Description & Specification Accordion at Bottom of Mobile */
@@ -1375,17 +1357,9 @@
   }
 
   .pdp-gallery-container {
-    margin-left: -12px;
-    margin-right: -12px;
-    width: calc(100% + 24px);
-  }
-
-  .pdp-mobile-thumbs-container {
-    padding: 0 12px;
-  }
-
-  .pdp-thumb-arrow-btn {
-    right: 12px;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
   }
 
   .pdp-title {
@@ -1400,10 +1374,19 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .pdp-mobile-thumb-item {
-    flex: 0 0 58px;
-    width: 58px;
-    height: 72px;
+  .pdp-mobile-thumbs-strip {
+    gap: 5px;
+  }
+
+  .pdp-thumb-arrow-btn {
+    width: 26px;
+    height: 38px;
+  }
+
+  .pdp-thumb-arrow-btn svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 3.2;
   }
 }
 

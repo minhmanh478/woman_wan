@@ -1095,6 +1095,9 @@ nav.primary li.active a {
   color: var(--ink-soft);
   margin-bottom: 6px;
   line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .price-row {
@@ -1364,7 +1367,7 @@ footer,
     width: 100% !important;
   }
 
-  /* Left controls: 2-line Hamburger Menu + Search */
+  /* Left controls: 3-line Hamburger Menu */
   .header-mobile-left {
     display: flex !important;
     align-items: center !important;
@@ -1392,23 +1395,7 @@ footer,
   }
 
   .mobile-search-btn {
-    background: none !important;
-    border: none !important;
-    padding: 3px !important;
-    cursor: pointer !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    color: #111111 !important;
-    line-height: 1 !important;
-  }
-
-  .mobile-search-btn svg,
-  .mobile-search-btn .action-icon {
-    width: 20px !important;
-    height: 20px !important;
-    display: block !important;
-    stroke: currentColor !important;
+    display: none !important;
   }
 
   /* Centered Brand Logo */
@@ -1435,7 +1422,7 @@ footer,
     display: none !important;
   }
 
-  /* Right controls: User Profile + Cart Bag with Badge */
+  /* Right controls: Cart Bag with Badge */
   header.main .header-actions {
     display: flex !important;
     align-items: center !important;
@@ -1445,6 +1432,10 @@ footer,
   }
 
   header.main .header-actions .search-box {
+    display: none !important;
+  }
+
+  header.main .header-actions .header-user-btn {
     display: none !important;
   }
 
@@ -1465,7 +1456,6 @@ footer,
 
   header.main .header-actions .header-wishlist-btn {
     display: none !important;
-    /* Balances header with 2 icons on left, 2 icons on right like Gymshark */
   }
 
   /* Mobile Search Dropdown */
@@ -3690,33 +3680,17 @@ footer,
     font-size: 20px;
   }
 
+  .gs-statement-stats,
   .gs-features-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    display: none !important;
   }
 
   .gs-statement-section {
-    padding: 56px 20px 48px;
+    padding: 44px 20px 36px;
   }
 
   .gs-statement-text br.desktop-br {
     display: none;
-  }
-
-  .gs-statement-stats {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
-  .gs-stat-item {
-    width: 100%;
-    max-width: none;
-    padding: 18px 14px;
-  }
-
-  .gs-stat-num {
-    font-size: 24px;
-    font-weight: 500;
   }
 
   .gs-newsletter-form {

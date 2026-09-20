@@ -161,8 +161,9 @@
         <div class="header-mobile-left">
           <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Mở menu điều hướng" title="Menu">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-              <line x1="3" y1="8" x2="21" y2="8"></line>
-              <line x1="3" y1="16" x2="21" y2="16"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
             </svg>
           </button>
           <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Tìm kiếm sản phẩm" title="Tìm kiếm">

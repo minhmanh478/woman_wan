@@ -42,10 +42,15 @@
               <img id="pdpMobileMainImg" src="" alt="Ảnh sản phẩm" onclick="handleMobileMainImgClick()">
             </div>
             <div class="pdp-mobile-thumbs-container">
+              <button type="button" class="pdp-thumb-arrow-btn pdp-thumb-prev-btn" id="pdpThumbPrevBtn" onclick="handleMobileThumbNav('prev')" aria-label="Ảnh trước">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
               <div class="pdp-mobile-thumbs-strip" id="pdpMobileThumbsStrip">
                 <!-- Dynamically populated from product.json -->
               </div>
-              <button type="button" class="pdp-thumb-arrow-btn" id="pdpThumbNextBtn" onclick="handleMobileThumbNav('next')" aria-label="Xem ảnh tiếp theo">
+              <button type="button" class="pdp-thumb-arrow-btn pdp-thumb-next-btn" id="pdpThumbNextBtn" onclick="handleMobileThumbNav('next')" aria-label="Ảnh tiếp theo">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="9 18 15 12 9 6"></polyline>
                 </svg>
@@ -159,33 +164,10 @@
           <div class="pdp-section-header">
             <span style="font-weight:700;">Kích cỡ<span class="pdp-size-status" id="pdpSizeStatus">: Chưa
                 chọn</span></span>
-            <a href="../guides.json" class="pdp-guide-link"
-              onclick="showToast('Bảng size chuẩn: S (50-60kg), M (60-70kg), L (70-80kg), XL (80-90kg)'); return false;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="7" width="20" height="10" rx="2"></rect>
-                <line x1="6" y1="7" x2="6" y2="12"></line>
-                <line x1="10" y1="7" x2="10" y2="10"></line>
-                <line x1="14" y1="7" x2="14" y2="12"></line>
-                <line x1="18" y1="7" x2="18" y2="10"></line>
-              </svg>
-              Hướng dẫn chọn kích cỡ
-            </a>
           </div>
 
           <div class="pdp-sizes-grid" id="pdpSizesGrid">
             <!-- Dynamically populated from product.json -->
-          </div>
-
-          <!-- Fit Tip Box -->
-          <div class="pdp-fit-tip-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="12" y1="16" x2="12" y2="12"></line>
-              <line x1="12" y1="8" x2="12.01" y2="8"></line>
-            </svg>
-            <span id="pdpFitTipText"><strong>Đúng kích cỡ.</strong> Chúng tôi khuyên bạn nên đặt theo kích cỡ thông
-              thường.</span>
           </div>
         </div>
 
@@ -227,11 +209,6 @@
 
         <!-- Product Specifications & Size Guide Panel -->
         <div class="pdp-specifications-container">
-          <div class="pdp-spec-meta">
-            <div>Mã sản phẩm: <span id="pdpSkuText">SU26-R-S-WH-L</span></div>
-            <div>Danh mục: <span id="pdpCategoriesText">Collection, Race, Tranining</span></div>
-          </div>
-
           <div class="pdp-size-chart-box">
             <img src="../assets/size/image.png" alt="Bảng kích thước chuẩn WOMAN WAN" class="pdp-size-chart-img"
               loading="lazy">

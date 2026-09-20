@@ -174,25 +174,22 @@
       galleryImagesList = p.images;
       currentMobileGalleryIndex = 0;
 
-      // Desktop Gallery Setup
-      let displayImages = [...p.images];
-      while (displayImages.length < 8) {
-        displayImages = [...displayImages, ...p.images];
-      }
-
+      // Desktop Gallery Setup (2x2 Grid with original product images)
       if (galleryGrid) {
-        galleryGrid.innerHTML = displayImages
-          .map((imgSrc, idx) => `
-            <div class="pdp-gallery-item ${idx === 0 ? 'pdp-gallery-hero' : ''}" onclick="handleGalleryClick(event, '${imgSrc}')">
+        galleryGrid.innerHTML = p.images
+          .map(
+            (imgSrc, idx) => `
+            <div class="pdp-gallery-item" onclick="handleGalleryClick(event, '${imgSrc}')">
               <img src="${imgSrc}" alt="${p.name} - Ảnh ${idx + 1}" loading="${idx < 3 ? "eager" : "lazy"}">
             </div>
-          `)
+          `
+          )
           .join("");
 
         initGalleryZoom();
-        
+
         if (expandWrap) {
-          expandWrap.style.display = displayImages.length > 7 ? "flex" : "none";
+          expandWrap.style.display = p.images.length > 4 ? "flex" : "none";
         }
       }
 
@@ -565,7 +562,6 @@
     thumbs.forEach((th, idx) => {
       if (idx === index) {
         th.classList.add("active");
-        th.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
       } else {
         th.classList.remove("active");
       }

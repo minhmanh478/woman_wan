@@ -1201,34 +1201,17 @@
     font-size: 20px;
   }
 
+  .gs-statement-stats,
   .gs-features-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    display: none !important;
   }
 
   .gs-statement-section {
-    padding: 56px 20px 48px;
+    padding: 44px 20px 36px;
   }
 
   .gs-statement-text br.desktop-br {
     display: none;
-  }
-
-  .gs-statement-stats {
-    gap: 12px;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .gs-stat-item {
-    width: 100%;
-    max-width: 320px;
-    padding: 18px 24px;
-  }
-
-  .gs-stat-num {
-    font-size: 24px;
-    font-weight: 500;
   }
 
   .gs-newsletter-form {
