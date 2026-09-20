@@ -11,6 +11,8 @@
   let selectedColor = null;
   let selectedSize = null;
   let countdownInterval = null;
+  let currentMobileGalleryIndex = 0;
+  let galleryImagesList = [];
 
   // Format currency helper
   function formatVND(num) {
@@ -162,30 +164,60 @@
       `;
     }
 
-    // 2. Images Gallery (2x2 Grid)
+    // 2. Images Gallery (Desktop 1+2x2 Lookbook Grid & Mobile Main+Thumbs Slider)
     const galleryGrid = document.getElementById("pdpGalleryGrid");
     const expandWrap = document.querySelector(".pdp-expand-wrap");
+    const mobileMainImg = document.getElementById("pdpMobileMainImg");
+    const mobileThumbsStrip = document.getElementById("pdpMobileThumbsStrip");
     
-    if (galleryGrid && p.images && p.images.length > 0) {
-      // For demonstration, if there are exactly 4 or fewer images, duplicate them so the expand feature is visible
-      let displayImages = p.images;
-      if (displayImages.length <= 4) {
-        displayImages = [...displayImages, ...displayImages];
+    if (p.images && p.images.length > 0) {
+      galleryImagesList = p.images;
+      currentMobileGalleryIndex = 0;
+
+      // Desktop Gallery Setup
+      let displayImages = [...p.images];
+      while (displayImages.length < 8) {
+        displayImages = [...displayImages, ...p.images];
       }
 
-      galleryGrid.innerHTML = displayImages
-        .map((imgSrc, idx) => `
-          <div class="pdp-gallery-item" onclick="handleGalleryClick(event, '${imgSrc}')">
-            <img src="${imgSrc}" alt="${p.name} - Ảnh ${idx + 1}" loading="${idx < 2 ? "eager" : "lazy"}">
-          </div>
-        `)
-        .join("");
+      if (galleryGrid) {
+        galleryGrid.innerHTML = displayImages
+          .map((imgSrc, idx) => `
+            <div class="pdp-gallery-item ${idx === 0 ? 'pdp-gallery-hero' : ''}" onclick="handleGalleryClick(event, '${imgSrc}')">
+              <img src="${imgSrc}" alt="${p.name} - Ảnh ${idx + 1}" loading="${idx < 3 ? "eager" : "lazy"}">
+            </div>
+          `)
+          .join("");
 
-      initGalleryZoom();
-      
-      if (expandWrap) {
-        expandWrap.style.display = "flex"; // Always show button for demo
+        initGalleryZoom();
+        
+        if (expandWrap) {
+          expandWrap.style.display = displayImages.length > 7 ? "flex" : "none";
+        }
       }
+
+      // Mobile Gallery Setup (Main Image + Thumbnail Strip)
+      if (mobileMainImg) {
+        mobileMainImg.src = galleryImagesList[0];
+        mobileMainImg.alt = `${p.name} - Ảnh 1`;
+      }
+
+      if (mobileThumbsStrip) {
+        mobileThumbsStrip.innerHTML = galleryImagesList
+          .map(
+            (imgSrc, idx) => `
+          <button type="button" class="pdp-mobile-thumb-item ${idx === 0 ? "active" : ""}" 
+            data-index="${idx}" 
+            onclick="selectMobileGalleryImage(${idx})"
+            aria-label="Xem ảnh ${idx + 1}">
+            <img src="${imgSrc}" alt="${p.name} thumb ${idx + 1}" loading="lazy">
+          </button>
+        `
+          )
+          .join("");
+      }
+
+      initMobileGalleryTouch();
     }
 
     // 3. Meta & Rating
@@ -205,7 +237,6 @@
     if (badgesRow) {
       let badgesHtml = "";
       if (p.tag) badgesHtml += `<span class="pdp-badge-pill new-tag">${p.tag}</span>`;
-      if (p.promoTag) badgesHtml += `<span class="pdp-badge-pill sale-tag">${p.promoTag}</span>`;
       badgesRow.innerHTML = badgesHtml;
     }
 
@@ -292,37 +323,15 @@
       fitTipEl.textContent = p.sizeGuideTip;
     }
 
-    // 9. Membership points
-    const clubPointsEl = document.getElementById("pdpClubPointsText");
-    if (clubPointsEl && p.membership) {
-      clubPointsEl.textContent = p.membership.text;
+    // 9. Specifications metadata (SKU & Categories)
+    const skuEl = document.getElementById("pdpSkuText");
+    if (skuEl && p.sku) {
+      skuEl.textContent = p.sku;
     }
 
-    // 10. Accordion Policies
-    const policyListEl = document.getElementById("pdpPolicyList");
-    if (policyListEl && p.benefits) {
-      policyListEl.innerHTML = p.benefits
-        .map(
-          (b, i) => `
-        <div class="pdp-policy-item ${i === 0 ? "open" : ""}">
-          <button class="pdp-policy-header" onclick="togglePolicyItem(this)">
-            <span class="pdp-policy-header-left">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span>${b.title}</span>
-            </span>
-            <svg class="pdp-policy-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </button>
-          <div class="pdp-policy-content">
-            <p>${b.content}</p>
-          </div>
-        </div>
-      `
-        )
-        .join("");
+    const categoriesEl = document.getElementById("pdpCategoriesText");
+    if (categoriesEl && p.categoriesList) {
+      categoriesEl.textContent = p.categoriesList;
     }
 
     // 11. Description & Specifications Tab
@@ -461,12 +470,28 @@
   // =========================================================================
   function initGalleryZoom() {
     const galleryItems = document.querySelectorAll(".pdp-gallery-item");
-    // Giảm độ phóng to xuống 1/2 so với khoảng cách giữa mặc định (1.0) và mức phóng to trước (2.35): 1.0 + 1.35/2 = ~1.68
     const ZOOM_SCALE = 1.68;
+
+    // Detect mobile / touch screen (không kích hoạt zoom khi chạm/kéo trên mobile web)
+    const isMobileTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth <= 920);
 
     galleryItems.forEach((item) => {
       const img = item.querySelector("img");
       if (!img) return;
+
+      // Xóa sạch touch listeners để việc cuộn/kéo trên mobile hoàn toàn tự nhiên, không bị zoom
+      item.ontouchstart = null;
+      item.ontouchmove = null;
+      item.ontouchend = null;
+
+      if (isMobileTouch) {
+        item.onmouseenter = null;
+        item.onmousemove = null;
+        item.onmouseleave = null;
+        img.style.transform = "none";
+        img.style.transformOrigin = "center center";
+        return;
+      }
 
       let isZooming = false;
       let rafId = null;
@@ -508,42 +533,10 @@
         img.style.transform = `scale(${ZOOM_SCALE})`;
       }
 
-      // Cleanup prior listeners
+      // Gắn sự kiện hover cho Desktop chuột
       item.onmouseenter = onMouseEnter;
       item.onmousemove = onMouseMove;
       item.onmouseleave = onMouseLeave;
-
-      // Touch screen support (tap and pan)
-      item.ontouchstart = (e) => {
-        if (e.touches.length === 1) {
-          isZooming = true;
-          item.classList.add("is-zooming");
-          updateTouchPosition(e.touches[0]);
-        }
-      };
-
-      item.ontouchmove = (e) => {
-        if (!isZooming || e.touches.length !== 1) return;
-        e.preventDefault();
-        updateTouchPosition(e.touches[0]);
-      };
-
-      item.ontouchend = () => {
-        isZooming = false;
-        item.classList.remove("is-zooming");
-        img.style.transformOrigin = "center center";
-        img.style.transform = "scale(1)";
-      };
-
-      function updateTouchPosition(touch) {
-        const rect = item.getBoundingClientRect();
-        const offsetX = touch.clientX - rect.left;
-        const offsetY = touch.clientY - rect.top;
-        const xPercent = Math.max(0, Math.min(100, (offsetX / rect.width) * 100));
-        const yPercent = Math.max(0, Math.min(100, (offsetY / rect.height) * 100));
-        img.style.transformOrigin = `${xPercent.toFixed(2)}% ${yPercent.toFixed(2)}%`;
-        img.style.transform = `scale(${ZOOM_SCALE})`;
-      }
     });
   }
 
@@ -551,6 +544,84 @@
   window.handleGalleryClick = function (e, imgSrc) {
     openLightbox(imgSrc);
   };
+
+  // Mobile Gallery Selection Handler
+  window.selectMobileGalleryImage = function (index) {
+    if (!galleryImagesList || galleryImagesList.length === 0) return;
+    if (index < 0) index = 0;
+    if (index >= galleryImagesList.length) index = galleryImagesList.length - 1;
+
+    currentMobileGalleryIndex = index;
+    const mobileMainImg = document.getElementById("pdpMobileMainImg");
+    if (mobileMainImg) {
+      mobileMainImg.style.opacity = "0.75";
+      mobileMainImg.src = galleryImagesList[index];
+      setTimeout(() => {
+        mobileMainImg.style.opacity = "1";
+      }, 50);
+    }
+
+    const thumbs = document.querySelectorAll(".pdp-mobile-thumb-item");
+    thumbs.forEach((th, idx) => {
+      if (idx === index) {
+        th.classList.add("active");
+        th.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
+      } else {
+        th.classList.remove("active");
+      }
+    });
+  };
+
+  // Mobile Thumbnail Nav Arrow Handler
+  window.handleMobileThumbNav = function (direction) {
+    if (!galleryImagesList || galleryImagesList.length === 0) return;
+    if (direction === "next") {
+      const nextIdx = (currentMobileGalleryIndex + 1) % galleryImagesList.length;
+      selectMobileGalleryImage(nextIdx);
+    } else {
+      const prevIdx = (currentMobileGalleryIndex - 1 + galleryImagesList.length) % galleryImagesList.length;
+      selectMobileGalleryImage(prevIdx);
+    }
+  };
+
+  // Click on main mobile image -> open lightbox
+  window.handleMobileMainImgClick = function () {
+    if (galleryImagesList && galleryImagesList[currentMobileGalleryIndex]) {
+      openLightbox(galleryImagesList[currentMobileGalleryIndex]);
+    }
+  };
+
+  // Touch swipe support for main mobile image
+  function initMobileGalleryTouch() {
+    const mainWrap = document.getElementById("pdpMobileMainWrap");
+    if (!mainWrap) return;
+
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    mainWrap.ontouchstart = (e) => {
+      if (e.touches.length === 1) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }
+    };
+
+    mainWrap.ontouchend = (e) => {
+      if (e.changedTouches.length === 1) {
+        const deltaX = e.changedTouches[0].clientX - touchStartX;
+        const deltaY = e.changedTouches[0].clientY - touchStartY;
+
+        // Only trigger if horizontal swipe is dominant and longer than 35px
+        if (Math.abs(deltaX) > 35 && Math.abs(deltaX) > Math.abs(deltaY)) {
+          if (deltaX < 0) {
+            handleMobileThumbNav("next");
+          } else {
+            handleMobileThumbNav("prev");
+          }
+        }
+      }
+    };
+  }
 
   // Lightbox Image Zoom
   window.openLightbox = function (imgSrc) {

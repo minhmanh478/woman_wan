@@ -116,12 +116,31 @@
   function renderHeaderHTML(config, prefix) {
     const activeTab = detectActiveTab();
 
-    // 1. Utility Bar
-    const utilBarHTML = config.announcement && config.announcement.enabled ? `
-      <div class="util-bar">
-        ${config.announcement.link ? `<a href="${prefix}${config.announcement.link}" style="color:inherit;text-decoration:none;">${config.announcement.text}</a>` : config.announcement.text}
-      </div>
-    ` : "";
+    // 1. Utility Bar (Seamless Infinite Marquee)
+    let utilBarHTML = "";
+    if (config.announcement && config.announcement.enabled) {
+      const itemLink = config.announcement.link
+        ? `<a href="${prefix}${config.announcement.link}" class="util-link">${config.announcement.text}</a>`
+        : `<span>${config.announcement.text}</span>`;
+
+      const chunkHTML = `
+        <span class="util-item">${itemLink}</span>
+        <span class="util-sep" aria-hidden="true">•</span>
+        <span class="util-item">${itemLink}</span>
+        <span class="util-sep" aria-hidden="true">•</span>
+        <span class="util-item">${itemLink}</span>
+        <span class="util-sep" aria-hidden="true">•</span>
+      `;
+
+      utilBarHTML = `
+        <div class="util-bar" role="region" aria-label="Thông báo">
+          <div class="util-track">
+            <div class="util-content">${chunkHTML}</div>
+            <div class="util-content" aria-hidden="true">${chunkHTML}</div>
+          </div>
+        </div>
+      `;
+    }
 
     // 2. Navigation List
     const navListHTML = config.navTabs.map(tab => {
