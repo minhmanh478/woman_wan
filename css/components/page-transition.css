@@ -1,7 +1,7 @@
 /* ==========================================================================
    PAGE TRANSITION OVERLAY — WOMANWAN LOGO SPLASH
-   Hiệu ứng chuyển trang: Trắng (logo đen) -> Đen (logo trắng) -> Chuyển trang
-   Tương tự site-intro nhưng ngắn hơn (1.4s) để UX mượt mà
+   Hiệu ứng chuyển trang: Trắng (logo đen) -> Đen (logo trắng) -> Hòa tan mượt mà (Dissolve)
+   Thời lượng: 2.1s (Nhanh hơn 1/4), giai đoạn cuối hòa tan (75% - 100%) tránh cứng khi chuyển cảnh
    ========================================================================== */
 
 .page-transition-overlay {
@@ -19,12 +19,12 @@
   transition: none;
 }
 
-/* Khi active: chạy animation */
+/* Khi active: chạy animation chuyển trang */
 .page-transition-overlay.is-active {
   opacity: 1;
   visibility: visible;
   pointer-events: all;
-  animation: ptBgTransition 1.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation: ptBgTransition 2.1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
 
 .page-transition-overlay .pt-content {
@@ -32,46 +32,46 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 18px;
   will-change: transform, opacity;
 }
 
 .page-transition-overlay.is-active .pt-content {
-  animation: ptContentScale 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation: ptContentScale 2.1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 .page-transition-overlay .pt-logo {
-  width: min(280px, 65vw);
+  width: min(390px, 82vw);
   height: auto;
   display: block;
   will-change: filter, opacity, transform;
 }
 
 .page-transition-overlay.is-active .pt-logo {
-  animation: ptLogoInvert 1.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation: ptLogoInvert 2.1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
 
 .page-transition-overlay .pt-tagline {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 10.5px;
+  font-size: clamp(12.5px, 2.8vw, 15px);
   font-weight: 700;
-  letter-spacing: 5px;
+  letter-spacing: clamp(5px, 1.2vw, 7.5px);
   text-transform: uppercase;
   color: #111111;
-  padding-left: 5px;
-  will-change: color, opacity;
+  padding-left: clamp(5px, 1.2vw, 7.5px);
+  will-change: color, opacity, transform;
 }
 
 .page-transition-overlay.is-active .pt-tagline {
-  animation: ptTaglineColor 1.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation: ptTaglineColor 2.1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
 
 /*
-   Keyframe Timeline (1.4s total):
-   0.0s - 0.45s (0% - 32%):  Nền trắng, logo đen (fade-in nhanh)
-   0.45s - 0.7s (32% - 50%): Chuyển sang nền đen, logo trắng
-   0.7s - 1.0s (50% - 72%):  Giữ nền đen sang trọng
-   1.0s - 1.4s (72% - 100%): Giữ nguyên (chuyển trang trong giai đoạn này)
+   Keyframe Timeline (2.1s total):
+   0.0s - 0.67s (0% - 32%):  Nền trắng, logo đen (fade-in & hiển thị rõ)
+   0.67s - 1.05s (32% - 50%): Chuyển sắc tương phản sang nền đen, logo trắng
+   1.05s - 1.57s (50% - 75%): Giữ nền đen sang trọng
+   1.57s - 2.1s (75% - 100%): HÒA TAN (Dissolve fade-out mượt mà, tránh bị cứng khi chuyển cảnh)
 */
 @keyframes ptBgTransition {
   0% {
@@ -86,14 +86,17 @@
     background-color: #000000;
     opacity: 1;
   }
-  72% {
+  75% {
     background-color: #000000;
     opacity: 1;
+    transform: scale(1);
   }
   100% {
     background-color: #000000;
-    opacity: 1;
-    visibility: visible;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.03);
+    pointer-events: none;
   }
 }
 
@@ -113,10 +116,18 @@
   }
   50% {
     filter: invert(0);
+    opacity: 1;
+    transform: scale(1);
+  }
+  75% {
+    filter: invert(0);
+    opacity: 1;
+    transform: scale(1);
   }
   100% {
     filter: invert(0);
-    opacity: 1;
+    opacity: 0;
+    transform: scale(1.06);
   }
 }
 
@@ -134,10 +145,17 @@
   }
   50% {
     color: #888888;
+    opacity: 0.9;
+  }
+  75% {
+    color: #888888;
+    opacity: 0.9;
+    transform: translateY(0);
   }
   100% {
     color: #888888;
-    opacity: 0.9;
+    opacity: 0;
+    transform: translateY(3px);
   }
 }
 
@@ -148,7 +166,53 @@
   32% {
     transform: scale(1);
   }
-  100% {
+  75% {
     transform: scale(1);
+  }
+  100% {
+    transform: scale(1.03);
+  }
+}
+
+/* ==========================================================================
+   INCOMING PAGE REVEAL DISSOLVE
+   Khi trang mới tải lên sau khi chuyển cảnh: lớp màn đen hòa tan nhẹ nhàng hé lộ trang mới
+   ========================================================================== */
+.page-transition-overlay.is-revealing {
+  opacity: 1;
+  visibility: visible;
+  background-color: #000000;
+  animation: ptRevealDissolve 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: none;
+}
+
+.page-transition-overlay.is-revealing .pt-content {
+  animation: ptContentRevealDissolve 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes ptRevealDissolve {
+  0% {
+    opacity: 1;
+    background-color: #000000;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  100% {
+    opacity: 0;
+    background-color: #000000;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    visibility: hidden;
+  }
+}
+
+@keyframes ptContentRevealDissolve {
+  0% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.04);
   }
 }

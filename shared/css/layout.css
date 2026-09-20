@@ -101,16 +101,23 @@ nav.primary li.active a {
   display: flex;
   align-items: center;
   gap: 10px;
-  border-radius: 0px;
+  border-radius: 4px;
   padding: 9px 14px;
   min-width: 260px;
   background: #f4f4f4;
-  transition: background .2s, border-color .2s;
+  border: 1px solid #e8e8e8;
+  transition: background .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.search-box:hover {
+  background: #ededed;
+  border-color: #d8d8d8;
 }
 
 .search-box:focus-within {
-  background: #ffffff;
-  border-color: #000000;
+  background: #f4f4f4;
+  border-color: #111111;
+  box-shadow: 0 0 0 1px #111111;
 }
 
 .search-box .search-icon {
@@ -123,12 +130,17 @@ nav.primary li.active a {
 .search-input {
   border: none;
   outline: none;
-  background: transparent;
+  background: transparent !important;
   font-family: inherit;
   font-size: 14.5px;
   color: var(--ink);
   width: 100%;
   padding: 0;
+}
+
+.search-input:focus {
+  background: transparent !important;
+  outline: none;
 }
 
 .search-input::placeholder {

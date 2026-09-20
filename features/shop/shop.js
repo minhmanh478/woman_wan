@@ -481,27 +481,21 @@
       }
       const newUrl = tabKey === 'men' ? 'shop.html?gender=men' :
         (tabKey === 'sale' ? 'shop.html?filter=sale' : 'shop.html?gender=women');
-      window.history.pushState({ tabKey }, '', newUrl);
-      setShopGender(tabKey);
+      if (window.WanPageTransition && typeof window.WanPageTransition.navigate === "function") {
+        window.WanPageTransition.navigate(newUrl);
+      } else {
+        window.location.href = newUrl;
+      }
     }
 
     function handleMegaCategoryClick(tag, name, e, tabKey) {
       if (e) e.preventDefault();
-      showToast(`Đang xem: ${name}`);
-      const query = name.toLowerCase();
-      const all = WanAPI.products.list;
-      currentShopList = all.filter(p => {
-        const cat = (p.category || "").toLowerCase();
-        const n = (p.name || "").toLowerCase();
-        return cat.includes(query) || n.includes(query) || (p.tag && p.tag.toLowerCase().includes(query));
-      });
-      if (currentShopList.length === 0) currentShopList = all;
-      grid.innerHTML = "";
-      loaded = 0;
-      loadMore();
-      const resultCountEl = document.getElementById("resultCount");
-      if (resultCountEl) {
-        resultCountEl.textContent = `${currentShopList.length} sản phẩm phù hợp`;
+      const targetGender = tabKey || (currentShopTab === 'men' ? 'men' : 'women');
+      const newUrl = `shop.html?gender=${targetGender}&category=${encodeURIComponent(name)}`;
+      if (window.WanPageTransition && typeof window.WanPageTransition.navigate === "function") {
+        window.WanPageTransition.navigate(newUrl);
+      } else {
+        window.location.href = newUrl;
       }
     }
 

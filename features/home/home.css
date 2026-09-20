@@ -408,7 +408,7 @@
 .gs-trending-section {
   width: 100%;
   max-width: var(--container-max-width);
-  margin: 40px auto 30px;
+  margin: 40px auto 20px;
   padding: 0 var(--container-gutter);
 }
 
@@ -549,11 +549,11 @@
 
 .gs-statement-eyebrow {
   font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 4px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
   color: #666666;
-  margin-bottom: 22px;
+  margin-bottom: 18px;
 }
 
 .gs-statement-heading {
@@ -564,57 +564,37 @@
 }
 
 .gs-statement-logo {
-  width: 350px;
+  width: 290px;
   max-width: 100%;
   height: auto;
   display: block;
-  filter: brightness(0) invert(1);
   margin: 0 auto;
 }
 
-/* Decorative diamond separator */
+/* Decorative separator hidden */
 .gs-statement-separator {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin: 0 auto 28px;
-  width: 200px;
-}
-
-.gs-statement-separator::before,
-.gs-statement-separator::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(to right, transparent, #333, transparent);
-}
-
-.gs-statement-separator .sep-diamond {
-  width: 6px;
-  height: 6px;
-  background: #444;
-  transform: rotate(45deg);
-  flex-shrink: 0;
+  display: none;
 }
 
 .gs-statement-text {
-  font-size: 16px;
-  color: #aaaaaa;
-  line-height: 1.7;
-  margin-bottom: 40px;
+  font-size: 15.5px;
+  color: #444444;
+  line-height: 1.85;
+  margin-bottom: 18px;
   font-style: italic;
   max-width: 760px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Stats with card-style glassmorphism */
+/* 4 STATS CARDS: MIDDLE TIER (COMPACT/NARROWER FOR PYRAMID SHAPE) */
 .gs-statement-stats {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto 20px;
   padding-top: 0;
   border-top: none;
 }
@@ -623,13 +603,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 24px 32px;
-  min-width: 160px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
-  transition: all 0.35s ease;
+  justify-content: center;
+  padding: 24px 18px;
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
   cursor: default;
+  box-sizing: border-box;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
 .gs-stat-item:hover {
@@ -640,20 +622,23 @@
 }
 
 .gs-stat-num {
-  font-size: 34px;
-  font-weight: 900;
-  color: #ffffff;
-  letter-spacing: -0.5px;
-  line-height: 1.1;
-  margin-bottom: 6px;
+  font-size: 27px;
+  font-weight: 500;
+  color: #111111;
+  letter-spacing: -0.2px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  font-feature-settings: "tnum" 1;
 }
 
 .gs-stat-label {
-  font-size: 12px;
-  color: #777;
+  font-size: 11px;
+  font-weight: 500;
+  color: #767676;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  line-height: 1.4;
+  letter-spacing: 1.2px;
+  line-height: 1.45;
+  text-align: center;
 }
 
 /* --- 6. Editorial & Workout Guides (PREMIUM MAGAZINE LAYOUT) --- */
@@ -894,12 +879,12 @@
 
 .gs-features-grid {
   width: 100%;
-  max-width: var(--container-max-width);
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 var(--container-gutter);
+  padding: 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 16px;
   position: relative;
   z-index: 1;
 }
@@ -1225,6 +1210,10 @@
     padding: 56px 20px 48px;
   }
 
+  .gs-statement-text br.desktop-br {
+    display: none;
+  }
+
   .gs-statement-stats {
     gap: 12px;
     flex-direction: column;
@@ -1238,7 +1227,8 @@
   }
 
   .gs-stat-num {
-    font-size: 28px;
+    font-size: 24px;
+    font-weight: 500;
   }
 
   .gs-newsletter-form {

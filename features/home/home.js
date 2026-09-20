@@ -246,7 +246,7 @@
     // =========================================================================
     const grid = document.getElementById("productGrid");
     let loaded = 0;
-    const PAGE_SIZE = 8;
+    const PAGE_SIZE = 12;
     let activeDisplayList = [];
     let currentTrendingTab = "all";
 

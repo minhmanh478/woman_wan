@@ -19,7 +19,7 @@
   cursor: pointer;
   user-select: none;
   background-color: #ffffff;
-  animation: introBgTransition 2.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation: introBgTransition 4.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
   will-change: opacity, background-color, transform;
 }
 
@@ -29,7 +29,7 @@
   align-items: center;
   justify-content: center;
   gap: 16px;
-  animation: introContentScale 2.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation: introContentScale 4.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
   will-change: transform, opacity;
 }
 
@@ -43,7 +43,7 @@
   width: min(340px, 78vw);
   height: auto;
   display: block;
-  animation: introLogoInvert 2.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation: introLogoInvert 4.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
   will-change: filter, opacity, transform;
 }
 
@@ -54,7 +54,7 @@
   letter-spacing: 5px;
   text-transform: uppercase;
   color: #111111;
-  animation: introTaglineColor 2.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation: introTaglineColor 4.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
   will-change: color, opacity;
   padding-left: 5px; /* cân bằng letter-spacing */
 }

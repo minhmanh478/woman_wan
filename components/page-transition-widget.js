@@ -18,8 +18,8 @@
 (function () {
   "use strict";
 
-  /** Thời gian chờ trước khi chuyển trang (ms) — phải đồng bộ với CSS animation */
-  const TRANSITION_DELAY = 1050;
+  /** Thời gian chờ trước khi chuyển trang (ms) — phải đồng bộ với CSS animation (2.1s total) */
+  const TRANSITION_DELAY = 1575;
 
   /** Đường dẫn base tự động xác định */
   function resolveBasePath() {
@@ -60,7 +60,12 @@
       return;
     }
 
+    try {
+      sessionStorage.setItem("ww_page_transition", "1");
+    } catch (e) {}
+
     // Reset animation bằng cách xóa class rồi thêm lại (force reflow)
+    overlay.classList.remove("is-revealing");
     overlay.classList.remove("is-active");
     overlay.setAttribute("aria-hidden", "true");
 
@@ -74,10 +79,15 @@
     // Khóa cuộn trang trong khi chạy animation
     document.body.style.overflow = "hidden";
 
-    // Chuyển trang sau khi animation đạt giai đoạn nền đen
+    // Chuyển trang khi animation bắt đầu giai đoạn hòa tan mượt mà
     setTimeout(() => {
       window.location.href = targetUrl;
     }, TRANSITION_DELAY);
+
+    // Phục hồi trạng thái cuộn sau khi animation kết thúc
+    setTimeout(() => {
+      document.body.style.overflow = "";
+    }, 2200);
   }
 
   /**
@@ -147,10 +157,6 @@
       if (anchor._ptBound) return;
       anchor._ptBound = true;
       anchor.addEventListener("click", (e) => {
-        // Chỉ áp dụng nếu link thực sự chuyển trang (không phải filter trên shop.html)
-        const isShopPage = window.location.pathname.toLowerCase().includes("shop.html");
-        if (isShopPage) return; // Trên shop.html, để header widget xử lý filter
-
         if (!shouldApplyTransition(anchor)) return;
         e.preventDefault();
         navigateWithTransition(anchor.href);
@@ -163,9 +169,6 @@
       if (anchor._ptBound) return;
       anchor._ptBound = true;
       anchor.addEventListener("click", (e) => {
-        const isShopPage = window.location.pathname.toLowerCase().includes("shop.html");
-        if (isShopPage) return; // Trên shop.html, để header widget xử lý filter
-
         if (!shouldApplyTransition(anchor)) return;
         e.preventDefault();
         navigateWithTransition(anchor.href);
@@ -220,6 +223,25 @@
         this.style.display = "contents";
         const basePath = this.getAttribute("base-path") || resolveBasePath();
         this.innerHTML = createOverlayHTML(basePath);
+
+        const overlay = this.querySelector("#pageTransitionOverlay");
+        let isTransitioning = false;
+        try {
+          isTransitioning = sessionStorage.getItem("ww_page_transition") === "1";
+          if (isTransitioning) {
+            sessionStorage.removeItem("ww_page_transition");
+          }
+        } catch (e) {}
+
+        if (isTransitioning && overlay) {
+          overlay.classList.add("is-revealing");
+          overlay.setAttribute("aria-hidden", "false");
+          setTimeout(() => {
+            overlay.classList.remove("is-revealing");
+            overlay.setAttribute("aria-hidden", "true");
+            document.body.style.overflow = "";
+          }, 680);
+        }
 
         // Đợi DOM header render xong rồi mới gắn sự kiện
         requestAnimationFrame(() => {

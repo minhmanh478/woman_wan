@@ -436,11 +436,11 @@
   align-items: center;
   justify-content: center;
   background: #ffffff;
-  border: 1.5px solid #d4d4d4;
+  border: 1px solid #d4d4d4;
   color: var(--ink);
   font-family: inherit;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 500;
   text-align: center;
   border-radius: 4px;
   cursor: pointer;
@@ -763,7 +763,8 @@
 
 .size-highlight-alert .pdp-size-btn:not(.disabled) {
   border-color: #e2231a !important;
-  box-shadow: 0 0 0 1px #e2231a !important;
+  border-width: 1px !important;
+  box-shadow: none !important;
 }
 
 /* WanClub Membership Reward Banner */
