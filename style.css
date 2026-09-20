@@ -3452,20 +3452,8 @@ footer,
 /* --- Responsive Breakpoints for Gymshark Homepage --- */
 @media (max-width: 1024px) {
   .gs-hero {
-    min-height: unset;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    background-color: #000000;
-  }
-
-  .gs-hero-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center center;
+    min-height: 380px;
+    height: 50vh;
   }
 
   .gs-hero-inner {
@@ -3522,23 +3510,10 @@ footer,
 
 @media (max-width: 768px) {
   .gs-hero {
-    width: 100%;
-    min-height: unset;
-    height: auto;
-    max-height: unset;
-    aspect-ratio: 16 / 9;
+    min-height: 520px;
+    height: calc(100svh - 56px);
+    max-height: 740px;
     position: relative;
-    background-color: #000000;
-  }
-
-  .gs-hero-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center center;
   }
 
   .gs-hero-inner {
@@ -3609,16 +3584,15 @@ footer,
   }
 
   .gs-hero-controls {
-    top: auto;
-    bottom: 10px;
-    right: 12px;
+    top: 16px;
+    bottom: auto;
+    right: 16px;
     gap: 8px;
-    z-index: 4;
   }
 
   .gs-hero-ctrl-btn {
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
   }
 
   .gs-split-grid {
