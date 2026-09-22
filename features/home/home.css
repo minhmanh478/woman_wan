@@ -1077,6 +1077,16 @@
 }
 
 @media (max-width: 768px) {
+  .quick-add-btn {
+    display: none !important;
+  }
+
+  .card,
+  .card-media,
+  .cart-drawer {
+    box-shadow: none !important;
+  }
+
   .gs-hero {
     min-height: 520px;
     height: calc(100svh - 56px);

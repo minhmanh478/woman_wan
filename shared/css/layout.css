@@ -1219,12 +1219,15 @@ nav.primary li.active a {
    MOBILE CART DRAWER COMPACT FIT STYLING (<= 768px & <= 480px)
    ========================================================================== */
 @media (max-width: 768px) {
-  /* Compact Cart Drawer on Mobile with Left Margin Spacing */
   .cart-drawer {
     width: 82vw;
     max-width: 350px;
     min-width: 280px;
-    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.35);
+    box-shadow: none !important;
+  }
+
+  .quick-add-btn {
+    display: none !important;
   }
 
   .cart-header {
