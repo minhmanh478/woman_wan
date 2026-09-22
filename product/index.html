@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chi tiết sản phẩm - WOMAN WAN</title>
   <meta name="description" content="Chi tiết sản phẩm thời trang thể thao phong cách Clean Fit cao cấp của WOMAN WAN.">
-  <link rel="stylesheet" href="../style.css?v=wan_m5">
-  <link rel="stylesheet" href="product.css?v=wan_m5">
-  <link rel="stylesheet" href="../css/components/page-transition.css?v=wan_m5">
-  <script src="../components/footer-widget.js?v=wan_m5" defer></script>
-  <script src="../components/header-widget.js?v=wan_m5" defer></script>
-  <script src="../components/page-transition-widget.js?v=wan_m5" defer></script>
+  <link rel="stylesheet" href="../style.css?v=ww_pdp_4thumbs">
+  <link rel="stylesheet" href="product.css?v=ww_pdp_4thumbs">
+  <link rel="stylesheet" href="../css/components/page-transition.css?v=ww_pdp_4thumbs">
+  <script src="../components/footer-widget.js?v=ww_contact_v2" defer></script>
+  <script src="../components/header-widget.js?v=ww_contact_v2" defer></script>
+  <script src="../components/page-transition-widget.js?v=ww_contact_v2" defer></script>
 </head>
 
 <body>
@@ -42,16 +42,20 @@
               <img id="pdpMobileMainImg" src="" alt="Ảnh sản phẩm" onclick="handleMobileMainImgClick()">
             </div>
             <div class="pdp-mobile-thumbs-container">
-              <button type="button" class="pdp-thumb-arrow-btn pdp-thumb-prev-btn" id="pdpThumbPrevBtn" onclick="handleMobileThumbNav('prev')" aria-label="Ảnh trước">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <button type="button" class="pdp-thumb-arrow-btn pdp-thumb-prev-btn" id="pdpThumbPrevBtn"
+                onclick="handleMobileThumbNav('prev')" aria-label="Ảnh trước">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                  stroke-linejoin="round">
                   <polyline points="15 18 9 12 15 6"></polyline>
                 </svg>
               </button>
               <div class="pdp-mobile-thumbs-strip" id="pdpMobileThumbsStrip">
                 <!-- Dynamically populated from product.json -->
               </div>
-              <button type="button" class="pdp-thumb-arrow-btn pdp-thumb-next-btn" id="pdpThumbNextBtn" onclick="handleMobileThumbNav('next')" aria-label="Ảnh tiếp theo">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <button type="button" class="pdp-thumb-arrow-btn pdp-thumb-next-btn" id="pdpThumbNextBtn"
+                onclick="handleMobileThumbNav('next')" aria-label="Ảnh tiếp theo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                  stroke-linejoin="round">
                   <polyline points="9 18 15 12 9 6"></polyline>
                 </svg>
               </button>
@@ -232,7 +236,43 @@
   <!-- FOOTER WIDGET -->
   <womanwan-footer></womanwan-footer>
 
-  <script src="product.js?v=wan_m5"></script>
+  <!-- 3 Nút Liên hệ Nổi (Góc trái màn hình) -->
+  <div class="ww-floating-contact" id="womanwanFloatingContact" role="region" aria-label="Liên hệ nhanh WOMAN WAN">
+    <a href="tel:0867774069" class="ww-float-btn phone-btn" aria-label="Gọi hotline 0867 774 069">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25 1.12.37 2.32.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+        <path d="M16.5 3.5a7 7 0 0 1 4.5 4.5" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" />
+        <path d="M14.5 6.5a3.5 3.5 0 0 1 2.5 2.5" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" />
+      </svg>
+    </a>
+    <a href="https://zalo.me/0867774069" target="_blank" rel="noopener noreferrer" class="ww-float-btn zalo-btn"
+      aria-label="Chat Zalo">
+      <svg width="26" height="26" viewBox="0 0 36 36" fill="none">
+        <path
+          d="M18 5.5C10.8 5.5 5 10.4 5 16.5c0 3.5 1.9 6.6 4.9 8.6-.2 2-1 3.9-2.2 5.1 2.6-.2 5.3-1.2 7.2-2.4 1 .2 2 .3 3.1.3 7.2 0 13-4.9 13-11S25.2 5.5 18 5.5z"
+          fill="#ffffff" />
+        <text x="18" y="20.2"
+          font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+          font-weight="900" font-size="10.5" fill="#000000" text-anchor="middle" letter-spacing="-0.3px">Zalo</text>
+      </svg>
+    </a>
+    <a href="https://m.me/womanwan.vn" target="_blank" rel="noopener noreferrer" class="ww-float-btn messenger-btn"
+      aria-label="Chat Messenger">
+      <svg width="23" height="23" viewBox="0 0 28 28" fill="none">
+        <path
+          d="M14 2C7.37 2 2 7.05 2 13.28c0 3.54 1.73 6.7 4.45 8.78.23.18.37.45.38.74l.08 2.3c.03.88.94 1.45 1.71 1.05l2.58-1.34c.24-.12.51-.15.77-.08 1.3.36 2.68.55 4.03.55 6.63 0 12-5.05 12-11.28C26 7.05 20.63 2 14 2z"
+          fill="#ffffff" />
+        <path
+          d="M6.8 16.5l4.5-7.15c.6-.95 1.95-1.15 2.8-.42l3.55 3.05c.27.23.66.23.93 0l3.82-2.9c.56-.42 1.3.26.9 0.82l-4.5 7.15c-.6.95-1.95 1.15-2.8.42l-3.55-3.05c-.27-.23-.66-.23-.93 0l-3.82 2.9c-.56.42-1.3-.26-.9-.82z"
+          fill="#000000" />
+      </svg>
+    </a>
+  </div>
+
+  <script src="product.js?v=ww_pdp_4thumbs"></script>
 </body>
 
 </html>

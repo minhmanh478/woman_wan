@@ -202,6 +202,7 @@ button {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -881,7 +882,7 @@ nav.primary li.active a {
 .grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px 6px;
+  gap: clamp(36px, 3.5vw, 48px) clamp(10px, 1.2vw, 16px);
 }
 
 .card {
@@ -953,23 +954,10 @@ nav.primary li.active a {
   /* Giữ nguyên kích thước, không zoom */
 }
 
-.tag {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: #fff;
-  color: #111;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 5px 9px;
-  border-radius: 0;
-  border: none;
-  z-index: 10;
-}
-
-.tag.sale {
-  background: var(--accent-red);
-  color: #fff;
+.tag,
+.card .tag,
+.card-media .tag {
+  display: none !important;
 }
 
 .wishlist {
@@ -1098,45 +1086,47 @@ nav.primary li.active a {
 }
 
 .card-info {
-  padding: 12px 2px 6px;
+  padding: 10px 4px 6px;
   min-width: 0;
   width: 100%;
   overflow: hidden;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .card-info .name {
-  font-size: clamp(14.5px, 1.05vw, 17px);
+  font-size: clamp(14px, 1.05vw, 16px);
   font-weight: 700;
   margin-bottom: 4px;
   line-height: 1.35;
   min-width: 0;
   white-space: normal;
   word-break: break-word;
+  text-align: center;
+  width: 100%;
 }
 
 .card-info .desc {
-  font-size: clamp(12.5px, 0.9vw, 14.5px);
-  color: var(--ink-soft);
-  margin-bottom: 6px;
-  line-height: 1.4;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  min-width: 0;
-  display: block;
+  display: none !important;
 }
 
 .price-row {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   align-items: baseline;
-  font-size: clamp(15px, 1.1vw, 18px);
+  justify-content: center;
+  font-size: clamp(14.5px, 1.1vw, 17px);
+  width: 100%;
+  text-align: center;
 }
 
 .price-row .old {
   color: var(--ink-soft);
   text-decoration: line-through;
-  font-size: clamp(12.5px, 0.9vw, 14.5px);
+  font-size: clamp(12.5px, 0.9vw, 14px);
 }
 
 .price-row .now {
@@ -1340,6 +1330,7 @@ footer,
 @media(max-width:1024px) {
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 12px;
   }
 
   .footer-grid {
@@ -1568,12 +1559,46 @@ footer,
     border-left: none;
     padding-left: 0;
   }
+
+  /* Clean Centered Product Card Typography on Mobile (Hide Description & Center Content) */
+  .card-info {
+    text-align: center;
+    padding: 8px 4px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-info .name {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 3px;
+    width: 100%;
+  }
+
+  .card-info .desc {
+    display: none !important;
+  }
+
+  .price-row {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .price-row .old {
+    font-size: 12.5px;
+  }
 }
 
 @media(max-width:520px) {
   .grid {
     grid-template-columns: 1fr 1fr;
-    gap: 6px 10px;
+    gap: 28px 10px;
   }
 
   .page-title {
@@ -2946,20 +2971,20 @@ footer,
 
 .gs-trending-section .grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(24px, 2.2vw, 36px) clamp(14px, 1.4vw, 22px);
+  gap: clamp(36px, 3.5vw, 48px) clamp(12px, 1.4vw, 20px);
 }
 
 @media (max-width: 1024px) {
   .gs-trending-section .grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 18px 10px;
+    gap: 32px 12px;
   }
 }
 
 @media (max-width: 680px) {
   .gs-trending-section .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px 8px;
+    gap: 28px 10px;
   }
 }
 
@@ -3817,22 +3842,41 @@ footer,
 }
 
 /* Độ trễ so le giữa 3 nút */
-.ww-float-btn:nth-child(1)::before { animation-delay: 0s; }
-.ww-float-btn:nth-child(1)::after  { animation-delay: 0.5s; }
-.ww-float-btn:nth-child(2)::before { animation-delay: 0.35s; }
-.ww-float-btn:nth-child(2)::after  { animation-delay: 0.85s; }
-.ww-float-btn:nth-child(3)::before { animation-delay: 0.7s; }
-.ww-float-btn:nth-child(3)::after  { animation-delay: 1.2s; }
+.ww-float-btn:nth-child(1)::before {
+  animation-delay: 0s;
+}
+
+.ww-float-btn:nth-child(1)::after {
+  animation-delay: 0.5s;
+}
+
+.ww-float-btn:nth-child(2)::before {
+  animation-delay: 0.35s;
+}
+
+.ww-float-btn:nth-child(2)::after {
+  animation-delay: 0.85s;
+}
+
+.ww-float-btn:nth-child(3)::before {
+  animation-delay: 0.7s;
+}
+
+.ww-float-btn:nth-child(3)::after {
+  animation-delay: 1.2s;
+}
 
 @keyframes wwPulseRipple {
   0% {
     transform: scale(0.8);
     opacity: 0.85;
   }
+
   60% {
     transform: scale(1.24);
     opacity: 0.22;
   }
+
   100% {
     transform: scale(1.42);
     opacity: 0;
@@ -3841,10 +3885,25 @@ footer,
 
 /* Hiệu ứng rung nhẹ cho icon điện thoại */
 @keyframes wwPhoneWiggle {
-  0%, 100% { transform: rotate(0deg); }
-  10%, 30% { transform: rotate(-12deg); }
-  20%, 40% { transform: rotate(12deg); }
-  50% { transform: rotate(0deg); }
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  10%,
+  30% {
+    transform: rotate(-12deg);
+  }
+
+  20%,
+  40% {
+    transform: rotate(12deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
 }
 
 .ww-float-btn.phone-btn svg {
@@ -3867,6 +3926,7 @@ footer,
     bottom: 20px;
     gap: 12px;
   }
+
   .ww-float-btn {
     width: 44px;
     height: 44px;

@@ -227,6 +227,12 @@
           .join("");
       }
 
+      // Ẩn / hiện nút mũi tên thumbnail nếu chỉ có 1 ảnh
+      const prevBtn = document.getElementById("pdpThumbPrevBtn");
+      const nextBtn = document.getElementById("pdpThumbNextBtn");
+      if (prevBtn) prevBtn.style.display = galleryImagesList.length > 1 ? "flex" : "none";
+      if (nextBtn) nextBtn.style.display = galleryImagesList.length > 1 ? "flex" : "none";
+
       initMobileGalleryTouch();
     }
     window.renderPdpGallery = renderGallery;
@@ -595,9 +601,17 @@
     }
 
     const thumbs = document.querySelectorAll(".pdp-mobile-thumb-item");
+    const strip = document.getElementById("pdpMobileThumbsStrip");
     thumbs.forEach((th, idx) => {
       if (idx === index) {
         th.classList.add("active");
+        if (galleryImagesList.length > 4 && strip) {
+          const thumbLeft = th.offsetLeft;
+          const thumbWidth = th.offsetWidth;
+          const stripWidth = strip.clientWidth;
+          const targetScroll = thumbLeft - (stripWidth / 2) + (thumbWidth / 2);
+          strip.scrollTo({ left: targetScroll, behavior: "smooth" });
+        }
       } else {
         th.classList.remove("active");
       }

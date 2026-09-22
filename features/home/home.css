@@ -414,20 +414,20 @@
 
 .gs-trending-section .grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(24px, 2.2vw, 36px) clamp(14px, 1.4vw, 22px);
+  gap: clamp(36px, 3.5vw, 48px) clamp(12px, 1.4vw, 20px);
 }
 
 @media (max-width: 1024px) {
   .gs-trending-section .grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 18px 10px;
+    gap: 32px 12px;
   }
 }
 
 @media (max-width: 680px) {
   .gs-trending-section .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px 8px;
+    gap: 28px 10px;
   }
 }
 
