@@ -8,7 +8,7 @@
   <meta name="description" content="Thanh toán an toàn, nhanh chóng các sản phẩm thời trang Clean Fit tại WOMAN WAN.">
   <link rel="stylesheet" href="../style.css?v=gs_dissolve_1">
   <link rel="stylesheet" href="../css/components/page-transition.css?v=gs_dissolve_1">
-  <link rel="stylesheet" href="checkout.css?v=ww_brand_1">
+  <link rel="stylesheet" href="checkout.css?v=ww_mobile_3">
   <script src="../components/header-widget.js?v=gs_dissolve_1" defer></script>
   <script src="../components/footer-widget.js?v=gs_dissolve_1" defer></script>
   <script src="../components/page-transition-widget.js?v=gs_dissolve_1" defer></script>
@@ -160,7 +160,7 @@
           <div class="card-header">
             <div class="card-header-left">
               <span class="step-badge">2</span>
-              <h2 class="card-title">PHƯƠNG THỨC VẬN CHUYỂN</h2>
+              <h2 class="card-title"><span class="title-full">PHƯƠNG THỨC VẬN CHUYỂN</span><span class="title-short">VẬN CHUYỂN</span></h2>
             </div>
           </div>
 
@@ -207,7 +207,7 @@
           <div class="card-header">
             <div class="card-header-left">
               <span class="step-badge">3</span>
-              <h2 class="card-title">PHƯƠNG THỨC THANH TOÁN</h2>
+              <h2 class="card-title"><span class="title-full">PHƯƠNG THỨC THANH TOÁN</span><span class="title-short">THANH TOÁN</span></h2>
             </div>
             <div class="secure-badge">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
@@ -280,90 +280,6 @@
           </div>
         </section>
 
-
-        <!-- BƯỚC 4: HÓA ĐƠN GTGT (VAT) -->
-        <!-- <section class="checkout-card vat-card-section">
-          <div class="checkbox-line vat-toggle-line">
-            <label class="custom-check-wrap" style="opacity: 0.6; cursor: not-allowed; pointer-events: none;">
-              <input type="checkbox" id="vatInvoiceCheck" disabled>
-              <span class="check-box"></span>
-              <span class="check-label font-bold">Yêu cầu xuất hóa đơn điện tử GTGT (VAT) cho doanh nghiệp / cá
-                nhân <span class="badge-pill" style="background: #f0f0f0; color: #666; border-color: #ddd; margin-left: 8px; font-weight: 500;">Đang bảo trì</span></span>
-            </label>
-          </div>
-
-          <div class="vat-expand-form hidden" id="vatExpandForm">
-            <div class="vat-alert-info">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="16" x2="12" y2="12"></line>
-                <line x1="12" y1="8" x2="12.01" y2="8"></line>
-              </svg>
-              <span>Hóa đơn điện tử hợp lệ sẽ được gửi tự động qua email sau khi đơn hàng giao thành công.</span>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group half">
-                <label class="form-label">Loại đối tượng xuất</label>
-                <select class="form-control custom-select" id="vatCustomerType">
-                  <option value="company">Công ty / Doanh nghiệp</option>
-                  <option value="personal">Cá nhân</option>
-                </select>
-              </div>
-              <div class="form-group half">
-                <label class="form-label">Mã số thuế <span class="req">*</span></label>
-                <input type="text" class="form-control" id="vatTaxCode" placeholder="Ví dụ: 0312345678">
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">Tên đầy đủ công ty / đơn vị <span class="req">*</span></label>
-              <input type="text" class="form-control" id="vatCompanyName" placeholder="Công ty TNHH / Cổ phần...">
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">Địa chỉ trụ sở theo đăng ký kinh doanh</label>
-              <input type="text" class="form-control" id="vatCompanyAddress"
-                placeholder="Địa chỉ ghi trên giấy phép ĐKKD...">
-            </div>
-          </div>
-        </section> -->
-
-
-        <!-- ĐIỀU KHOẢN & NÚT HOÀN TẤT ĐẶT HÀNG -->
-        <div class="checkout-footer-action">
-          <div class="checkbox-line terms-line">
-            <label class="custom-check-wrap">
-              <input type="checkbox" id="termsAgreementCheck" checked required>
-              <span class="check-box"></span>
-              <span class="check-label">Tôi đồng ý với <a href="#" target="_blank" class="terms-link">Điều khoản mua
-                  hàng</a> và <a href="#" target="_blank" class="terms-link">Chính sách đổi trả trong 30 ngày</a> của
-                WOMAN WAN.</span>
-            </label>
-          </div>
-
-          <div class="submit-button-container">
-            <button type="button" class="btn-submit-order" id="btnSubmitOrder" aria-label="Đặt hàng ngay">
-              <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path
-                  d="M15.5999 8.3998V5.39981C15.5999 3.41158 13.9881 1.7998 11.9999 1.7998C10.0117 1.7998 8.3999 3.41158 8.3999 5.3998V8.3998M4.72717 22.1998H19.2726C20.5579 22.1998 21.5999 21.1772 21.5999 19.9158L20.109 7.79977C20.109 6.53835 19.067 5.51576 17.7817 5.51576H5.92717C4.64186 5.51576 3.5999 6.53835 3.5999 7.79977L2.3999 19.9158C2.3999 21.1772 3.44186 22.1998 4.72717 22.1998Z">
-                </path>
-              </svg>
-              <span>ĐẶT HÀNG NGAY</span>
-              <span class="btn-dot">•</span>
-              <span class="btn-total-val" id="btnOrderTotal">1.617.000₫</span>
-            </button>
-            <p class="btn-guarantee-hint">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-              </svg>
-              <span>Bảo mật 100% • Đồng kiểm khi nhận hàng • Đổi trả 30 ngày</span>
-            </p>
-          </div>
-        </div>
-
       </div>
 
       <!-- ================= RIGHT COLUMN: ORDER SUMMARY ================= -->
@@ -376,7 +292,6 @@
               <h2 class="summary-heading">ĐƠN HÀNG CỦA BẠN</h2>
               <span class="summary-items-badge" id="summaryItemsBadge">3 sản phẩm</span>
             </div>
-            <a href="../shop.html" class="summary-edit-btn" title="Chỉnh sửa giỏ hàng">Chỉnh sửa</a>
           </div>
 
           <!-- Product Items List -->
@@ -442,12 +357,46 @@
                 <circle cx="5.5" cy="18.5" r="2.5"></circle>
                 <circle cx="18.5" cy="18.5" r="2.5"></circle>
               </svg>
-              <span>Đồng kiểm & thử đồ trước khi thanh toán</span>
+              <span>Đồng kiểm &amp; thử đồ trước khi thanh toán</span>
             </div>
           </div>
 
         </div>
       </aside>
+
+      <!-- ================= FOOTER ACTION: TERMS & SUBMIT ================= -->
+      <div class="checkout-footer-action">
+        <div class="checkbox-line terms-line">
+          <label class="custom-check-wrap">
+            <input type="checkbox" id="termsAgreementCheck" checked required>
+            <span class="check-box"></span>
+            <span class="check-label">Tôi đồng ý với <a href="#" target="_blank" class="terms-link">Điều khoản mua
+                hàng</a> và <a href="#" target="_blank" class="terms-link">Chính sách đổi trả trong 30 ngày</a> của
+              WOMAN WAN.</span>
+          </label>
+        </div>
+
+        <div class="submit-button-container">
+          <button type="button" class="btn-submit-order" id="btnSubmitOrder" aria-label="Đặt hàng ngay">
+            <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M15.5999 8.3998V5.39981C15.5999 3.41158 13.9881 1.7998 11.9999 1.7998C10.0117 1.7998 8.3999 3.41158 8.3999 5.3998V8.3998M4.72717 22.1998H19.2726C20.5579 22.1998 21.5999 21.1772 21.5999 19.9158L20.109 7.79977C20.109 6.53835 19.067 5.51576 17.7817 5.51576H5.92717C4.64186 5.51576 3.5999 6.53835 3.5999 7.79977L2.3999 19.9158C2.3999 21.1772 3.44186 22.1998 4.72717 22.1998Z">
+              </path>
+            </svg>
+            <span>ĐẶT HÀNG NGAY</span>
+            <span class="btn-dot">•</span>
+            <span class="btn-total-val" id="btnOrderTotal">1.617.000₫</span>
+          </button>
+          <p class="btn-guarantee-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <span>Bảo mật 100% • Đồng kiểm khi nhận hàng • Đổi trả 30 ngày</span>
+          </p>
+        </div>
+      </div>
 
     </div>
   </main>
@@ -495,7 +444,7 @@
 
   <womanwan-footer base-path="../"></womanwan-footer>
 
-  <script src="checkout.js?v=ww_brand_1"></script>
+  <script src="checkout.js?v=ww_mobile_3"></script>
 </body>
 
 </html>

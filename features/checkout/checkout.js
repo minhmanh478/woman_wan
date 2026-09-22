@@ -176,6 +176,23 @@ function loadCartData() {
 }
 
 /**
+ * Xóa một sản phẩm khỏi đơn hàng / giỏ hàng
+ */
+function removeItemFromCart(index) {
+  if (index >= 0 && index < orderState.cart.length) {
+    orderState.cart.splice(index, 1);
+    try {
+      localStorage.setItem("wan_cart_v1", JSON.stringify(orderState.cart));
+      localStorage.setItem("wan_cart", JSON.stringify(orderState.cart));
+      window.dispatchEvent(new CustomEvent("wan:cart-updated", { detail: orderState.cart }));
+    } catch (e) {
+      console.warn("Lỗi lưu giỏ hàng:", e);
+    }
+    renderSummary();
+  }
+}
+
+/**
  * Hiển thị tóm tắt đơn hàng ở cột bên phải
  */
 function renderSummary() {
@@ -193,36 +210,64 @@ function renderSummary() {
   let subtotal = 0;
   let html = "";
 
-  orderState.cart.forEach((item) => {
-    const qty = Number(item.quantity || item.qty) || 1;
-    const price = Number(item.price) || 0;
-    const itemTotal = price * qty;
-    totalQty += qty;
-    subtotal += itemTotal;
-
-    const imgSrc = resolveAssetPath(item.image);
-    const sizeStr = item.size || item.variant || "M";
-    const colorStr = item.color || "Tiêu chuẩn";
-
-    html += `
-      <div class="cart-item-card">
-        <div class="item-thumb-frame">
-          <img src="${imgSrc}" alt="${item.name}" loading="lazy" onerror="this.src='../../assets/sanpham_test/co_tau.jpg'">
-          <span class="item-badge-corner">Clean Fit</span>
-        </div>
-        <div class="item-details-block">
-          <h4 class="item-title-name">${item.name}</h4>
-          <div class="item-variant-line">Size: <strong>${sizeStr}</strong> &bull; Màu: <strong>${colorStr}</strong></div>
-          <div class="item-price-calc">
-            <span class="item-unit-price">${formatVND(price)} &times; ${qty}</span>
-            <span class="item-total-price">${formatVND(itemTotal)}</span>
-          </div>
-        </div>
+  if (!orderState.cart || orderState.cart.length === 0) {
+    html = `
+      <div style="text-align: center; padding: 28px 10px; color: #888;">
+        <p style="font-size: 14px; margin-bottom: 10px; color: #666;">Giỏ hàng của bạn đang trống</p>
+        <a href="../shop.html" style="display: inline-block; font-size: 13px; font-weight: 700; color: #111; text-decoration: underline;">Tiếp tục mua sắm</a>
       </div>
     `;
-  });
+    itemsListEl.innerHTML = html;
+  } else {
+    orderState.cart.forEach((item, index) => {
+      const qty = Number(item.quantity || item.qty) || 1;
+      const price = Number(item.price) || 0;
+      const itemTotal = price * qty;
+      totalQty += qty;
+      subtotal += itemTotal;
 
-  itemsListEl.innerHTML = html;
+      const imgSrc = resolveAssetPath(item.image);
+      const sizeStr = item.size || item.variant || "M";
+      const colorStr = item.color || "Tiêu chuẩn";
+
+      html += `
+        <div class="cart-item-card">
+          <div class="item-thumb-frame">
+            <img src="${imgSrc}" alt="${item.name}" loading="lazy" onerror="this.src='../../assets/sanpham_test/co_tau.jpg'">
+          </div>
+          <div class="item-details-block">
+            <div class="item-details-top">
+              <h4 class="item-title-name">${item.name}</h4>
+              <button type="button" class="item-delete-btn" data-index="${index}" title="Xóa sản phẩm" aria-label="Xóa">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 6h18"></path>
+                  <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                  <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                  <line x1="10" y1="11" x2="10" y2="17"></line>
+                  <line x1="14" y1="11" x2="14" y2="17"></line>
+                </svg>
+              </button>
+            </div>
+            <div class="item-variant-line">Size: <strong>${sizeStr}</strong> &bull; Màu: <strong>${colorStr}</strong></div>
+            <div class="item-price-calc">
+              <span class="item-unit-price">${formatVND(price)} &times; ${qty}</span>
+              <span class="item-total-price">${formatVND(itemTotal)}</span>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+
+    itemsListEl.innerHTML = html;
+
+    itemsListEl.querySelectorAll(".item-delete-btn").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const idx = parseInt(btn.dataset.index, 10);
+        removeItemFromCart(idx);
+      });
+    });
+  }
   orderState.subtotal = subtotal;
 
   // Tính tổng thanh toán cuối cùng

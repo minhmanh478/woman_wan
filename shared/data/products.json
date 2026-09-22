@@ -1,5 +1,135 @@
 [
   {
+    "id": "ww-sp-006",
+    "name": "Áo khoác Bomber cài cúc Minimalist - WWAN Modern Fit",
+    "category": "Áo khoác & Áo choàng",
+    "gender": "Nam",
+    "sport": "Đời thường & Thể thao",
+    "basePrice": 1550000,
+    "price": 1250000,
+    "onSale": true,
+    "discountPercent": 19,
+    "tag": "Mới",
+    "colors": [
+      {
+        "name": "Be sáng",
+        "hex": "#d5cbb8",
+        "thumb": "assets/sanpham_test/Sản phẩm 6/be_sang.jpg",
+        "images": [
+          "assets/sanpham_test/Sản phẩm 6/be_sang.jpg",
+          "assets/sanpham_test/Sản phẩm 6/be_sang/1789651059546_199682903556740133_8132944306943147326_1e30a24d9e57488e894eb9bcde17cf0b.jpg",
+          "assets/sanpham_test/Sản phẩm 6/be_sang/1789651059569_199682903556740133_8132944306943147326_18f85b776016e5774e25182310c00d3d.jpg",
+          "assets/sanpham_test/Sản phẩm 6/be_sang/1789651059584_199682903556740133_8132944306943147326_b087b82a6a47eb6d94111ff9b0cde2ad.jpg",
+          "assets/sanpham_test/Sản phẩm 6/be_sang/1789651059597_199682903556740133_8132944306943147326_a7219328c7ff2b9ec488eeed8df64853.jpg"
+        ]
+      },
+      {
+        "name": "Đen",
+        "hex": "#181818",
+        "thumb": "assets/sanpham_test/Sản phẩm 6/den.jpg",
+        "images": [
+          "assets/sanpham_test/Sản phẩm 6/den.jpg"
+        ]
+      },
+      {
+        "name": "Xám chì",
+        "hex": "#4a4d4e",
+        "thumb": "assets/sanpham_test/Sản phẩm 6/xam_chi.jpg",
+        "images": [
+          "assets/sanpham_test/Sản phẩm 6/xam_chi.jpg"
+        ]
+      }
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "description": "Áo khoác Bomber cài cúc thiết kế tối giản thanh lịch, nẹp che cúc giấu tinh tế, bo gấu co giãn êm ái.",
+    "hue": 210,
+    "rating": 5.0,
+    "reviewsCount": 96,
+    "inStock": true,
+    "image": "assets/sanpham_test/Sản phẩm 6/be_sang.jpg",
+    "hoverImage": "assets/sanpham_test/Sản phẩm 6/den.jpg",
+    "images": [
+      "assets/sanpham_test/Sản phẩm 6/be_sang.jpg",
+      "assets/sanpham_test/Sản phẩm 6/be_sang/1789651059546_199682903556740133_8132944306943147326_1e30a24d9e57488e894eb9bcde17cf0b.jpg",
+      "assets/sanpham_test/Sản phẩm 6/be_sang/1789651059569_199682903556740133_8132944306943147326_18f85b776016e5774e25182310c00d3d.jpg",
+      "assets/sanpham_test/Sản phẩm 6/be_sang/1789651059584_199682903556740133_8132944306943147326_b087b82a6a47eb6d94111ff9b0cde2ad.jpg",
+      "assets/sanpham_test/Sản phẩm 6/be_sang/1789651059597_199682903556740133_8132944306943147326_a7219328c7ff2b9ec488eeed8df64853.jpg"
+    ]
+  },
+  {
+    "id": "ww-sp-003",
+    "name": "Áo khoác cổ đứng Harrington Jacket - WWAN Clean Fit",
+    "category": "Áo khoác & Áo choàng",
+    "gender": "Nam",
+    "sport": "Đời thường & Thể thao",
+    "basePrice": 1450000,
+    "price": 1150000,
+    "onSale": true,
+    "discountPercent": 21,
+    "tag": "-21%",
+    "colors": [
+      {
+        "name": "Đỏ mận",
+        "hex": "#722f37",
+        "thumb": "assets/sanpham_test/Sản phẩm 3/đỏ.jpg",
+        "images": [
+          "assets/sanpham_test/Sản phẩm 3/đỏ.jpg",
+          "assets/sanpham_test/Sản phẩm 3/đỏ/1789618164320_199682903556740133_8132944306943147326_5349f20129f0a47c2c13c88dc224a3fb.jpg",
+          "assets/sanpham_test/Sản phẩm 3/đỏ/1789618164894_199682903556740133_8132944306943147326_3883aded89b9d01a7150b64e03603a26.jpg",
+          "assets/sanpham_test/Sản phẩm 3/đỏ/1789618166338_199682903556740133_8132944306943147326_0ae98e1744052aa056b61dadc3de02db.jpg",
+          "assets/sanpham_test/Sản phẩm 3/đỏ/1789618166892_199682903556740133_8132944306943147326_7ca3900bb913f9a1a3a47c8fa2e57e7e.jpg",
+          "assets/sanpham_test/Sản phẩm 3/đỏ/1789618167880_199682903556740133_8132944306943147326_e2ae3d3d178e2ab2bb0364ecd0ac9aad.jpg",
+          "assets/sanpham_test/Sản phẩm 3/đỏ/1789618168952_199682903556740133_8132944306943147326_9e2b0885f1b6a5e17ff7d0e6561b33a7.jpg"
+        ]
+      },
+      {
+        "name": "Trắng kem",
+        "hex": "#ebe6dc",
+        "thumb": "assets/sanpham_test/Sản phẩm 3/trắng.jpg",
+        "images": [
+          "assets/sanpham_test/Sản phẩm 3/trắng.jpg"
+        ]
+      },
+      {
+        "name": "Đen",
+        "hex": "#181818",
+        "thumb": "assets/sanpham_test/Sản phẩm 3/đen.jpg",
+        "images": [
+          "assets/sanpham_test/Sản phẩm 3/đen.jpg"
+        ]
+      }
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+    ],
+    "description": "Áo khoác Harrington cổ đứng Clean Fit tôn dáng, chất vải chống gió cản bụi, mềm mịn đứng form.",
+    "hue": 345,
+    "rating": 4.9,
+    "reviewsCount": 128,
+    "inStock": true,
+    "image": "assets/sanpham_test/Sản phẩm 3/đỏ.jpg",
+    "hoverImage": "assets/sanpham_test/Sản phẩm 3/trắng.jpg",
+    "images": [
+      "assets/sanpham_test/Sản phẩm 3/đỏ.jpg",
+      "assets/sanpham_test/Sản phẩm 3/đỏ/1789618164320_199682903556740133_8132944306943147326_5349f20129f0a47c2c13c88dc224a3fb.jpg",
+      "assets/sanpham_test/Sản phẩm 3/đỏ/1789618164894_199682903556740133_8132944306943147326_3883aded89b9d01a7150b64e03603a26.jpg",
+      "assets/sanpham_test/Sản phẩm 3/đỏ/1789618166338_199682903556740133_8132944306943147326_0ae98e1744052aa056b61dadc3de02db.jpg",
+      "assets/sanpham_test/Sản phẩm 3/đỏ/1789618166892_199682903556740133_8132944306943147326_7ca3900bb913f9a1a3a47c8fa2e57e7e.jpg",
+      "assets/sanpham_test/Sản phẩm 3/đỏ/1789618167880_199682903556740133_8132944306943147326_e2ae3d3d178e2ab2bb0364ecd0ac9aad.jpg",
+      "assets/sanpham_test/Sản phẩm 3/đỏ/1789618168952_199682903556740133_8132944306943147326_9e2b0885f1b6a5e17ff7d0e6561b33a7.jpg"
+    ]
+  },
+  {
     "id": "ww-001",
     "name": "Áo khoác gió Ultraboost Layer",
     "category": "Áo khoác & Áo choàng",

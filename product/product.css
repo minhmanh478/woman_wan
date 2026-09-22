@@ -62,10 +62,10 @@
   font-size: 11px;
 }
 
-/* 2x2 Image Grid Gallery (Desktop) */
+/* 1 Top Packshot + 2 Columns Grid Gallery (Desktop) */
 .pdp-gallery-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 4px;
   background: #ffffff;
   position: relative;
@@ -74,11 +74,21 @@
 .pdp-gallery-item {
   position: relative;
   background: #eaeef0;
-  aspect-ratio: 1 / 1;
   overflow: hidden;
   cursor: zoom-in;
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23111111' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='10' cy='10' r='7'/%3E%3Cline x1='21' y1='21' x2='15' y2='15'/%3E%3Cline x1='10' y1='7' x2='10' y2='13'/%3E%3Cline x1='7' y1='10' x2='13' y2='10'/%3E%3C/svg%3E") 10 10, zoom-in;
   user-select: none;
+}
+
+/* Ảnh 1 (Packshot studio): Trải rộng toàn bộ 2 cột trên cùng */
+.pdp-gallery-item:first-child {
+  grid-column: 1 / -1;
+  aspect-ratio: 1 / 1.15;
+}
+
+/* Các ảnh từ ảnh 2 trở đi: Chia làm 2 cột cạnh nhau */
+.pdp-gallery-item:not(:first-child) {
+  aspect-ratio: 1 / 1.35;
 }
 
 .pdp-gallery-item img {
@@ -109,19 +119,18 @@
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform-origin 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-
 /* Gallery Container */
 .pdp-gallery-container {
   position: relative;
   margin-bottom: 24px;
 }
 
-/* Hide images from 5 onwards by default */
-.pdp-gallery-grid:not(.expanded) .pdp-gallery-item:nth-child(n+5) {
+/* Ẩn các ảnh từ vị trí thứ 4 trở đi (chỉ hiển thị 3 ảnh đầu: 1 to + 2 nhỏ) */
+.pdp-gallery-grid:not(.expanded) .pdp-gallery-item:nth-child(n+4) {
   display: none;
 }
 
-/* "Hiện thêm" Button */
+/* "Xem thêm" Button */
 .pdp-expand-wrap {
   position: absolute;
   bottom: 0;
@@ -137,29 +146,30 @@
 .pdp-expand-btn {
   pointer-events: auto;
   background: #ffffff;
-  border: 1px solid var(--line);
-  color: var(--ink);
+  border: 1px solid #111111;
+  color: #111111;
   font-family: inherit;
   font-size: 13px;
-  font-weight: 600;
-  padding: 8px 18px;
+  font-weight: 700;
+  padding: 9px 22px;
   border-radius: 2px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: all 0.2s ease;
 }
 
 .pdp-expand-btn:hover {
-  border-color: var(--ink);
-  background: #f9f9f9;
+  background: #111111;
+  color: #ffffff;
 }
 
 .pdp-expand-btn svg {
   width: 14px;
   height: 14px;
-  transition: transform 0.2s ease;
+  transition: transform 0.25s ease;
 }
 
 /* Right Column: Sticky Action & Details Panel */
@@ -547,7 +557,7 @@
   gap: 8px;
 }
 
-/* Primary Action: THÊM VÀO GIỎ HÀNG (Solid Deep Black, High Depth & Glow) */
+/* Primary Action: THÊM VÀO GIỎ HÀNG (Solid Deep Black) */
 .pdp-add-cart-btn {
   flex: 1;
   height: 52px;
@@ -568,53 +578,17 @@
   gap: 10px;
   text-decoration: none;
   box-sizing: border-box;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Ambient Subtle Shimmer for Primary Button */
-.pdp-add-cart-btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 80%;
-  height: 100%;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(255, 255, 255, 0.16),
-      transparent);
-  transform: skewX(-20deg);
-  animation: pdpShimmer 4.5s infinite ease-in-out;
-}
-
-@keyframes pdpShimmer {
-  0% {
-    left: -120%;
-  }
-
-  28% {
-    left: 140%;
-  }
-
-  100% {
-    left: 140%;
-  }
+  transition: all 0.2s ease;
 }
 
 .pdp-add-cart-btn:hover {
   background: #252525;
   border-color: #252525;
   color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
 }
 
 .pdp-add-cart-btn:active {
-  transform: translateY(1px);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transform: scale(0.98);
 }
 
 .pdp-add-cart-btn svg {
@@ -622,11 +596,6 @@
   height: 18px;
   flex-shrink: 0;
   color: #ffffff;
-  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.pdp-add-cart-btn:hover svg {
-  transform: scale(1.18) translateY(-1px);
 }
 
 /* Secondary Action: ĐẶT HÀNG NGAY (Bold 2px Outline / High-Contrast Dark Hover) */
@@ -1303,9 +1272,9 @@
     margin-top: 4px;
   }
 
-  .pdp-meta-row {
-    font-size: 12px;
-    margin-bottom: -4px;
+  .pdp-meta-row,
+  .pdp-badges-row {
+    display: none !important;
   }
 
   .pdp-title {
@@ -1341,14 +1310,19 @@
   }
 
   .pdp-sizes-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 7px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
   }
 
   .pdp-size-btn {
+    width: 42px;
+    min-width: 42px;
     height: 42px;
-    font-size: 13px;
-    border-radius: 2px;
+    padding: 0 4px;
+    font-size: 12.5px;
+    font-weight: 600;
+    border-radius: 3px;
   }
 
   .pdp-fit-tip-box {
@@ -1458,10 +1432,7 @@
     font-size: 12.5px;
   }
 
-  .pdp-badges-row {
-    gap: 6px;
-    margin-top: -2px;
-  }
+
 
   .pdp-promo-card {
     padding: 12px 14px;
@@ -1498,7 +1469,9 @@
   }
 
   .pdp-sizes-grid {
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
   }
 
   .pdp-mobile-thumbs-strip {

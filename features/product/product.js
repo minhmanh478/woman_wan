@@ -87,9 +87,16 @@
                   ? c.thumb
                   : `../${c.thumb}`
                 : images[0] || "images/product_1.png";
+              let cImages = undefined;
+              if (Array.isArray(c.images) && c.images.length > 0) {
+                cImages = c.images.map((img) =>
+                  img.startsWith("http") || img.startsWith("../") || img.startsWith("images/") ? img : `../${img}`
+                );
+              }
               return {
                 ...c,
                 thumb: cThumb,
+                images: cImages,
                 selected: c.selected !== undefined ? c.selected : idx === 0,
               };
             });
@@ -164,23 +171,24 @@
       `;
     }
 
-    // 2. Images Gallery (Desktop 1+2x2 Lookbook Grid & Mobile Main+Thumbs Slider)
-    const galleryGrid = document.getElementById("pdpGalleryGrid");
-    const expandWrap = document.querySelector(".pdp-expand-wrap");
-    const mobileMainImg = document.getElementById("pdpMobileMainImg");
-    const mobileThumbsStrip = document.getElementById("pdpMobileThumbsStrip");
-    
-    if (p.images && p.images.length > 0) {
-      galleryImagesList = p.images;
+    // 2. Helper to Render Images Gallery (Desktop 1+2x2 Lookbook Grid & Mobile Main+Thumbs Slider)
+    function renderGallery(images) {
+      if (!images || images.length === 0) return;
+      galleryImagesList = images;
       currentMobileGalleryIndex = 0;
+
+      const galleryGrid = document.getElementById("pdpGalleryGrid");
+      const expandWrap = document.querySelector(".pdp-expand-wrap");
+      const mobileMainImg = document.getElementById("pdpMobileMainImg");
+      const mobileThumbsStrip = document.getElementById("pdpMobileThumbsStrip");
 
       // Desktop Gallery Setup (2x2 Grid with original product images)
       if (galleryGrid) {
-        galleryGrid.innerHTML = p.images
+        galleryGrid.innerHTML = images
           .map(
             (imgSrc, idx) => `
             <div class="pdp-gallery-item" onclick="handleGalleryClick(event, '${imgSrc}')">
-              <img src="${imgSrc}" alt="${p.name} - Ảnh ${idx + 1}" loading="${idx < 3 ? "eager" : "lazy"}">
+              <img src="${imgSrc}" alt="${currentProduct ? currentProduct.name : p.name} - Ảnh ${idx + 1}" loading="${idx < 3 ? "eager" : "lazy"}">
             </div>
           `
           )
@@ -189,14 +197,19 @@
         initGalleryZoom();
 
         if (expandWrap) {
-          expandWrap.style.display = p.images.length > 4 ? "flex" : "none";
+          expandWrap.style.display = images.length > 3 ? "flex" : "none";
         }
+        galleryGrid.classList.remove("expanded");
+        const initBtnSpan = document.querySelector("#pdpExpandBtn span");
+        const initBtnIcon = document.querySelector("#pdpExpandBtn svg");
+        if (initBtnSpan) initBtnSpan.textContent = "Xem thêm";
+        if (initBtnIcon) initBtnIcon.style.transform = "rotate(0deg)";
       }
 
       // Mobile Gallery Setup (Main Image + Thumbnail Strip)
       if (mobileMainImg) {
         mobileMainImg.src = galleryImagesList[0];
-        mobileMainImg.alt = `${p.name} - Ảnh 1`;
+        mobileMainImg.alt = `${currentProduct ? currentProduct.name : p.name} - Ảnh 1`;
       }
 
       if (mobileThumbsStrip) {
@@ -207,7 +220,7 @@
             data-index="${idx}" 
             onclick="selectMobileGalleryImage(${idx})"
             aria-label="Xem ảnh ${idx + 1}">
-            <img src="${imgSrc}" alt="${p.name} thumb ${idx + 1}" loading="lazy">
+            <img src="${imgSrc}" alt="${currentProduct ? currentProduct.name : p.name} thumb ${idx + 1}" loading="lazy">
           </button>
         `
           )
@@ -216,6 +229,7 @@
 
       initMobileGalleryTouch();
     }
+    window.renderPdpGallery = renderGallery;
 
     // 3. Meta & Rating
     const categoryEl = document.getElementById("pdpCategoryText");
@@ -263,14 +277,20 @@
       if (promoDesc) promoDesc.textContent = p.flashSale.description;
     }
 
-    // 7. Colors
+    // 7. Colors & Initial Gallery Rendering
     const colorLabelEl = document.getElementById("pdpSelectedColorName");
     const colorsListEl = document.getElementById("pdpColorThumbnails");
+    let initialGalleryImages = p.images;
+
     if (colorsListEl && p.colors && p.colors.length > 0) {
       const initialColor = p.colors.find((c) => c.selected) || p.colors[0];
       selectedColor = initialColor;
       const initialColorName = typeof initialColor === "string" ? initialColor : initialColor.name;
       if (colorLabelEl) colorLabelEl.textContent = initialColorName;
+
+      if (initialColor && initialColor.images && initialColor.images.length > 0) {
+        initialGalleryImages = initialColor.images;
+      }
 
       colorsListEl.innerHTML = p.colors
         .map((c) => {
@@ -288,6 +308,9 @@
         })
         .join("");
     }
+
+    // Render initial gallery
+    renderGallery(initialGalleryImages);
 
     // 8. Sizes (Do NOT pre-select size by default, let user choose)
     selectedSize = null;
@@ -388,7 +411,8 @@
     document
       .querySelectorAll(".pdp-color-thumb-btn")
       .forEach((b) => b.classList.remove("active"));
-    btn.classList.add("active");
+    if (btn) btn.classList.add("active");
+
     if (currentProduct && currentProduct.colors) {
       selectedColor = currentProduct.colors.find((c) => (typeof c === "string" ? c : c.name) === colorName) || { name: colorName };
     } else {
@@ -396,6 +420,18 @@
     }
     const label = document.getElementById("pdpSelectedColorName");
     if (label) label.textContent = colorName;
+
+    // Switch gallery images to color-specific images
+    if (typeof window.renderPdpGallery === "function") {
+      if (selectedColor && Array.isArray(selectedColor.images) && selectedColor.images.length > 0) {
+        window.renderPdpGallery(selectedColor.images);
+      } else if (selectedColor && selectedColor.thumb) {
+        window.renderPdpGallery([selectedColor.thumb]);
+      } else if (currentProduct && currentProduct.images) {
+        window.renderPdpGallery(currentProduct.images);
+      }
+    }
+
     showToast(`Đã chọn màu: ${colorName}`);
   };
 
@@ -634,7 +670,7 @@
     if (lightbox) lightbox.classList.remove("active");
   };
 
-  // Expand Gallery (Hiện thêm)
+  // Expand Gallery (Xem thêm)
   window.handleExpandGallery = function () {
     const grid = document.getElementById("pdpGalleryGrid");
     const btnSpan = document.querySelector("#pdpExpandBtn span");
@@ -642,7 +678,7 @@
     
     if (grid) {
       const isExpanded = grid.classList.toggle("expanded");
-      if (btnSpan) btnSpan.textContent = isExpanded ? "Thu gọn" : "Hiện thêm chi tiết";
+      if (btnSpan) btnSpan.textContent = isExpanded ? "Thu gọn" : "Xem thêm";
       if (btnIcon) btnIcon.style.transform = isExpanded ? "rotate(180deg)" : "rotate(0deg)";
       
       if (!isExpanded) {

@@ -1,5 +1,349 @@
 [
   {
+    "id": "ww-sp-006",
+    "name": "Áo khoác Bomber cài cúc Minimalist - WWAN Modern Fit",
+    "subName": "Áo khoác Bomber cài cúc tối giản phong cách Modern Clean Fit Menswear",
+    "category": "Nam • Modern Outerwear",
+    "breadcrumb": [
+      {
+        "name": "Trang Chủ",
+        "url": "../index.html"
+      },
+      {
+        "name": "Nam",
+        "url": "../shop.html?gender=men"
+      },
+      {
+        "name": "Áo khoác",
+        "url": "../shop.html?gender=men&category=jacket"
+      }
+    ],
+    "price": 1250000,
+    "basePrice": 1550000,
+    "discountPercent": 19,
+    "tag": "Mới",
+    "promoTag": "GIẢM THÊM 25% TẠI GIỎ",
+    "rating": 5.0,
+    "reviewsCount": 96,
+    "flashSale": {
+      "title": "Ra mắt bộ sưu tập Bomber Minimalist!",
+      "description": "Ưu đãi độc quyền cho dòng Bomber cài cúc thế hệ mới. Nhận quà tặng và điểm thưởng gấp đôi khi đặt hàng hôm nay.",
+      "countdown": "Ends in 02:08:45:10"
+    },
+    "colors": [
+      {
+        "name": "Be sáng",
+        "hex": "#d5cbb8",
+        "thumb": "../assets/sanpham_test/Sản phẩm 6/be_sang.jpg",
+        "code": "sand",
+        "selected": true,
+        "images": [
+          "../assets/sanpham_test/Sản phẩm 6/be_sang.jpg",
+          "../assets/sanpham_test/Sản phẩm 6/be_sang/1789651059546_199682903556740133_8132944306943147326_1e30a24d9e57488e894eb9bcde17cf0b.jpg",
+          "../assets/sanpham_test/Sản phẩm 6/be_sang/1789651059569_199682903556740133_8132944306943147326_18f85b776016e5774e25182310c00d3d.jpg",
+          "../assets/sanpham_test/Sản phẩm 6/be_sang/1789651059584_199682903556740133_8132944306943147326_b087b82a6a47eb6d94111ff9b0cde2ad.jpg",
+          "../assets/sanpham_test/Sản phẩm 6/be_sang/1789651059597_199682903556740133_8132944306943147326_a7219328c7ff2b9ec488eeed8df64853.jpg"
+        ]
+      },
+      {
+        "name": "Đen",
+        "hex": "#181818",
+        "thumb": "../assets/sanpham_test/Sản phẩm 6/den.jpg",
+        "code": "black",
+        "images": [
+          "../assets/sanpham_test/Sản phẩm 6/den.jpg"
+        ]
+      },
+      {
+        "name": "Xám chì",
+        "hex": "#4a4d4e",
+        "thumb": "../assets/sanpham_test/Sản phẩm 6/xam_chi.jpg",
+        "code": "charcoal",
+        "images": [
+          "../assets/sanpham_test/Sản phẩm 6/xam_chi.jpg"
+        ]
+      }
+    ],
+    "sizes": [
+      {
+        "name": "S",
+        "available": true
+      },
+      {
+        "name": "M",
+        "available": true,
+        "selected": true
+      },
+      {
+        "name": "L",
+        "available": true
+      },
+      {
+        "name": "XL",
+        "available": true
+      },
+      {
+        "name": "2XL",
+        "available": true
+      }
+    ],
+    "sizeGuideTip": "Đúng kích cỡ chuẩn. Dáng áo suông nhẹ, dễ phối layer.",
+    "images": [
+      "../assets/sanpham_test/Sản phẩm 6/be_sang.jpg",
+      "../assets/sanpham_test/Sản phẩm 6/be_sang/1789651059546_199682903556740133_8132944306943147326_1e30a24d9e57488e894eb9bcde17cf0b.jpg",
+      "../assets/sanpham_test/Sản phẩm 6/be_sang/1789651059569_199682903556740133_8132944306943147326_18f85b776016e5774e25182310c00d3d.jpg",
+      "../assets/sanpham_test/Sản phẩm 6/be_sang/1789651059584_199682903556740133_8132944306943147326_b087b82a6a47eb6d94111ff9b0cde2ad.jpg",
+      "../assets/sanpham_test/Sản phẩm 6/be_sang/1789651059597_199682903556740133_8132944306943147326_a7219328c7ff2b9ec488eeed8df64853.jpg"
+    ],
+    "description": {
+      "title": "Áo khoác Bomber cài cúc Minimalist - WWAN Modern Fit",
+      "lead": "Sự giao thoa giữa nét thể thao năng động và phong cách tối giản Bắc Âu, thiết kế cúc cài giấu nẹp thanh lịch và hiện đại.",
+      "paragraphs": [
+        "🌿 <strong>THÔNG TIN SẢN PHẨM</strong>",
+        "• <strong>Chất liệu:</strong> Vải dệt kỹ thuật số chống thấm giọt bắn, bề mặt lỳ mịn cao cấp, chống bám bụi và chống tĩnh điện.",
+        "• <strong>Chi tiết:</strong> Hàng cúc kim loại dập chìm sang trọng, nẹp che cúc chắn gió, cổ bomber bo thun ôm sát cổ.",
+        "• <strong>Ứng dụng:</strong> Thích hợp dạo phố, đi làm, du lịch và các hoạt động thường ngày.",
+        "--------------------------------------------------",
+        "🌿 <strong>HƯỚNG DẪN BẢO QUẢN</strong>",
+        "• Giặt tay hoặc giặt máy chu kỳ nhẹ.<br>• Phơi trong bóng râm, không sấy nhiệt độ cao."
+      ],
+      "highlights": [
+        "Thiết kế cúc bấm kim loại kết hợp nẹp che giấu cúc tinh tế",
+        "Chất vải chống nhăn và chống gió nhẹ ưu việt",
+        "Cổ áo và bo gấu dệt rib mềm mại, đàn hồi tốt",
+        "Form Modern Fit tôn dáng, độ dài áo chuẩn mực"
+      ]
+    },
+    "specifications": {
+      "title": "Thông số sản phẩm",
+      "items": [
+        {
+          "label": "Thương hiệu",
+          "value": "WOMAN WAN (WWAN)"
+        },
+        {
+          "label": "Chất liệu",
+          "value": "Vải dệt công nghệ cao chống gió cản bụi"
+        },
+        {
+          "label": "Kiểu dáng",
+          "value": "Bomber Minimalist Modern Fit"
+        },
+        {
+          "label": "Kiểu đóng",
+          "value": "Hàng cúc cài kim loại có nẹp che"
+        },
+        {
+          "label": "Cổ áo & Bo gấu",
+          "value": "Bo chun dệt Rib co giãn chống bai dão"
+        },
+        {
+          "label": "Màu sắc",
+          "value": "Be sáng, Đen, Xám chì"
+        },
+        {
+          "label": "Xuất xứ",
+          "value": "Việt Nam - Tiêu chuẩn cao cấp"
+        }
+      ]
+    },
+    "membership": {
+      "clubName": "WanClub",
+      "points": 625,
+      "text": "Mua sắm và nhận WanClub: 625 Điểm"
+    },
+    "benefits": [
+      {
+        "title": "NEW COLLECTION OFFER",
+        "content": "Tặng voucher 100.000₫ cho đơn hàng tiếp theo khi mua sản phẩm Bomber."
+      },
+      {
+        "title": "FREE DELIVERY",
+        "content": "Miễn phí giao hàng hỏa tốc nội thành."
+      },
+      {
+        "title": "BẢO HÀNH CHÍNH HÃNG",
+        "content": "Bảo hành đường may và phụ kiện 6 tháng."
+      }
+    ]
+  },
+  {
+    "id": "ww-sp-003",
+    "name": "Áo khoác cổ đứng Harrington Jacket - WWAN Clean Fit",
+    "subName": "Áo khoác Harrington cổ đứng Menswear WWAN tôn vai, ngực và vóc dáng cao ráo",
+    "category": "Nam • Clean Fit Menswear",
+    "breadcrumb": [
+      {
+        "name": "Trang Chủ",
+        "url": "../index.html"
+      },
+      {
+        "name": "Nam",
+        "url": "../shop.html?gender=men"
+      },
+      {
+        "name": "Áo khoác",
+        "url": "../shop.html?gender=men&category=jacket"
+      }
+    ],
+    "price": 1150000,
+    "basePrice": 1450000,
+    "discountPercent": 21,
+    "tag": "-21%",
+    "promoTag": "GIẢM THÊM 25% TẠI GIỎ",
+    "rating": 4.9,
+    "reviewsCount": 128,
+    "flashSale": {
+      "title": "Ưu đãi độc quyền bộ sưu tập Outerwear!",
+      "description": "Giảm thêm 25% trực tiếp tại giỏ hàng khi mua từ 2 sản phẩm Outerwear. Áp dụng đồng thời với mã voucher tích lũy.",
+      "countdown": "Ends in 01:14:32:15"
+    },
+    "colors": [
+      {
+        "name": "Đỏ mận",
+        "hex": "#722f37",
+        "thumb": "../assets/sanpham_test/Sản phẩm 3/đỏ.jpg",
+        "code": "maroon",
+        "selected": true,
+        "images": [
+          "../assets/sanpham_test/Sản phẩm 3/đỏ.jpg",
+          "../assets/sanpham_test/Sản phẩm 3/đỏ/1789618164320_199682903556740133_8132944306943147326_5349f20129f0a47c2c13c88dc224a3fb.jpg",
+          "../assets/sanpham_test/Sản phẩm 3/đỏ/1789618164894_199682903556740133_8132944306943147326_3883aded89b9d01a7150b64e03603a26.jpg",
+          "../assets/sanpham_test/Sản phẩm 3/đỏ/1789618166338_199682903556740133_8132944306943147326_0ae98e1744052aa056b61dadc3de02db.jpg",
+          "../assets/sanpham_test/Sản phẩm 3/đỏ/1789618166892_199682903556740133_8132944306943147326_7ca3900bb913f9a1a3a47c8fa2e57e7e.jpg",
+          "../assets/sanpham_test/Sản phẩm 3/đỏ/1789618167880_199682903556740133_8132944306943147326_e2ae3d3d178e2ab2bb0364ecd0ac9aad.jpg",
+          "../assets/sanpham_test/Sản phẩm 3/đỏ/1789618168952_199682903556740133_8132944306943147326_9e2b0885f1b6a5e17ff7d0e6561b33a7.jpg"
+        ]
+      },
+      {
+        "name": "Trắng kem",
+        "hex": "#ebe6dc",
+        "thumb": "../assets/sanpham_test/Sản phẩm 3/trắng.jpg",
+        "code": "cream",
+        "images": [
+          "../assets/sanpham_test/Sản phẩm 3/trắng.jpg"
+        ]
+      },
+      {
+        "name": "Đen",
+        "hex": "#181818",
+        "thumb": "../assets/sanpham_test/Sản phẩm 3/đen.jpg",
+        "code": "black",
+        "images": [
+          "../assets/sanpham_test/Sản phẩm 3/đen.jpg"
+        ]
+      }
+    ],
+    "sizes": [
+      {
+        "name": "S",
+        "available": true
+      },
+      {
+        "name": "M",
+        "available": true,
+        "selected": true
+      },
+      {
+        "name": "L",
+        "available": true
+      },
+      {
+        "name": "XL",
+        "available": true
+      },
+      {
+        "name": "2XL",
+        "available": true
+      }
+    ],
+    "sizeGuideTip": "Đúng kích cỡ chuẩn Menswear. Chúng tôi khuyên bạn nên chọn theo kích cỡ thông thường.",
+    "images": [
+      "../assets/sanpham_test/Sản phẩm 3/đỏ.jpg",
+      "../assets/sanpham_test/Sản phẩm 3/đỏ/1789618164320_199682903556740133_8132944306943147326_5349f20129f0a47c2c13c88dc224a3fb.jpg",
+      "../assets/sanpham_test/Sản phẩm 3/đỏ/1789618164894_199682903556740133_8132944306943147326_3883aded89b9d01a7150b64e03603a26.jpg",
+      "../assets/sanpham_test/Sản phẩm 3/đỏ/1789618166338_199682903556740133_8132944306943147326_0ae98e1744052aa056b61dadc3de02db.jpg",
+      "../assets/sanpham_test/Sản phẩm 3/đỏ/1789618166892_199682903556740133_8132944306943147326_7ca3900bb913f9a1a3a47c8fa2e57e7e.jpg",
+      "../assets/sanpham_test/Sản phẩm 3/đỏ/1789618167880_199682903556740133_8132944306943147326_e2ae3d3d178e2ab2bb0364ecd0ac9aad.jpg",
+      "../assets/sanpham_test/Sản phẩm 3/đỏ/1789618168952_199682903556740133_8132944306943147326_9e2b0885f1b6a5e17ff7d0e6561b33a7.jpg"
+    ],
+    "description": {
+      "title": "Áo khoác cổ đứng Harrington Jacket - WWAN Clean Fit",
+      "lead": "Form dáng Harrington cổ điển kết hợp công nghệ dệt cao cấp, đem lại vẻ ngoài nam tính, sang trọng và chuẩn mực cho phái mạnh.",
+      "paragraphs": [
+        "🌿 <strong>THÔNG TIN SẢN PHẨM</strong>",
+        "• <strong>Chất liệu:</strong> Vải pha Cotton & Twill dệt mật độ cao, xử lý chống nhăn, cản gió nhẹ và giữ ấm hiệu quả.",
+        "• <strong>Kiểu dáng:</strong> Cổ đứng cài cúc kép tinh tế, khóa kéo kim loại mượt mà, bo chun thân và cổ tay dệt rib co giãn êm ái.",
+        "• <strong>Phối đồ:</strong> Thích hợp khoác ngoài áo thun, sơ mi hoặc len mỏng; dễ dàng kết hợp quần âu, jeans hay kaki.",
+        "--------------------------------------------------",
+        "🌿 <strong>HƯỚNG DẪN BẢO QUẢN</strong>",
+        "• Giặt máy ở chế độ nhẹ hoặc giặt tay.<br>• Không dùng chất tẩy rửa mạnh.<br>• Phơi nơi khô thoáng, tránh ánh nắng gắt trực tiếp."
+      ],
+      "highlights": [
+        "Thiết kế cổ đứng 2 cúc đặc trưng phong cách Harrington biểu tượng",
+        "Form Clean Fit vừa vặn, nâng đỡ bờ vai và tạo tỷ lệ thân hình cân đối",
+        "Khóa kéo kim loại chuẩn xuất khẩu cùng 2 túi sườn xéo tiện lợi",
+        "Bo gấu dệt rib co giãn định hình dáng áo luôn đứng form"
+      ]
+    },
+    "specifications": {
+      "title": "Thông số sản phẩm",
+      "items": [
+        {
+          "label": "Thương hiệu",
+          "value": "WOMAN WAN (WWAN)"
+        },
+        {
+          "label": "Chất liệu",
+          "value": "Cotton Twill pha sợi tổng hợp cao cấp"
+        },
+        {
+          "label": "Kiểu dáng",
+          "value": "Harrington Jacket Clean Fit"
+        },
+        {
+          "label": "Cổ áo",
+          "value": "Cổ đứng phối 2 cúc cài"
+        },
+        {
+          "label": "Khóa đóng",
+          "value": "Khóa kéo kim loại full zip cao cấp"
+        },
+        {
+          "label": "Bo áo",
+          "value": "Bo thun dệt Rib co giãn ôm nhẹ hông và cổ tay"
+        },
+        {
+          "label": "Màu sắc",
+          "value": "Đỏ mận, Trắng kem, Đen"
+        },
+        {
+          "label": "Xuất xứ",
+          "value": "Việt Nam - Tiêu chuẩn xuất khẩu"
+        }
+      ]
+    },
+    "membership": {
+      "clubName": "WanClub",
+      "points": 575,
+      "text": "Mua sắm và nhận WanClub: 575 Điểm"
+    },
+    "benefits": [
+      {
+        "title": "OUTERWEAR SPECIAL",
+        "content": "Giảm thêm 25% trực tiếp tại giỏ hàng khi mua từ 2 sản phẩm Outerwear."
+      },
+      {
+        "title": "FREE SHIPPING FOR MEMBERS",
+        "content": "Miễn phí giao hàng toàn quốc khi trở thành thành viên WanClub."
+      },
+      {
+        "title": "ĐỔI TRẢ 30 NGÀY",
+        "content": "Đổi size tận nhà hoàn toàn miễn phí trong vòng 30 ngày."
+      }
+    ]
+  },
+  {
     "id": "ww-jac-001",
     "name": "Áo thun tăng chiều cao Clean Fit - WOMAN WAN cổ tròn cotton Menswear",
     "subName": "Áo thun cổ tròn cotton Menswear tôn vai, ngực và vóc dáng cao ráo",

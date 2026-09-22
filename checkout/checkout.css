@@ -215,6 +215,14 @@ body.checkout-page-body {
   margin: 0;
 }
 
+/* Desktop: show full, hide short */
+.title-short {
+  display: none;
+}
+.title-full {
+  display: inline;
+}
+
 .contact-email-tag {
   font-size: 13px;
   color: var(--ck-ink-soft);
@@ -623,6 +631,8 @@ select.custom-select {
   flex-direction: column;
   gap: 16px;
   margin-top: 6px;
+  /* Desktop: nằm ở cột trái của grid 2 cột */
+  grid-column: 1;
 }
 
 .terms-line {
@@ -849,6 +859,35 @@ select.custom-select {
   display: flex;
   flex-direction: column;
   gap: 3px;
+}
+
+.item-details-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.item-delete-btn {
+  background: transparent;
+  border: none;
+  padding: 3px;
+  margin: -3px -3px 0 0;
+  cursor: pointer;
+  color: #999;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.item-delete-btn:hover {
+  color: #e53935;
+  background: rgba(229, 57, 53, 0.08);
+  transform: scale(1.08);
 }
 
 .item-title-name {
@@ -1260,13 +1299,18 @@ select.custom-select {
     gap: 32px;
   }
 
+  /* Mobile: Thông tin giao hàng → Vận chuyển → Thanh toán → Đơn hàng → Điều khoản → Đặt hàng */
+  .checkout-left {
+    order: 1;
+  }
+
   .checkout-right {
     position: static;
     order: 2;
   }
 
-  .checkout-left {
-    order: 1;
+  .checkout-footer-action {
+    order: 3;
   }
 }
 
@@ -1298,5 +1342,44 @@ select.custom-select {
 
   .modal-actions {
     flex-direction: column;
+  }
+
+  /* Ẩn khối cam kết thương hiệu trên điện thoại */
+  .brand-commitments-box {
+    display: none;
+  }
+
+  /* Rút gọn tiêu đề các bước trên mobile */
+  .card-title {
+    font-size: 13.5px;
+    letter-spacing: 0.3px;
+  }
+
+  /* Mobile: ẩn tên đầy đủ, hiện tên ngắn */
+  .title-full {
+    display: none;
+  }
+  .title-short {
+    display: inline;
+  }
+
+  /* Rút gọn tên phương thức vận chuyển / thanh toán */
+  .method-name {
+    font-size: 13px;
+  }
+
+  .method-desc {
+    font-size: 11.5px;
+  }
+
+  /* Thu gọn option padding trên mobile */
+  .shipping-method-option,
+  .payment-method-option {
+    padding: 14px 14px;
+  }
+
+  /* Summary card gọn hơn */
+  .summary-card-sticky {
+    padding: 18px 16px;
   }
 }

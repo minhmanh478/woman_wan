@@ -353,31 +353,41 @@
 
 .wishlist {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background: rgba(255, 255, 255, 0.95);
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
+  bottom: 12px;
+  left: 12px;
+  background: transparent;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 10;
-  transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  border: none;
+  box-shadow: none !important;
+  filter: none !important;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .wishlist:hover {
-  background: #ffffff;
-  transform: scale(1.12);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: transparent;
+  transform: scale(1.18);
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+.wishlist:active {
+  transform: scale(0.92);
 }
 
 .wishlist .card-icon {
-  width: 20px;
-  height: 20px;
+  width: 28px;
+  height: 28px;
   display: block;
+  filter: none !important;
+  box-shadow: none !important;
   transition: transform 0.2s ease;
 }
 
@@ -401,8 +411,9 @@
 
 /* 3. Trạng thái đã lưu (active): hiển thị heart_click.svg (đậm) */
 .wishlist.active {
-  background: #ffffff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+  background: transparent;
+  box-shadow: none !important;
+  filter: none !important;
 }
 
 .wishlist.active .heart-icon-outline {
@@ -426,38 +437,39 @@
   position: absolute;
   bottom: 12px;
   right: 12px;
-  background: rgba(17, 17, 17, 0.92);
-  color: #ffffff;
-  font-size: 12.5px;
-  font-weight: 700;
-  padding: 9px 16px;
-  border-radius: 0;
-  border: none;
+  background: transparent;
+  width: 42px;
+  height: 42px;
+  padding: 0;
   display: flex;
   align-items: center;
-  gap: 5px;
+  justify-content: center;
   cursor: pointer;
   z-index: 10;
-  opacity: 0;
-  transform: translateY(6px);
-  transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.card:hover .quick-add-btn {
-  opacity: 1;
-  transform: translateY(0);
+  border: none;
+  box-shadow: none !important;
+  filter: none !important;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .quick-add-btn:hover {
-  background: #000000;
-  transform: scale(1.04) translateY(0);
+  background: transparent;
+  transform: scale(1.18);
+  box-shadow: none !important;
+  filter: none !important;
 }
 
 .quick-add-btn:active {
-  transform: scale(0.96);
+  transform: scale(0.92);
+}
+
+.quick-add-btn .card-icon,
+.quick-add-btn img {
+  width: 28px;
+  height: 28px;
+  display: block;
+  filter: none !important;
+  box-shadow: none !important;
 }
 
 .swatch-row {
@@ -466,6 +478,9 @@
 
 .card-info {
   padding: 12px 2px 6px;
+  min-width: 0;
+  width: 100%;
+  overflow: hidden;
 }
 
 .card-info .name {
@@ -473,6 +488,9 @@
   font-weight: 700;
   margin-bottom: 4px;
   line-height: 1.35;
+  min-width: 0;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .card-info .desc {
@@ -483,6 +501,8 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  min-width: 0;
+  display: block;
 }
 
 .price-row {
@@ -816,14 +836,6 @@ footer,
     margin-left: 0 !important;
   }
 
-  header.main .header-actions .search-box {
-    display: none !important;
-  }
-
-  header.main .header-actions .header-user-btn {
-    display: none !important;
-  }
-
   header.main .header-actions .icon-btn {
     display: inline-flex !important;
     align-items: center !important;
@@ -839,8 +851,36 @@ footer,
     display: block !important;
   }
 
+  header.main .header-actions .search-box,
+  header.main .header-actions .header-user-btn,
   header.main .header-actions .header-wishlist-btn {
     display: none !important;
+  }
+
+  .tag {
+    display: none !important;
+  }
+
+  .wishlist,
+  .quick-add-btn {
+    bottom: 8px !important;
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  .wishlist {
+    left: 8px !important;
+  }
+
+  .quick-add-btn {
+    right: 8px !important;
+  }
+
+  .wishlist .card-icon,
+  .quick-add-btn .card-icon,
+  .quick-add-btn img {
+    width: 22px !important;
+    height: 22px !important;
   }
 
   /* Mobile Search Dropdown */

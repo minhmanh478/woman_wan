@@ -226,8 +226,8 @@
             <img src="assets/icons/heart.svg" alt="Yêu thích" class="card-icon heart-icon-outline">
             <img src="assets/icons/heart_click.svg" alt="Yêu thích" class="card-icon heart-icon-filled">
           </button>
-          <button class="quick-add-btn" onclick="handleQuickAdd('${p.id}', event)" aria-label="Thêm vào giỏ">
-            <span>+ Thêm vào giỏ</span>
+          <button class="quick-add-btn" onclick="handleQuickAdd('${p.id}', event)" aria-label="Thêm vào giỏ" title="Thêm vào giỏ">
+            <img src="assets/icons/bag.svg" alt="Thêm vào giỏ" class="card-icon">
           </button>
         </div>
         <div class="card-info">
