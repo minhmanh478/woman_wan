@@ -562,6 +562,7 @@
           20%, 40% { transform: rotate(12deg); }
           50% { transform: rotate(0deg); }
         }
+        .ww-float-btn.phone-btn img,
         .ww-float-btn.phone-btn svg {
           animation: wwPhoneWiggle 3.5s ease-in-out infinite;
         }
@@ -588,6 +589,10 @@
       document.head.appendChild(style);
     }
 
+    const phoneIconPath = `${basePath}assets/icons/contact/icon_phone.svg`;
+    const zaloIconPath = `${basePath}assets/icons/contact/icon_zalo.svg`;
+    const messengerIconPath = `${basePath}assets/icons/contact/icon_messenger.svg`;
+
     const container = document.createElement("div");
     container.id = "womanwanFloatingContact";
     container.className = "ww-floating-contact";
@@ -597,11 +602,7 @@
     container.innerHTML = `
       <!-- 1. Hotline -->
       <a href="tel:0867774069" class="ww-float-btn phone-btn" aria-label="Gọi hotline 0867 774 069">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25 1.12.37 2.32.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-          <path d="M16.5 3.5a7 7 0 0 1 4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <path d="M14.5 6.5a3.5 3.5 0 0 1 2.5 2.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
+        <img src="${phoneIconPath}" alt="Hotline" width="24" height="24" class="ww-contact-icon-img" onerror="this.outerHTML='<svg width=\\'22\\' height=\\'22\\' viewBox=\\'0 0 24 24\\' fill=\\'none\\'><path d=\\'M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\\' fill=\\'#ffffff\\'/><path d=\\'M14 2a6 6 0 0 1 6 6\\' stroke=\\'#ffffff\\' stroke-width=\\'2\\' stroke-linecap=\\'round\\' fill=\\'none\\'/><path d=\\'M14 6a2 2 0 0 1 2 2\\' stroke=\\'#ffffff\\' stroke-width=\\'2\\' stroke-linecap=\\'round\\' fill=\\'none\\'/></svg>'">
       </a>
 
       <!-- 2. Zalo -->

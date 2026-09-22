@@ -301,12 +301,6 @@
               </div>
             </div>
 
-            <!-- Warning Notice -->
-            <div class="cart-alert">
-              <span class="alert-icon">ⓘ</span>
-              <p><strong>Sản phẩm chưa được giữ trước</strong>, hãy thanh toán nhanh để không bỏ lỡ.</p>
-            </div>
-
             <!-- Cart Items Container -->
             <div class="cart-items-list" id="cartItemsList"></div>
 
@@ -764,24 +758,29 @@
         listEl.innerHTML = cart.map((item, index) => {
           const itemImg = resolveItemImage(item.image, prefix);
           return `
-            <div class="cart-item" style="display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #f0f0f0;">
-              <div class="cart-item-img" style="width:78px;height:98px;flex-shrink:0;background:#f5f5f5;overflow:hidden;">
-                <img src="${itemImg}" alt="${item.name}" style="width:100%;height:100%;object-fit:cover;">
+            <div class="cart-item">
+              <div class="cart-item-img">
+                <img src="${itemImg}" alt="${item.name}" loading="lazy">
               </div>
-              <div class="cart-item-details" style="flex:1;display:flex;flex-direction:column;justify-content:space-between;">
-                <div class="cart-item-top" style="display:flex;justify-content:space-between;align-items:flex-start;">
-                  <span class="item-tag" style="font-size:10px;font-weight:800;letter-spacing:.05em;color:#767676;text-transform:uppercase;">${item.isNew ? 'MỚI' : ''}</span>
-                  <button class="cart-item-remove" data-index="${index}" style="background:none;border:none;cursor:pointer;color:#999;padding:2px 6px;font-size:18px;line-height:1;" title="Xóa">×</button>
+              <div class="cart-item-details">
+                <div class="cart-item-top">
+                  <h4 class="cart-item-name">${item.name}</h4>
+                  <button class="cart-item-remove" data-index="${index}" title="Xóa" aria-label="Xóa sản phẩm">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <line x1="15" y1="9" x2="9" y2="15"></line>
+                      <line x1="9" y1="9" x2="15" y2="15"></line>
+                    </svg>
+                  </button>
                 </div>
-                <h4 class="cart-item-name" style="font-size:14px;font-weight:700;color:#111;margin:4px 0 2px;line-height:1.3;">${item.name}</h4>
-                <div class="cart-item-variant" style="font-size:12px;color:#767676;">${item.variant || 'Tiêu chuẩn'}</div>
-                <div class="cart-item-bottom" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
-                  <div class="cart-item-price" style="font-size:14px;font-weight:700;color:#111;">${formatVND((item.price || 0) * (item.qty || 1))}</div>
-                  <div class="qty-stepper" style="display:flex;align-items:center;border:1px solid #e0e0e0;">
-                    <button class="qty-btn cart-qty-minus" data-index="${index}" style="width:28px;height:28px;background:#fff;border:none;cursor:pointer;font-size:14px;font-weight:700;">−</button>
-                    <span class="qty-val" style="width:28px;text-align:center;font-size:13px;font-weight:700;">${item.qty || 1}</span>
-                    <button class="qty-btn cart-qty-plus" data-index="${index}" style="width:28px;height:28px;background:#fff;border:none;cursor:pointer;font-size:14px;font-weight:700;">+</button>
+                <div class="cart-item-variant">${item.variant || 'Tiêu chuẩn'}</div>
+                <div class="cart-item-bottom">
+                  <div class="qty-stepper">
+                    <button class="qty-btn cart-qty-minus" data-index="${index}" aria-label="Giảm số lượng">−</button>
+                    <span class="qty-val">${item.qty || 1}</span>
+                    <button class="qty-btn cart-qty-plus" data-index="${index}" aria-label="Tăng số lượng">+</button>
                   </div>
+                  <div class="cart-item-price">${formatVND((item.price || 0) * (item.qty || 1))}</div>
                 </div>
               </div>
             </div>
@@ -892,20 +891,25 @@
         }
         const itemImg = resolveItemImage(p.image, prefix);
         return `
-          <div class="cart-item" style="display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #f0f0f0;">
-            <div class="cart-item-img" style="width:78px;height:98px;flex-shrink:0;background:#f5f5f5;overflow:hidden;">
-              <img src="${itemImg}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;">
+          <div class="cart-item">
+            <div class="cart-item-img">
+              <img src="${itemImg}" alt="${p.name}" loading="lazy">
             </div>
-            <div class="cart-item-details" style="flex:1;display:flex;flex-direction:column;justify-content:space-between;">
-              <div class="cart-item-top" style="display:flex;justify-content:space-between;align-items:flex-start;">
-                <span class="item-tag" style="font-size:10px;font-weight:800;letter-spacing:.05em;color:#e2231a;">YÊU THÍCH</span>
-                <button class="wishlist-remove-btn" data-id="${p.id}" style="background:none;border:none;cursor:pointer;color:#999;font-size:18px;line-height:1;" title="Bỏ lưu">×</button>
+            <div class="cart-item-details">
+              <div class="cart-item-top">
+                <h4 class="cart-item-name">${p.name}</h4>
+                <button class="wishlist-remove-btn" data-id="${p.id}" title="Bỏ lưu" aria-label="Bỏ lưu sản phẩm">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                  </svg>
+                </button>
               </div>
-              <h4 class="cart-item-name" style="font-size:14px;font-weight:700;color:#111;margin:4px 0 2px;line-height:1.3;">${p.name}</h4>
-              <div class="cart-item-variant" style="font-size:12px;color:#767676;">${p.category || 'Thời trang thể thao'}</div>
-              <div class="cart-item-bottom" style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
-                <div class="cart-item-price" style="font-size:14px;font-weight:700;color:#111;">${formatVND(p.price || 0)}</div>
-                <button class="wishlist-move-cart-btn" data-id="${p.id}" data-name="${p.name}" data-price="${p.price || 0}" data-img="${p.image || ''}" style="padding:6px 14px;background:#111;color:#fff;font-size:12px;font-weight:700;border:none;cursor:pointer;">+ Thêm vào giỏ</button>
+              <div class="cart-item-variant">${p.category || 'Thời trang thể thao'}</div>
+              <div class="cart-item-bottom">
+                <button class="wishlist-move-cart-btn" data-id="${p.id}" data-name="${p.name}" data-price="${p.price || 0}" data-img="${p.image || ''}">+ Thêm vào giỏ</button>
+                <div class="cart-item-price">${formatVND(p.price || 0)}</div>
               </div>
             </div>
           </div>

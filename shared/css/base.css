@@ -84,10 +84,24 @@
   --radius: 2px;
   --header-bottom: 84px;
 
-  /* Responsive Container & Adaptive Side Gutters (Đồng bộ tỉ lệ chuẩn Image 1 trên mọi màn hình Laptop, Full HD, 2K, 4K) */
+  /* Responsive Container & Adaptive Side Gutters (Tăng thêm ~3/4 khoảng cách lề 2 bên trên desktop) */
   --container-max-width: 100%;
-  --container-gutter: clamp(20px, 2.8vw, 64px);
+  --container-gutter: clamp(20px, 4.8vw, 110px);
   --container-side-offset: var(--container-gutter);
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --container-gutter: clamp(48px, 5.2vw, 120px);
+    --container-side-offset: var(--container-gutter);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --container-gutter: 16px;
+    --container-side-offset: 16px;
+  }
 }
 
 * {
