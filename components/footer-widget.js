@@ -475,12 +475,162 @@
     return modal;
   }
 
+  /**
+   * Tạo 3 nút liên hệ nổi góc trái màn hình với hiệu ứng sóng lan tỏa (Pulse Wave)
+   */
+  function ensureFloatingContacts() {
+    if (document.getElementById("womanwanFloatingContact")) return;
+
+    // Inject CSS styles cho nút liên hệ nếu chưa có
+    if (!document.getElementById("ww-floating-contact-styles")) {
+      const style = document.createElement("style");
+      style.id = "ww-floating-contact-styles";
+      style.textContent = `
+        .ww-floating-contact {
+          position: fixed;
+          left: 22px;
+          bottom: 26px;
+          z-index: 9990;
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+          align-items: center;
+          pointer-events: auto;
+        }
+        .ww-float-btn {
+          position: relative;
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          background: #111111;
+          color: #ffffff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+          box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+          transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s ease, box-shadow 0.2s ease;
+          -webkit-tap-highlight-color: transparent;
+          cursor: pointer;
+        }
+        /* Hiệu ứng vòng tròn gợn sóng lan tỏa (Pulse Ripple Wave) */
+        .ww-float-btn::before {
+          content: "";
+          position: absolute;
+          inset: -6px;
+          border-radius: 50%;
+          background: rgba(17, 17, 17, 0.2);
+          z-index: -1;
+          pointer-events: none;
+          animation: wwPulseRipple 2.4s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        .ww-float-btn::after {
+          content: "";
+          position: absolute;
+          inset: -12px;
+          border-radius: 50%;
+          background: rgba(17, 17, 17, 0.1);
+          z-index: -2;
+          pointer-events: none;
+          animation: wwPulseRipple 2.4s cubic-bezier(0.215, 0.61, 0.355, 1) infinite 0.6s;
+        }
+        /* Độ trễ so le giữa 3 nút */
+        .ww-float-btn:nth-child(1)::before { animation-delay: 0s; }
+        .ww-float-btn:nth-child(1)::after  { animation-delay: 0.5s; }
+        .ww-float-btn:nth-child(2)::before { animation-delay: 0.35s; }
+        .ww-float-btn:nth-child(2)::after  { animation-delay: 0.85s; }
+        .ww-float-btn:nth-child(3)::before { animation-delay: 0.7s; }
+        .ww-float-btn:nth-child(3)::after  { animation-delay: 1.2s; }
+        @keyframes wwPulseRipple {
+          0% {
+            transform: scale(0.8);
+            opacity: 0.85;
+          }
+          60% {
+            transform: scale(1.24);
+            opacity: 0.22;
+          }
+          100% {
+            transform: scale(1.42);
+            opacity: 0;
+          }
+        }
+        /* Hiệu ứng rung nhẹ cho icon điện thoại */
+        @keyframes wwPhoneWiggle {
+          0%, 100% { transform: rotate(0deg); }
+          10%, 30% { transform: rotate(-12deg); }
+          20%, 40% { transform: rotate(12deg); }
+          50% { transform: rotate(0deg); }
+        }
+        .ww-float-btn.phone-btn svg {
+          animation: wwPhoneWiggle 3.5s ease-in-out infinite;
+        }
+        .ww-float-btn:hover {
+          transform: scale(1.12);
+          background: #000000;
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.38);
+        }
+        .ww-float-btn:active {
+          transform: scale(0.94);
+        }
+        @media (max-width: 768px) {
+          .ww-floating-contact {
+            left: 14px;
+            bottom: 20px;
+            gap: 12px;
+          }
+          .ww-float-btn {
+            width: 44px;
+            height: 44px;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    const container = document.createElement("div");
+    container.id = "womanwanFloatingContact";
+    container.className = "ww-floating-contact";
+    container.setAttribute("role", "region");
+    container.setAttribute("aria-label", "Liên hệ nhanh WOMAN WAN");
+
+    container.innerHTML = `
+      <!-- 1. Hotline -->
+      <a href="tel:0867774069" class="ww-float-btn phone-btn" aria-label="Gọi hotline 0867 774 069">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25 1.12.37 2.32.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+          <path d="M16.5 3.5a7 7 0 0 1 4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M14.5 6.5a3.5 3.5 0 0 1 2.5 2.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </a>
+
+      <!-- 2. Zalo -->
+      <a href="https://zalo.me/0867774069" target="_blank" rel="noopener noreferrer" class="ww-float-btn zalo-btn" aria-label="Chat Zalo">
+        <svg width="26" height="26" viewBox="0 0 36 36" fill="none">
+          <path d="M18 5.5C10.8 5.5 5 10.4 5 16.5c0 3.5 1.9 6.6 4.9 8.6-.2 2-1 3.9-2.2 5.1 2.6-.2 5.3-1.2 7.2-2.4 1 .2 2 .3 3.1.3 7.2 0 13-4.9 13-11S25.2 5.5 18 5.5z" fill="#ffffff"/>
+          <text x="18" y="20.2" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="10.5" fill="#000000" text-anchor="middle" letter-spacing="-0.3px">Zalo</text>
+        </svg>
+      </a>
+
+      <!-- 3. Messenger -->
+      <a href="https://m.me/womanwan.vn" target="_blank" rel="noopener noreferrer" class="ww-float-btn messenger-btn" aria-label="Chat Messenger">
+        <svg width="23" height="23" viewBox="0 0 28 28" fill="none">
+          <path d="M14 2C7.37 2 2 7.05 2 13.28c0 3.54 1.73 6.7 4.45 8.78.23.18.37.45.38.74l.08 2.3c.03.88.94 1.45 1.71 1.05l2.58-1.34c.24-.12.51-.15.77-.08 1.3.36 2.68.55 4.03.55 6.63 0 12-5.05 12-11.28C26 7.05 20.63 2 14 2z" fill="#ffffff"/>
+          <path d="M6.8 16.5l4.5-7.15c.6-.95 1.95-1.15 2.8-.42l3.55 3.05c.27.23.66.23.93 0l3.82-2.9c.56-.42 1.3.26.9 0.82l-4.5 7.15c-.6.95-1.95 1.15-2.8.42l-3.55-3.05c-.27-.23-.66-.23-.93 0l-3.82 2.9c-.56.42-1.3-.26-.9-.82z" fill="#000000"/>
+        </svg>
+      </a>
+    `;
+
+    document.body.appendChild(container);
+  }
+
   // Khởi tạo Custom Element <womanwan-footer>
   if (typeof customElements !== "undefined" && !customElements.get("womanwan-footer")) {
     class WomanWanFooterElement extends HTMLElement {
       connectedCallback() {
         const basePath = this.getAttribute("base-path") || resolveBasePath();
         this.innerHTML = createFooterHTML(basePath);
+        ensureFloatingContacts();
       }
     }
     customElements.define("womanwan-footer", WomanWanFooterElement);
@@ -493,12 +643,17 @@
       const basePath = el.getAttribute("data-base-path") || resolveBasePath();
       el.outerHTML = createFooterHTML(basePath);
     });
+    ensureFloatingContacts();
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", autoRenderExistingFooters);
+    document.addEventListener("DOMContentLoaded", () => {
+      autoRenderExistingFooters();
+      ensureFloatingContacts();
+    });
   } else {
     autoRenderExistingFooters();
+    ensureFloatingContacts();
   }
 
   // Export API toàn cục để mở / đóng chính sách

@@ -3760,3 +3760,115 @@ footer,
     padding-right: 16px;
   }
 }
+
+/* ==========================================================================
+   WOMAN WAN - FLOATING CONTACT SPEED DIAL (LEFT BOTTOM WITH PULSE RIPPLE)
+   ========================================================================== */
+.ww-floating-contact {
+  position: fixed;
+  left: 22px;
+  bottom: 26px;
+  z-index: 9990;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.ww-float-btn {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #111111;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s ease, box-shadow 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
+/* Hiệu ứng vòng tròn gợn sóng lan tỏa (Pulse Ripple Wave) */
+.ww-float-btn::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: rgba(17, 17, 17, 0.2);
+  z-index: -1;
+  pointer-events: none;
+  animation: wwPulseRipple 2.4s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+.ww-float-btn::after {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  background: rgba(17, 17, 17, 0.1);
+  z-index: -2;
+  pointer-events: none;
+  animation: wwPulseRipple 2.4s cubic-bezier(0.215, 0.61, 0.355, 1) infinite 0.6s;
+}
+
+/* Độ trễ so le giữa 3 nút */
+.ww-float-btn:nth-child(1)::before { animation-delay: 0s; }
+.ww-float-btn:nth-child(1)::after  { animation-delay: 0.5s; }
+.ww-float-btn:nth-child(2)::before { animation-delay: 0.35s; }
+.ww-float-btn:nth-child(2)::after  { animation-delay: 0.85s; }
+.ww-float-btn:nth-child(3)::before { animation-delay: 0.7s; }
+.ww-float-btn:nth-child(3)::after  { animation-delay: 1.2s; }
+
+@keyframes wwPulseRipple {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.85;
+  }
+  60% {
+    transform: scale(1.24);
+    opacity: 0.22;
+  }
+  100% {
+    transform: scale(1.42);
+    opacity: 0;
+  }
+}
+
+/* Hiệu ứng rung nhẹ cho icon điện thoại */
+@keyframes wwPhoneWiggle {
+  0%, 100% { transform: rotate(0deg); }
+  10%, 30% { transform: rotate(-12deg); }
+  20%, 40% { transform: rotate(12deg); }
+  50% { transform: rotate(0deg); }
+}
+
+.ww-float-btn.phone-btn svg {
+  animation: wwPhoneWiggle 3.5s ease-in-out infinite;
+}
+
+.ww-float-btn:hover {
+  transform: scale(1.12);
+  background: #000000;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.38);
+}
+
+.ww-float-btn:active {
+  transform: scale(0.94);
+}
+
+@media (max-width: 768px) {
+  .ww-floating-contact {
+    left: 14px;
+    bottom: 20px;
+    gap: 12px;
+  }
+  .ww-float-btn {
+    width: 44px;
+    height: 44px;
+  }
+}
